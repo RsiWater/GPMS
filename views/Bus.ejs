@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RSiTransport</title>
+  <link rel="stylesheet" href="../css/stylebus.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</head>
+<body>
+  <div style="width: 100%;">
+    <div style="float:left; width: 50%" class="half-one">
+      <h3>客運訂票系統</h3>
+      <form action="/main/Identifier" method="post" id="test-form" oninput="o.value = parseInt(a.value)*600">
+  
+        <label for=passanger-name>乘客ID</label>
+        <input type="text" id="passanger-name" name="ID" class="stored" placeholder="Enter Passenger Name" required/><br><br>
+  
+        <label for=origin>起始站</label>
+        <input type="text" id="origin" name='start'list="data-list" required/>
+        <datalist id="data-list">
+          <%for(let i = 0;i < content.length;i++){%>
+            <option value=<%= content[i].Name%>></option>
+            <%}%>
+          </datalist><br><br>
+        <label for=destination>終點站</label>
+        <input type="text" id="destination" name='destination' list="data-list" required/>
+        
+          <br><br>
+  
+  
+          <label for=origin>票種</label>
+        <input type="text" id="type" name='type' list="data-list-type" required/>
+        <datalist id="data-list-type">
+          <option value="一般票">
+          <option value="學生票">
+              <option value="敬老票">
+          </datalist><br><br>
+  
+          <label for=origin>國籍</label>
+          <input type="text" id="region" name='region' list="data-list-region" required/>
+          <datalist id="data-list-region">
+            <option value="台灣">
+            <option value="日本">
+                <option value="歐美">
+            </datalist><br><br>
+  
+        <label for=date-of-journey>搭乘日期</br></label>
+        <input type="date" id="date-of-journey" name='date' placeholder="(制式：年月日如20220831）" required/><br><br>
+        <label for="">時間</label>
+        <input type="text" name="time" list="Time-list">
+        <datalist id="Time-list">
+          <%for(let i = 0; i < 144; i++){%>
+          <option value=<%= parseInt(i*10/60) + ':' + i%6*10 %>></option>
+          <%}%>
+        </datalist> <br><br>
+        <label for=#-of-passangers>票數</label>
+        <input type="number" id="#-of-passangers" name="a" required/><br><br>
+        <label>預估票價 <output id="o" name="o" style="display: inline;">0</output> 元</label><br><br><br>
+        <label>
+        <input type="submit" id="submitButton" value="送出" />
+        <input type="reset" id="ResetButton" value="重設"/>
+        <input type="text" class='hidden' name='vehicle_type' value='Bus'>
+      </label>
+      </form>
+    </div>
+    <div style="float:left; width: 50%" class="half-two">
+  
+      <div class="image-blur-hero">
+        <canvas class="image-blur-hero-background" id="canvasBackground" ></canvas>
+        <div class="row">
+          <div class="large-12 columns">
+            <h1 class="image-blur-hero-title">來個紀念吧</h1>
+            <p class="image-blur-hero-deck">點選你喜愛的票卷樣式</p>
+            <ul class="image-blur-hero-images small-block-grid-3">
+              <li><a href="Ticket.html">
+                <img class="active" data-blurimage src='../images/a1f5e9c77d3a0e5b78bbf5b528039d725f482bb5.jpeg' alt="Falling Down, 2009 single" crossorigin="anonymous">
+              </a></li>
+              <li>
+                <a href="Ticket2.html"><img data-blurimage src="../images/GradientPuzzle.jpg" alt="Standing on the Shoulder of Giants, 2000 album" crossorigin="anonymous">
+              </a></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+  
+    </div>
+  </div>
+</body>
+  
+</html>
+
+

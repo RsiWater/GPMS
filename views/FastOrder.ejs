@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/FastOrder.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" defer></script>
+    <script src="../javascripts/FastOrder/FastOrder3.js" charset="UTF-8" defer></script>
+    <script src="../javascripts/FastOrder/stationName.js" charset="UTF-8" defer></script>
+    <script src="../javascripts/FastOrder/FastOrder2_2.js" charset="UTF-8" defer></script>
+    <script src="../javascripts/FastOrder/FastOrder2.js" charset="UTF-8" defer></script>
+    <script src="../javascripts/FastOrder/FastOrder.js" charset="UTF-8" defer></script>
+</head>
+<body>
+ 
+      
+  <h3>快速訂票系統</h3>
+        <section>
+          <div id="county">
+              <div class="Yilan"> <img src='../images/FastOrder/TaiwanMap/Yilan.png'></div>
+              <div class="Taipei"><img src='../images/FastOrder/TaiwanMap/Taipei.png'></div>
+              <div class="Taoyuan"><img src='../images/FastOrder/TaiwanMap/Taoyuan.png'></div>
+              <div class="Hsian"><img src='../images/FastOrder/TaiwanMap/Hsian.png'></div>
+              <div class="miaoli"><img src='../images/FastOrder/TaiwanMap/miaoli.png'></div>
+              <div class="Taichung"> <img src='../images/FastOrder/TaiwanMap/Taichung.png'></div>
+              
+              <div class="Yunlin"><img src='../images/FastOrder/TaiwanMap/Yunlin.png'></div>
+              <div class="Kaoshuing"><img src='../images/FastOrder/TaiwanMap/Kaoshuing.png'></div>
+              <div class="Chiayi"> <img src='../images/FastOrder/TaiwanMap/Chiayi.png'></div>
+              <div class="Tainan"><img src='../images/FastOrder/TaiwanMap/Tainan.png'></div>
+              <div class="Pintung"> <img src='../images/FastOrder/TaiwanMap/Pintung.png'></div>
+              <div class="Taitung"><img src='../images/FastOrder/TaiwanMap/Taitung.png'></div>
+              <div class="Hualien"><img src='../images/FastOrder/TaiwanMap/Hualien.png'></div>
+              <div class="Keelung"><img src='../images/FastOrder/TaiwanMap/Keelung.png'></div>
+              <div class="Nantou"><img src='../images/FastOrder/TaiwanMap/Nantou.png'></div>
+              <div class="Chanhua"><img src='../images/FastOrder/TaiwanMap/Chanhua.png'></div>
+          </div>
+      </section>
+      
+
+	    
+      <div class="wrapper">
+    
+     
+      
+        <div class="red">
+          <div class="progress">
+            <div class="inner">
+              <div class="percent"><span>Step</span><span id="stepNum">1</span></div>
+              <div class="water"></div>
+              <div class="glare"></div>
+            </div>
+          </div>
+        </div>
+  </div>
+  
+  
+  
+  
+     
+        <div class="login">
+          
+          <div id="type">
+            <div id="HSR">高鐵</div>
+            <div id="TRA">台鐵</div>
+            <div id="BUS">客運</div>
+          </div>
+          
+          <div id="date" class="hidden">
+            <div id="theDate">搭乘日期</div>
+            <input type="date" id="date-of-journey"placeholder="(制式：年月日如20220831）" required/><br><br>
+            <div id="theTime">搭乘時間</div>
+            <input type="text" id="time-of-hour" list="hour-list" style="border-width:3px; width: 50px;" required/>
+              <datalist id="hour-list">
+                <option value="00"></option>
+                <option value="01"></option>
+                <option value="02"></option>
+                <option value="03"></option>
+                <option value="04"></option>
+                <option value="05"></option>
+                <option value="06"></option>
+                <option value="07"></option>
+                <option value="08"></option>
+                <option value="09"></option>
+                <option value="10"></option>
+                <option value="11"></option>
+                <option value="12"></option>
+                <option value="13"></option>
+                <option value="14"></option>
+                <option value="15"></option>
+                <option value="16"></option>
+                <option value="17"></option>
+                <option value="18"></option>
+                <option value="19"></option>
+                <option value="20"></option>
+                <option value="21"></option>
+                <option value="22"></option>
+                <option value="23"></option>
+              </datalist>
+            <input type="text" id="time-of-minute" list="minute-list" style="border-width:3px; width: 50px;" required/>
+              <datalist id="minute-list">
+                <option value="00"></option>
+                <option value="10"></option>
+                <option value="20"></option>
+                <option value="30"></option>
+                <option value="40"></option>
+                <option value="50"></option>
+              </datalist>
+              <div id="dateConfirm">確定送出</div>
+          </div>
+          
+          <!---------------------------------------------------------------->
+
+          <div id="station" class="hidden">
+            <div id="stationConsole">選擇起始站</div>
+            <div id="stationList"></div>
+            <div id="stationConfirm" class="hidden">確認送出</div>
+          </div>
+          
+          <!---------------------------------------------------------------->
+          
+    
+          <div id="carNumFlex" class="hidden">
+            <div id="carNumTitle">
+              <div>車次</div>  
+              <div>起站</div>
+              <div>終站</div>
+              <div>種類</div>
+            </div>
+
+            
+          </div>
+          <!---------------------------------------------------------------->
+
+          <div id="idReg" class="hidden">
+            <div id='region'>
+              <div>國籍</div>
+              <input type="text" id="TheRegion" list="data-list-region" style="border-width:3px; width: 40%; font-size: 1.3vw;" required/>
+                  <datalist id="data-list-region">
+                    <option value="台灣">
+                    <option value="日本">
+                    <option value="歐美">
+                  </datalist><br><br>
+              <div>身分證/護照</div>
+              <input type="text" id="phone" name="phone" placeholder="Enter SSN# here" class="stored" style="border-width:3px; width: 40%; font-size: 1.3vw" required/>
+            </div>
+
+            <div id='ticket' class='hidden'>
+              <form action="/main/Ticket" method="POST" oninput="o.value = a.value * 300">
+                <div>票數</div>
+                <input type="number" id="a-of-passangers" name="a" required/><br><br>
+                <div>票價</div>
+                <div id="sum"><output for="a-of-passangers * 300" name="o" style="display: inline;">0</output></div>
+              </form>
+            </div>
+            <form class='submitButton' action="/main/Ticket" method="POST">
+              <input type="" id='idRegConfirm' value="確認送出"></input>
+            </form>
+          </div>
+      
+    
+        </div>
+   
+    
+      
+  
+      
+
+  
+  
+        
+    
+ 
+
+  </body>
+    
+  </html>
+  
+  
+  

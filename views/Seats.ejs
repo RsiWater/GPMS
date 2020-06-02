@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RSiTransport</title>
+  <link rel="stylesheet" href="../css/Styleseats.css">
+
+  
+</head>
+<body>
+        <div class="ticket">
+          <div class="ticket__main">
+            <div class="header"><%= content[0]%></div>
+            <div class="info passenger">
+              <div class="info__item">姓名</div>
+              <div class="info__detail"><%= content[1]%></div>
+            </div>
+            <div class="info platform"> <span>重要資訊! </span><span>從</span><span>月台上車</span>
+              <div class="number">
+                <div>9</div>
+                <div> <span>3</span><span>4</span></div>
+              </div>
+            </div>
+            <div class="info departure">
+              <div class="info__item">起始站</div>
+              <div class="info__detail"><%= content[2]%></div>
+            </div>
+            <div class="info arrival">
+              <div class="info__item">終點站</div>
+              <div class="info__detail"><%= content[3]%></div>
+            </div>
+            <div class="info date">
+              <div class="info__item">日期</div>
+              <div class="info__detail"><%= content[4]%></div>
+            </div>
+            <div class="info time">
+              <div class="info__item">Time</div>
+              <div class="info__detail"><%= content[5]%></div>
+            </div>
+            <div class="info carriage">
+              <div class="info__item">車次代碼</div>
+              <div class="info__detail"><%= content[6]%></div>
+            </div>
+            <div class="info seatTR">
+              <div class="info__item">座位號碼</div>
+              <div class="info__detail"><%= content[7]%></div>
+            </div>
+            <div class="fineprint"> 
+              <p>買車票一定有風險，優惠票種有賺有賠，. 申購前應詳閱公開說明書.</p>
+              <p>請注意，本票售出隔日後不換退還</p>
+            </div>
+            <div class="snack">
+              <svg viewBox="0 -11 414.00053 414">
+                <path d="m202.480469 352.128906c0-21.796875-17.671875-39.46875-39.46875-39.46875-21.800781 0-39.472657 17.667969-39.472657 39.46875 0 21.800782 17.671876 39.472656 39.472657 39.472656 21.785156-.023437 39.445312-17.683593 39.46875-39.472656zm0 0"></path>
+                <path d="m348.445312 348.242188c2.148438 21.691406-13.695312 41.019531-35.390624 43.167968-21.691407 2.148438-41.015626-13.699218-43.164063-35.390625-2.148437-21.691406 13.695313-41.019531 35.386719-43.167969 21.691406-2.148437 41.019531 13.699219 43.167968 35.390626zm0 0"></path>
+                <path d="m412.699219 63.554688c-1.3125-1.84375-3.433594-2.941407-5.699219-2.941407h-311.386719l-3.914062-24.742187c-3.191407-20.703125-21.050781-35.9531252-42-35.871094h-42.699219c-3.867188 0-7 3.132812-7 7s3.132812 7 7 7h42.699219c14.050781-.054688 26.03125 10.175781 28.171875 24.0625l33.800781 213.515625c3.191406 20.703125 21.050781 35.957031 42 35.871094h208.929687c3.863282 0 7-3.132813 7-7 0-3.863281-3.136718-7-7-7h-208.929687c-14.050781.054687-26.03125-10.175781-28.171875-24.0625l-5.746094-36.300781h213.980469c18.117187-.007813 34.242187-11.484376 40.179687-28.597657l39.699219-114.578125c.742188-2.140625.402344-4.511718-.914062-6.355468zm0 0"></path>
+              </svg>
+            </div>
+            <div class="barcode">
+              <div class="barcode__scan"></div>
+              <div class="barcode__id">001256733</div>
+            </div>
+          </div>
+          <div class="ticket__side">
+            <div class="logo"> 
+              <p>by RSiTransporT</p>
+            </div>
+            <div class="info side-arrive">
+              <div class="info__item">起始站</div>
+              <div class="info__detail">天龍國</div>
+            </div>
+            <div class="info side-depart">
+              <div class="info__item"> 終點站</div>
+              <div class="info__detail">高雄</div>
+            </div>
+            <div class="info side-date">
+              <div class="info__item">日期</div>
+              <div class="info__detail">1 Sep 2018</div>
+            </div>
+            <div class="info side-time">
+              <div class="info__item">時間</div>
+              <div class="info__detail">11:00AM</div>
+            </div>
+            <div class="barcode">
+              <div class="barcode__scan"></div>
+              <div class="barcode__id">001256733</div>
+            </div>
+          </div>
+        </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="theatreTR">
+  <div class="screen-side">
+    <div class="screen">車頭</div>
+    <h3 class="select-text">選擇一個位置</h3>
+  </div>
+  <div class="exit exit--front">
+  </div>
+  <ol class="cabin">
+    <li class="row row--1">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="1" />
+          <label for="1">1</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="3" />
+          <label for="3">3</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" disabled id="4" />
+          <label for="4">Occupied</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="2" />
+          <label for="2">2</label>
+        </li>
+        
+      </ol>
+    </li>
+    <li class="row row--2">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="5" />
+          <label for="5">5</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="7" />
+          <label for="7">7</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="8" />
+          <label for="8">8</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="6" />
+          <label for="6">6</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--3">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="9" />
+          <label for="9">9</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="11" />
+          <label for="11">11</label>
+        </li>
+   
+         
+        <li class="seatTR">
+          <input type="checkbox" id="12" />
+          <label for="12">12</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="10" />
+          <label for="10">10</label>
+        </li>
+        
+      </ol>
+    </li>
+    <li class="row row--4">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="13" />
+          <label for="13">13</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="15" />
+          <label for="15">15</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="16" />
+          <label for="16">16</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="14" />
+          <label for="14">14</label>
+        </li>
+       
+      </ol>
+    </li>
+</ol>
+
+<ol class="cabin">
+    <li class="row row--5">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="17" />
+          <label for="17">17</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="19" />
+          <label for="19">19</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="20" />
+          <label for="20">20</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="18" />
+          <label for="18">18</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--6">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="21" />
+          <label for="21">21</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="23" />
+          <label for="23">23</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="24" />
+          <label for="24">24</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="22" />
+          <label for="22">22</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--7">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="25" />
+          <label for="25">25</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="27" />
+          <label for="27">27</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="28" />
+          <label for="28">28</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="26" />
+          <label for="26">26</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--8">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="29" />
+          <label for="29">29</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="31" />
+          <label for="31">31</label>
+        </li>
+        
+        <li class="seatTR">
+          <input type="checkbox" id="32" />
+          <label for="32">32</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="30" />
+          <label for="30">30</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--9">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="33" />
+          <label for="33">33</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="35" />
+          <label for="35">35</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" id="36" />
+          <label for="36">36</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="34" />
+          <label for="34">34</label>
+        </li>
+        
+      </ol>
+    </li>
+    <li class="row row--10">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="37" />
+          <label for="37">37</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="39" />
+          <label for="39">39</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" id="40" />
+          <label for="40">40</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="38" />
+          <label for="38">38</label>
+        </li>
+        
+      </ol>
+    </li>
+
+    <li class="row row--11">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="41" />
+          <label for="41">41</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="43" />
+          <label for="43">43</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" id="44" />
+          <label for="44">44</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="42" />
+          <label for="42">42</label>
+        </li>
+        
+      </ol>
+    </li>
+
+    <li class="row row--12">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="45" />
+          <label for="45">45</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="47" />
+          <label for="47">47</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" id="48" />
+          <label for="48">48</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="46" />
+          <label for="46">46</label>
+        </li>
+        
+      </ol>
+    </li>
+
+    <li class="row row--13">
+      <ol class="seatTRs" type="A">
+        <li class="seatTR">
+          <input type="checkbox" id="49" />
+          <label for="49">49</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="51" />
+          <label for="51">51</label>
+        </li>
+       
+        <li class="seatTR">
+          <input type="checkbox" id="52" />
+          <label for="52">52</label>
+        </li>
+        <li class="seatTR">
+          <input type="checkbox" id="50" />
+          <label for="">50</label>
+        </li>
+        
+      </ol>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </ol>
+  <div class="exit exit--front">
+  </div> 
+</div>
+
+
+
+<div class="theatreHS hidden" >
+  <div class="screen-side">
+    <div class="screen">車頭</div>
+    <h3 class="select-text">選擇一個位置</h3>
+  </div>
+  <div class="exit exit--front">
+  </div>
+  <ol class="cabin">
+    <li class="row row--1">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="1A" />
+          <label for="1A">1A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="1B" />
+          <label for="1B">1B</label>
+        </li>
+       
+        <li class="seatHS">
+          <input type="checkbox" disabled id="1D" />
+          <label for="1D">Occupied</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="1E" />
+          <label for="1E">1E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="1F" />
+          <label for="1F">1F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--2">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="2A" />
+          <label for="2A">2A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="2B" />
+          <label for="2B">2B</label>
+        </li>
+     
+        <li class="seatHS">
+          <input type="checkbox" id="2D" />
+          <label for="2D">2D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="2E" />
+          <label for="2E">2E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="2F" />
+          <label for="2F">2F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--3">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="3A" />
+          <label for="3A">3A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="3B" />
+          <label for="3B">3B</label>
+        </li>
+        
+        <li class="seatHS">
+          <input type="checkbox" id="3D" />
+          <label for="3D">3D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="3E" />
+          <label for="3E">3E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="3F" />
+          <label for="3F">3F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--4">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="4A" />
+          <label for="4A">4A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="4B" />
+          <label for="4B">4B</label>
+        </li>
+        
+        <li class="seatHS">
+          <input type="checkbox" id="4D" />
+          <label for="4D">4D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="4E" />
+          <label for="4E">4E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="4F" />
+          <label for="4F">4F</label>
+        </li>
+      </ol>
+    </li>
+</ol>
+<div class="exit exit--front">
+</div> 
+<ol class="cabin">
+    <li class="row row--5">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="5A" />
+          <label for="5A">5A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="5B" />
+          <label for="5B">5B</label>
+        </li>
+        
+        <li class="seatHS">
+          <input type="checkbox" id="5D" />
+          <label for="5D">5D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="5E" />
+          <label for="5E">5E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="5F" />
+          <label for="5F">5F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--6">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="6A" />
+          <label for="6A">6A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="6B" />
+          <label for="6B">6B</label>
+        </li>
+       
+        <li class="seatHS">
+          <input type="checkbox" id="6D" />
+          <label for="6D">6D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="6E" />
+          <label for="6E">6E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="6F" />
+          <label for="6F">6F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--7">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="7A" />
+          <label for="7A">7A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="7B" />
+          <label for="7B">7B</label>
+        </li>
+      
+        <li class="seatHS">
+          <input type="checkbox" id="7D" />
+          <label for="7D">7D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="7E" />
+          <label for="7E">7E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="7F" />
+          <label for="7F">7F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--8">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="8A" />
+          <label for="8A">8A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="8B" />
+          <label for="8B">8B</label>
+        </li>
+        
+        <li class="seatHS">
+          <input type="checkbox" id="8D" />
+          <label for="8D">8D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="8E" />
+          <label for="8E">8E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="8F" />
+          <label for="8F">8F</label>
+        </li>
+      </ol>
+    </li>
+    <li class="row row--9">
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="9A" />
+          <label for="9A">9A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="9B" />
+          <label for="9B">9B</label>
+        </li>
+        
+        <li class="seatHS">
+          <input type="checkbox" id="9D" />
+          <label for="9D">9D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="9E" />
+          <label for="9E">9E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="9F" />
+          <label for="9F">9F</label>
+        </li>
+      </ol>
+    </li>
+    
+    <li class="row row--10">
+       
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="10A" />
+          <label for="10A">10A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="10B" />
+          <label for="10B">10B</label>
+        </li>
+       
+        <li class="seatHS">
+          <input type="checkbox" id="10D" />
+          <label for="10D">10D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="10E" />
+          <label for="10E">10E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="10F" />
+          <label for="10F">10F</label>
+        </li>
+      </ol>
+    </li>
+
+
+
+
+    <li class="row row--11">
+       
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="11A" />
+          <label for="11A">11A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="11B" />
+          <label for="11B">11B</label>
+        </li>
+       
+        <li class="seatHS">
+          <input type="checkbox" id="11D" />
+          <label for="11D">11D</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="11E" />
+          <label for="11E">11E</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="11F" />
+          <label for="11F">11F</label>
+        </li>
+      </ol>
+    </li>
+
+
+    <li class="row row--12">
+       
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="12A" />
+          <label for="12A">12A</label>
+        </li>
+        <li class="seatHS">
+          <input type="checkbox" id="12B" />
+          <label for="12B">12B</label>
+        </li>
+       
+        
+      </ol>
+    </li>
+
+    <li class="row row--13">
+       
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="13A" />
+          <label for="13A">13A</label>
+        </li>
+       
+       
+        
+      </ol>
+    </li>
+
+    <li class="row row--14">
+       
+      <ol class="seatHSs" type="A">
+        <li class="seatHS">
+          <input type="checkbox" id="14A" />
+          <label for="14A">14A</label>
+        </li>
+       
+       
+        
+      </ol>
+    </li>
+
+
+
+  </ol>
+
+</div>
+
+
+
+<div class="theatreBUS hidden">
+  <div class="screen-side">
+    <div class="screen">車頭</div>
+    <h3 class="select-text">選擇一個位置</h3>
+  </div>
+  <div class="exit exit--front">
+  </div>
+  <ol class="cabin">
+    <li class="row row--1">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="1A" />
+          <label for="1A">1A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="1B" />
+          <label for="1B">1B</label>
+        </li>
+       
+        <li class="seatBUS">
+          <input type="checkbox" disabled id="1D" />
+          <label for="1D">Occupied</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="1E" />
+          <label for="1E">1E</label>
+        </li>
+        
+      </ol>
+    </li>
+    <li class="row row--2">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="2A" />
+          <label for="2A">2A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="2B" />
+          <label for="2B">2B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="2D" />
+          <label for="2D">2D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="2E" />
+          <label for="2E">2E</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--3">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="3A" />
+          <label for="3A">3A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="3B" />
+          <label for="3B">3B</label>
+        </li>
+   
+         
+        <li class="seatBUS">
+          <input type="checkbox" id="3D" />
+          <label for="3D">3D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="3E" />
+          <label for="3E">3E</label>
+        </li>
+        
+      </ol>
+    </li>
+    <li class="row row--4">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="4A" />
+          <label for="4A">4A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="4B" />
+          <label for="4B">4B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="4D" />
+          <label for="4D">4D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="4E" />
+          <label for="4E">4E</label>
+        </li>
+       
+      </ol>
+    </li>
+</ol>
+<div class="exit exit--front">
+</div> 
+<ol class="cabin">
+    <li class="row row--5">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="5A" />
+          <label for="5A">5A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="5B" />
+          <label for="5B">5B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="5D" />
+          <label for="5D">5D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="5E" />
+          <label for="5E">5E</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--6">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="6A" />
+          <label for="6A">6A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="6B" />
+          <label for="6B">6B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="6D" />
+          <label for="6D">6D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="6E" />
+          <label for="6E">6E</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--7">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="7A" />
+          <label for="7A">7A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="7B" />
+          <label for="7B">7B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="7D" />
+          <label for="7D">7D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="7E" />
+          <label for="7E">7E</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--8">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="8A" />
+          <label for="8A">8A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="8B" />
+          <label for="8B">8B</label>
+        </li>
+        
+        <li class="seatBUS">
+          <input type="checkbox" id="8D" />
+          <label for="8D">8D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="8E" />
+          <label for="8E">8E</label>
+        </li>
+       
+      </ol>
+    </li>
+    <li class="row row--9">
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS">
+          <input type="checkbox" id="9A" />
+          <label for="9A">9A</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="9B" />
+          <label for="9B">9B</label>
+        </li>
+       
+        <li class="seatBUS">
+          <input type="checkbox" id="9D" />
+          <label for="9D">9D</label>
+        </li>
+        <li class="seatBUS">
+          <input type="checkbox" id="9E" />
+          <label for="9E">9E</label>
+        </li>
+        
+      </ol>
+    </li>
+    
+    <li class="row row--10">
+       
+      <ol class="seatBUSs" type="A">
+        <li class="seatBUS2">
+          <input type="checkbox" id="10A" />
+          <label for="10A">10A</label>
+        </li>
+        <li class="seatBUS2">
+          <input type="checkbox" id="10B" />
+          <label for="10B">10B</label>
+        </li>
+        
+        <li class="seatBUS2">
+          <input type="checkbox" id="10D" />
+          <label for="10D">10D</label>
+        </li>
+        <li class="seatBUS2">
+          <input type="checkbox" id="10E" />
+          <label for="10E">10E</label>
+        </li>
+        <li class="seatBUS2">
+          <input type="checkbox" id="10F" />
+          <label for="10F">10F</label>
+        </li>
+        <li class="seatBUS2">
+          <input type="checkbox" id="10G" />
+          <label for="10G">10G</label>
+        </li>
+        <li class="seatBUS2">
+          <input type="checkbox" id="10H" />
+          <label for="10H">10H</label>
+        </li>
+       
+      </ol>
+    </li>
+  </ol>
+
+</div>
+
+  <footer>
+    <p href="https://github.com/oliviale">
+      <i class="icon-social-github icons">確認送出
+      </i>
+    </p>
+
+    <p href="/main">
+      <i class="icon-social-dribbble icons">回上一頁</i>
+    </p>
+  </footer>
+
+</body>
+  
+</html>
+
+

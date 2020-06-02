@@ -1,0 +1,143 @@
+html, body {
+	width: 100%;
+  height: 100%;
+  font-family: 'SF Pro Display',sans-serif;
+  color:white;
+  background-image:url('../images/abstract-yellow-and-orange-gradient-color-oblique-vector-23398877.jpg');
+  background-repeat: no-repeat; 
+  background-size:cover;
+
+}
+[class|=half] {
+	position: relative;
+	display: inline-block;
+	width: 50%;
+  height: 100%;
+ 
+}
+
+
+h3{
+  font-size:3rem;
+
+  text-align: center;
+  margin-bottom: 2em;
+ 
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image:url('../images/8d88b094eab735506b66a4494338cf77.jpg');
+}
+
+
+
+label {
+float: left;
+width:15rem;
+margin-left: 10em;
+-webkit-transform: scale(0.9);
+transform: scale(0.9);
+text-decoration: none !important;
+}
+
+
+.left {
+    
+   margin: 0 auto; 
+  width:250px;
+
+}
+
+
+#reset{
+  margin-left: 10em
+  
+}
+
+
+
+.half-one
+{  
+  background-image:url('../images/1trp5b4eBf.png');
+  background-repeat: no-repeat; 
+  background-size:cover;
+}
+
+.image-blur-hero {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 48rem;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+
+}
+
+.image-blur-hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.image-blur-hero-background.fade-in {
+  opacity: .75;
+  transition: opacity 1s ease-out;
+}
+
+.image-blur-hero-title {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  margin-left: 80px;
+  font-size: 3rem;
+  font-weight: 300;
+  line-height: 1;
+  color: black;
+  text-align: center;
+}
+@media screen and (max-width: 48rem) {
+  .image-blur-hero-title {
+    font-size: 3rem;
+  }
+}
+
+.image-blur-hero-deck {
+  position: relative;
+  z-index: 2;
+  margin-left: 80px;
+
+  font-size: 1rem;
+  line-height: 1.2;
+  color: black;
+  text-align: center;
+}
+@media screen and (max-width: 48rem) {
+  .image-blur-hero-deck {
+    font-size: 1.2rem;
+  }
+}
+
+.image-blur-hero-images {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.image-blur-hero-images img {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  border: .25rem solid rgba(255,255,255,.25);
+}
+.image-blur-hero-images img:hover {
+  border-color: rgba(255,255,255,.5);
+}
+.image-blur-hero-images img.active {
+  border-color: rgba(255,255,255,.75);
+}
+

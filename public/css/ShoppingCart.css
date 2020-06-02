@@ -1,0 +1,112 @@
+#shoppingBox{
+    margin-top: 5%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cInf{
+    animation: upToDown 1.1s;
+    border-left: 3px solid rgb(146, 162, 167);
+    border-right: 3px solid rgb(146, 162, 167);
+    border-bottom-left-radius: 5000px;
+    border-bottom-right-radius: 5000px;
+    background-color: rgb(196, 224, 255);
+    height: 7vw;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5vw;
+    font-size: 20px;
+    margin-bottom: 4%;
+    font-weight: bold;
+}
+
+.cID{
+    margin-left: 20px;
+}
+
+.shoppingList{
+    animation: downToUp 1.3s;
+    border:2px solid rgb(113, 113, 116);
+    background-color: rgb(202, 232, 235);
+    width: 20%;
+    border-radius: 5px;
+    padding: 1%;
+    padding-left: 3%;
+    margin-bottom: 2%;
+
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.shoppingList div{
+    margin-bottom: 2%;
+    display: flex;
+}
+
+.listContent{
+    margin-left: 20%;
+}
+
+.modClrBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modify{
+    width: 50%;
+}
+
+.clear{
+    width: 50%;
+}
+
+#modifyWindow{
+    position: fixed;
+    top: 35%;
+    left: 37%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30%;
+    width: 25%;
+    border: 5px solid rgb(70, 67, 97);
+    background-color: rgb(146, 150, 168);
+    border-radius: 5px;
+}
+
+#modifyWindow div{
+    margin-top: 3%;
+}
+
+.subMod{
+    margin-left: 25%;
+}
+
+.no-scroll{
+    overflow: hidden;
+}
+
+@media (max-width:1200px){
+    .cInf{
+        font-size: 15px;
+    }
+    .shoppingList{
+        font-size: 15px;
+    }
+}
+
+@media (max-width:1000px){
+    .cInf{
+        font-size: 10px;
+    }
+    .shoppingList{
+        font-size: 10px;
+    }
+}

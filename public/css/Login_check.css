@@ -1,0 +1,116 @@
+@keyframes upToDown{
+    from{
+        opacity: 0;
+        transform: translate3d(0,-15vw,0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes downToUp{
+    from{
+        opacity: 0;
+        transform: translate3d(0,15vw,0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+body{
+    background-color: rgb(76, 76, 109);
+    margin: 0;
+}
+
+.titleBackground{
+    margin: auto;
+    position: flex;
+    background-image: url('https://image.bc3ts.net/news_0a9f7c1cf1904768afb0714e7e087aef.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 25px dotted rgb(137, 137, 197);
+    border-style: dotted;
+    z-index: 2;
+    height: 650px;
+    width: 100%;
+}
+
+.fixed{
+    position: fixed;
+    top: 250px;
+    right: 5vw;
+    height: 50%;
+    width:20%;
+    background-image: url('http://www.ghost64.com/qqtupian/zixunImg/local/2018/08/12/15340228988321.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/*.fixed:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.fixed:active{
+    transform: scale(0.9);
+}*/
+
+#loginWindow{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    bottom: 0px;
+    height: 80%;
+    width: 100%;
+}
+
+.loginBox{
+    animation: downToUp 1.3s;
+    font-size: large;
+    margin-top: 8%;
+    border: 5px solid rgb(70, 67, 97);
+    background-color: rgb(146, 150, 168);
+    border-radius: 5px;
+    position: absolute;
+    top: 150px;
+    height: 15%;
+    width: 25%;
+    padding: 2% 2% 3%;
+}
+
+.loginBox div{
+    margin-top:3%;
+}
+
+.loginInf{
+    color: rgb(55, 24, 59);
+    font-weight: bold;
+}
+
+button{
+    padding: 5px 15px;
+    background:rgb(202, 196, 186);
+    -webkit-border-radius: 5px;
+    border: 0;
+    border-radius: 5px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.hidden{
+    display:none !important;
+}

@@ -1,0 +1,291 @@
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+}
+@keyframes rightToLeft{
+    from{
+        transform: translate3d(70vw,0,0);
+    }
+    to{
+        transform: translate3d(0,0,0);
+    }
+}
+html{
+    font-size: 10px;
+    font-family: 'SF Pro Display',sans-serif;
+}
+a{
+    display: block;
+    text-decoration: none;
+}
+.container{
+    max-width: 98rem;
+    margin: 0 auto;
+    
+}
+header{
+    position: fixed;
+    top:0;
+    z-index: 1400;
+    width: 100%;
+    height: 4.4rem;
+    background-color: rgba(0,0,0,.8);
+    backdrop-filter: blur(2rem);
+}
+.nav-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 -1rem;
+}
+.nav-list-mobile{
+    display: none;
+}
+.nav-link{
+    font-size:1.4rem;
+    color:#fff;
+    padding: 0 1rem;
+    transition: opacity .5s;
+}
+.nav-link:hover{
+    opacity: .7;
+}
+
+.nav-link-bag{
+    width: 1.4rem;
+    height: 4.4rem;
+    background: url("../images/Fuh.svg") center no-repeat;
+}
+.nav-link-logo{
+    width: 1.4rem;
+    height: 4.4rem;
+    background: url("../images/bettercodes-logo.svg") center no-repeat;
+}
+.RSITRANS-main{
+    background: url("../images/iphone-11-pro-large.jpg");
+    margin-top: 4.4rem;
+ 
+}
+
+.title{
+    color:white;
+    text-align: center;
+    padding-top: 5.5rem;
+}
+
+.title-heading{
+    font-size: 5.6rem;
+    line-height: 1.07143;
+    letter-spacing: -.005rem;
+}
+.title-sub-heading{
+    font-size: 2.65rem;
+    margin-top: .6rem;
+    letter-spacing: .008rem;
+    font-weight: 400;
+}
+.title-price{
+    font-size: 1.7rem;
+    color:grey;
+    margin-top: .68rem;
+}
+.cta{
+    text-align: center;
+    margin-top: 1.8rem;
+}
+.cta-link{
+    color: #66bbff;
+    font-size: 2.1rem;
+    display: inline-block;
+}
+.cta-link:nth-child(2){
+    margin-left: 2.6rem;
+}
+.cta-link:hover{
+    border-bottom:2px solid #66bbff;
+}
+
+.RSITRANS
+{
+    background-size:cover;
+    background-repeat: no-repeat; 
+    background: url('../images/iphone-11-large.jpg');
+}
+.hspeed
+{  background-size:cover;
+    background-repeat: no-repeat; 
+    background: url('../images/jpg.jpg')}
+.title-dark{
+    color:#000;
+}
+.cta-link-darker{
+    color:#0070c9;
+}
+.cta-link-darker:hover{
+    border-bottom-color:#0070c9;
+}
+.bus{
+    background: url("../images/watch-large.jpg");
+}
+
+
+.hero{
+    height: 69.2rem;
+    background-size: auto 73.6rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+
+}
+
+
+.RSITRANS-main{
+    border-top: 0;
+    margin-top:0;
+}
+
+
+
+  .slider-wrap {
+    overflow-x: hidden;
+    height: 100%;
+}
+.wrap {
+    height: 100%;
+    position: relative;
+}
+#slider {
+    height: 100%;
+    font-size: 90px;
+}
+.slide {
+    
+    background-repeat: no-repeat;
+    background-size: 500px;
+    background-position: bottom;
+    height:366px;
+    margin-bottom: 0;
+}
+.slide1 {
+    animation: rightToLeft 1s;
+    background-color: #dc0b32;
+    background-image: url('../images/app-store-black-png-download-2554803-free-transparent-app-app-store-logo-png-900_300.png');
+  
+}
+.slide2 {
+    background-color:navajowhite;
+    animation: rightToLeft 1s;
+    display: none;
+}
+.slide3 {
+    background: #fafafa;
+    background-image: url('../images/og_image__pvk21jd9bj22.png');
+    animation: rightToLeft 1s;
+    background-position:center;
+    display: none;
+}
+.slide-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    color: white;
+    margin-left: 40px;
+}
+.slide-content-slide2 {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-content-slide2 h3 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #333;
+}
+.slide-content-holder {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.slide-content-slide3 {
+    display: flex;
+    padding-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.slide-content-slide3 h3 {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #333;
+}
+.content-box {
+    display: inline;
+    border: 1px solid white;
+    padding: 0;
+    font-size: 11px;
+    line-height: 17px;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    max-height: 500px;
+}
+.content-box span {
+    padding: 5px;
+}
+.content-title {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 40px;
+    font-weight: bold;
+}
+
+
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+#arrow-left {
+    border-width: 30px 40px 30px 0;
+    border-color: transparent black transparent transparent;
+    left: 0;
+    margin-left: 30px;
+}
+#arrow-right {
+    border-width: 30px 0px 30px 40px;
+    border-color: transparent transparent transparent black;
+    right: 0;
+    margin-right: 30px;
+}
+.feature-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #66bbff;
+}
+.feature-row-items{
+    display: flex;
+    align-items: stretch;
+    padding: 1px;
+    justify-content: start;
+}
+.feature-row-items img {
+    max-width:100%;
+    max-height:30vw;
+  
+}
+

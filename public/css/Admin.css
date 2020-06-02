@@ -1,0 +1,8 @@
+div.query_window
+{
+    height:500px;
+    background-color: rgb(228, 181, 255);
+    border-radius: 5px;
+    border: 3px rgb(164, 68, 228) solid;
+    margin:50px;
+}

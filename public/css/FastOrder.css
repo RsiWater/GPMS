@@ -1,0 +1,580 @@
+body{
+  margin: 0;
+
+}
+.wrapper
+{
+  position: absolute;
+  top: -180px;
+ left: 0px;
+
+}
+.Taipei{
+  position: absolute;
+  top: 0px;
+  right: 245px;
+}
+
+.Taoyuan{
+  position: absolute;
+  top: 45px;
+  right: 370px;
+}
+
+.Hsian{
+  position: absolute;
+  top: 88px;
+  right: 385px;    
+}
+.miaoli{
+  position: absolute;
+  top: 142px;
+  right: 420px;
+}
+.Taichung{
+  position: absolute;
+  top: 210px;
+  right: 380px;
+}
+.Chanhua{
+  position: absolute;
+  top: 281px;
+  right: 547px;
+}
+.Yunlin
+{
+  position: absolute;
+  top: 373px;
+  right: 528px; 
+}
+.Chiayi{
+  position: absolute;
+  top: 414px;
+  right: 483px;
+}
+.Tainan{
+  position: absolute;
+  top: 465px;
+  right: 546px;
+}
+.Kaoshuing{
+  position: absolute;
+  top: 453px;
+  right: 450px;
+}
+.Pintung{
+  position: absolute;
+  top: 592px;
+  right: 456px;
+}
+.Yilan{
+  position: absolute;
+  top: 80px;
+  right: 264px;
+}
+.Hualien{
+  position: absolute;
+  top: 229px;
+  right: 288px;
+}
+.Taitung{
+  position: absolute;
+  top: 440px;
+  right: 339px;
+}
+
+.Keelung{
+  position: absolute;
+  top: 30px;
+  right: 280px;
+}
+
+.Nantou{
+  position: absolute;
+  top: 265px;
+  right: 397px;
+}
+
+.hidden{
+display: none;
+}
+
+#county div:hover{
+cursor: pointer;
+transform: scale(1.2);
+}
+#county div:active{
+transform: scale(0.9);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-image:url('../images/Fastorder/neon-highway-4k-nz.jpg');
+  background-size: cover;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #ccc;
+}
+input[type="text"] {
+  background-color: transparent;
+  margin-top: 30px;
+  border: 0;
+  border-bottom: solid 1px #8080ff;
+  text-align: center;
+  font-size: 20px;
+  color: #518bf0;
+  text-shadow: 0 0 3px #518bf0;
+  width: 45px;
+  display: inline-block;
+}
+input:focus {
+  outline: 0;
+  border-bottom: dashed 1px #ff8080;
+}
+input::-moz-selection {
+  color: #1a1a1a;
+  background-color: #c6e4ee;
+}
+input::selection {
+  color: #1a1a1a;
+  background-color: #c6e4ee;
+}
+::-webkit-input-placeholder {
+  color: #7aa6f3;
+  text-shadow: 0 0 3px #7aa6f3;
+}
+:-moz-placeholder {
+  color: #7aa6f3;
+  text-shadow: 0 0 3px #7aa6f3;
+}
+::-moz-placeholder {
+  color: #7aa6f3;
+  text-shadow: 0 0 3px #7aa6f3;
+}
+:-ms-input-placeholder {
+  color: #7aa6f3;
+  text-shadow: 0 0 3px #7aa6f3;
+}
+.wrapper {
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -o-box-align: center;
+  align-items: center;
+  -o-box-pack: center;
+  justify-content: center;
+  -o-box-orient: vertical;
+  flex-direction: column;
+  height: 100%;
+}
+.green {
+  margin-top: 15px;
+}
+.green .progress,
+.red .progress,
+.orange .progress {
+  position: relative;
+  border-radius: 50%;
+}
+.green .progress,
+.red .progress,
+.orange .progress {
+  width: 250px;
+  height: 250px;
+}
+.green .progress {
+  border: 5px solid #53fc53;
+}
+.green .progress {
+  box-shadow: 0 0 20px #029502;
+}
+.green .progress,
+.red .progress,
+.orange .progress {
+  transition: all 1s ease;
+}
+.green .progress .inner,
+.red .progress .inner,
+.orange .progress .inner {
+  position: absolute;
+  overflow: hidden;
+  z-index: 2;
+  border-radius: 50%;
+}
+.green .progress .inner,
+.red .progress .inner,
+.orange .progress .inner {
+  width: 240px;
+  height: 240px;
+}
+.green .progress .inner,
+.red .progress .inner,
+.orange .progress .inner {
+  border: 5px solid #1a1a1a;
+}
+.green .progress .inner,
+.red .progress .inner,
+.orange .progress .inner {
+  transition: all 1s ease;
+}
+.green .progress .inner .water,
+.red .progress .inner .water,
+.orange .progress .inner .water {
+  position: absolute;
+  z-index: 1;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  border-radius: 40%;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: spin;
+  animation-name: spin;
+}
+.green .progress .inner .water {
+  top: 25%;
+}
+.green .progress .inner .water {
+  background: rgba(83,252,83,0.5);
+}
+.green .progress .inner .water,
+.red .progress .inner .water,
+.orange .progress .inner .water {
+  transition: all 1s ease;
+}
+.green .progress .inner .water,
+.red .progress .inner .water,
+.orange .progress .inner .water {
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+}
+.green .progress .inner .water {
+  box-shadow: 0 0 20px #03bc03;
+}
+.green .progress .inner .glare,
+.red .progress .inner .glare,
+.orange .progress .inner .glare {
+  position: absolute;
+  top: -120%;
+  left: -120%;
+  z-index: 5;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-radius: 50%;
+}
+.green .progress .inner .glare,
+.red .progress .inner .glare,
+.orange .progress .inner .glare {
+  background-color: rgba(255,255,255,0.15);
+}
+.green .progress .inner .glare,
+.red .progress .inner .glare,
+.orange .progress .inner .glare {
+  transition: all 1s ease;
+}
+.green .progress .inner .percent,
+.red .progress .inner .percent,
+.orange .progress .inner .percent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+.green .progress .inner .percent,
+.red .progress .inner .percent,
+.orange .progress .inner .percent {
+  line-height: 240px;
+  font-size: 75px;
+}
+.green .progress .inner .percent {
+  color: #03c603;
+}
+.green .progress .inner .percent {
+  text-shadow: 0 0 10px #029502;
+}
+.green .progress .inner .percent,
+.red .progress .inner .percent,
+.orange .progress .inner .percent {
+  transition: all 1s ease;
+}
+.red {
+  margin-top: 15px;
+}
+.red .progress {
+  border: 5px solid #ed3b3b;
+}
+.red .progress {
+  box-shadow: 0 0 20px #7a0b0b;
+}
+.red .progress .inner .water {
+  top: 75%;
+}
+.red .progress .inner .water {
+  background: rgba(237,59,59,0.5);
+}
+.red .progress .inner .water {
+  box-shadow: 0 0 20px #9b0e0e;
+}
+.red .progress .inner .percent {
+  color: #a30f0f;
+}
+.red .progress .inner .percent {
+  text-shadow: 0 0 10px #7a0b0b;
+}
+.orange {
+  margin-top: 15px;
+}
+.orange .progress {
+  border: 5px solid #f07c3e;
+}
+.orange .progress {
+  box-shadow: 0 0 20px #7e320a;
+}
+.orange .progress .inner .water {
+  top: 50%;
+}
+.orange .progress .inner .water {
+  background: rgba(240,124,62,0.5);
+}
+.orange .progress .inner .water {
+  box-shadow: 0 0 20px #a0400c;
+}
+.orange .progress .inner .percent {
+  color: #a8430d;
+}
+.orange .progress .inner .percent {
+  text-shadow: 0 0 10px #7e320a;
+}
+
+
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+h3{
+  font-size:3rem;
+
+  text-align: center;
+  margin-bottom: 2em;
+ 
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image:url('../images/Fastorder/img_mouseover3.jpg');
+}
+
+
+
+
+.login{
+
+padding:40px 40px 30px;
+margin-left: 10vw;
+
+background-image:url('../images/Fastorder/abstract-huawei-lights-neon-hd-wallpaper-preview.jpg');
+background-size: contain;
+
+
+border-radius:5px;
+border:#fff 1px solid;
+box-shadow: yellow 0px 3px 50px;
+text-align: center;
+width:41rem;
+height:26.5vw;
+top:258px;
+left:80px;
+}
+
+
+
+
+#type div{
+font-size: 3vw;
+border: 3px solid silver;
+border-radius: 6px;
+margin:0px auto; /*div 置中*/
+margin-top: 0.7vw;
+width: 40%;
+}
+
+#type div:hover{
+transform: scale(1.1);
+cursor: pointer;
+background-color: rgb(153, 151, 151);
+}
+
+#type div:active{
+transform: scale(0.8);
+}
+
+#theDate{
+font-size: 2vw;
+}
+
+#theTime{
+font-size: 2vw;
+margin-bottom: -2vw;
+}
+
+#dateConfirm{
+font-size: 1.5vw;
+margin: 0 auto;
+margin-top: 1vw;
+border: 2px solid silver;
+border-radius: 20px;
+width: 30%;
+}
+#dateConfirm:hover{
+cursor: pointer;
+transform: scale(1.1);
+background-color: rgb(153, 151, 151);
+}
+#dateConfirm:active{
+transform: scale(0.8);
+}
+
+/**********************************************************/
+#station{
+width:100%;
+}
+
+#stationConsole{
+margin: 0 auto;
+font-size: 3vw;
+}
+
+#stationList{
+display: flex;
+align-items: flex-start;
+align-content: space-around;
+flex-wrap: wrap; /*換行*/
+margin: 0 auto;
+width: 80%;
+}
+
+#stationList div{
+font-size: 1.3vw;
+border: 2px solid silver;
+margin: 0.3vw;
+}
+#stationList div:hover{
+cursor: pointer;
+transform: scale(1.1);
+background-color: rgb(153, 151, 151);
+}
+#stationList div:active{
+transform: scale(0.8);
+}
+
+#stationConfirm{
+font-size: 1.5vw;
+margin: 0 auto;
+margin-top: 1vw;
+border: 2px solid rgb(112, 179, 206);
+border-radius: 20px;
+width: 30%;
+}
+#stationConfirm:hover{
+cursor: pointer;
+transform: scale(1.1);
+background-color: rgb(88, 86, 86);
+}
+#stationConfirm:active{
+transform: scale(0.8);
+}
+
+
+/**********************************************************/
+
+#carNumTitle{
+font-size: 1.4vw;
+display: flex;
+justify-content: space-around;
+border-bottom: 2px solid #7aa6f3;
+}
+
+.carNumList{
+font-size: 1.3vw;
+display: flex;
+justify-content: space-around;
+}
+.carNumList:hover{
+cursor: pointer;
+background-color: rgb(153, 151, 151);
+}
+
+.carNumConfirm{
+font-size: 1.5vw;
+margin: 0 auto;
+margin-top: 1vw;
+border: 2px solid rgb(112, 179, 206);
+border-radius: 20px;
+width: 30%;
+}
+.carNumConfirm:hover{
+cursor: pointer;
+transform: scale(1.1);
+background-color: rgb(88, 86, 86);
+}
+.carNumConfirm:active{
+transform: scale(0.8);
+}
+
+/**********************************************************/
+
+#region div{
+font-size: 1.5vw;
+margin: 0 auto;
+}
+
+#ticket div{
+font-size: 2vw;
+margin: 0 auto;
+}
+
+#idRegConfirm{
+font-size: 1.5vw;
+margin: 0 auto;
+margin-top: 1vw;
+border: 2px solid silver;
+border-radius: 20px;
+width: 30%;
+}
+#idRegConfirm:hover{
+cursor: pointer;
+transform: scale(1.1);
+background-color: rgb(153, 151, 151);
+}
+#idRegConfirm:active{
+transform: scale(0.8);
+}

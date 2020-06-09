@@ -10,27 +10,43 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 router.get('/', function(req, res, next)
 {
-    DB_Select("account", 'Hello')
-    console.log(temp)
-    res.render('Sign_in');
+
+    let account='123'
+    let password='456'
+    let check
+    DB_check('account','123','456',function(result){
+        console.log(result)
+        check=result
+        if(check.length>0){
+            //有輸入正確帳號
+            console.log('fuck yeah')
+
+        }else{
+            //沒有輸入正確帳號
+        }
+        res.render('Sign_in')
+    })
+
 })
 
 router.post('/', function(req, res, next)
 {
 
+
 })
 
 module.exports = router;
 
-function DB_Select(tableName ,PK)
+
+function DB_check(tableName ,account,password,callback)
 {
-    let sql_PK = PK
-    let sql_PK_Name = ''
-    if(tableName == "account") sql_PK_Name = "Name" 
-    const sql_string = 'SELECT * FROM '+tableName+' WHERE '+sql_PK_Name+'=?';
-    db.all(sql_string, sql_PK, function(err, row)
+    const sql_string = 'SELECT * FROM '+tableName+' WHERE 帳號=? and 密碼=?';
+     db.all(sql_string, account,password, function(err, row)
     {
         if(err) throw err;
-        return row
+        //console.log(row)
+        let result=row
+        return callback(result)
     })
+
 }

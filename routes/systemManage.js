@@ -9,6 +9,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.cookies.PassKey)
   if(req.cookies.PassKey){
     //console.log(req.cookies.PassKey)
 
@@ -17,19 +18,19 @@ router.get('/', function(req, res, next) {
     {
         if(err) throw err;
         if(row.length>0){
-          //console.log('yeah')
+          console.log('yeah')
           res.render('systemManage')
         }
         else{
-          //console.log('no')
-          res.render('Sign_in')
+          console.log('no')
+          res.redirect('/signin')
         }
     })
 
 
   }else{
-    //console.log('no')
-    res.render('Sign_in')
+    console.log('no')
+    res.redirect('/signin')
 
   }
 });

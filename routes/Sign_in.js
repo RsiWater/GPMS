@@ -19,6 +19,7 @@ router.get('/', function(req, res, next)
         check=result
         if(check.length>0){
             //有輸入正確帳號
+            res.cookie('PassKey',check[0]['Name'])
             console.log('fuck yeah')
 
         }else{
@@ -40,7 +41,7 @@ module.exports = router;
 
 function DB_check(tableName ,account,password,callback)
 {
-    const sql_string = 'SELECT * FROM '+tableName+' WHERE 帳號=? and 密碼=?';
+    const sql_string = 'SELECT * FROM '+tableName+' WHERE Name=? and Password=?';
      db.all(sql_string, account,password, function(err, row)
     {
         if(err) throw err;

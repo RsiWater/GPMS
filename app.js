@@ -5,7 +5,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');	
 var logger = require('morgan');	
 
-var indexRouter = require('./routes/index');	
+var indexRouter = require('./routes/index');
+var systemManageRouter = require('./routes/systemManage');
+var accountManageRouter = require('./routes/AccountManage');
+var projectManageRouter = require('./routes/ProjectManage');
 var signinRouter = require('./routes/Sign_in');	
 
 // var usersRouter = require('./routes/users');	
@@ -35,6 +38,9 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);	
 app.use('/signin', signinRouter);	
+app.use('/systemManage', systemManageRouter)
+app.use('/systemManage/account', accountManageRouter)
+app.use('/systemManage/project', projectManageRouter)
 
 // app.use('/users', usersRouter);	
 // app.use('/test', testRouter);	

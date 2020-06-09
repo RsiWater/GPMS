@@ -1,0 +1,21 @@
+body{
+    font-family: Microsoft JhengHei !important;
+}
+.informManageForm{
+    
+    margin: 0 auto;
+    width:20em;
+    display: flex;
+    /* text-align: center; */
+    Justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    height: 100vh;
+}
+.optionName{
+    width: 40em;
+}
+.submitButton{
+    text-align: center;
+
+}

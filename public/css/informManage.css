@@ -14,8 +14,12 @@ body{
 }
 .optionName{
     width: 40em;
+    font-size: inherit;
 }
 .submitButton{
     text-align: center;
+}
 
+#date{
+    margin: 1em;
 }

@@ -6,19 +6,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var testRouter = require('./routes/test');
-var mainRouter = require('./routes/main');
-var TrRouter = require('./routes/TaiwanRailway');
-var BusRouter = require('./routes/Bus');
-var HRSRouter = require('./routes/HSpeed');
-var LoginRouter = require('./routes/Login');
-var LoginCheckRouter = require('./routes/Login_check')
-var AdminRouter = require('./routes/Admin')
-var TicketRouter = require('./routes/Ticket');
-var IdentifierRouter = require('./routes/Identifier');
-var LoadingRouter = require('./routes/Loading');
-var FastOrderRouter = require('./routes/FastOrder');
+var signinRouter = require('./routes/Sign_in');
+
+// var usersRouter = require('./routes/users');
+// var testRouter = require('./routes/test');
+// var mainRouter = require('./routes/main');
+// var TrRouter = require('./routes/TaiwanRailway');
+// var BusRouter = require('./routes/Bus');
+// var HRSRouter = require('./routes/HSpeed');
+// var LoginRouter = require('./routes/Login');
+// var LoginCheckRouter = require('./routes/Login_check')
+// var AdminRouter = require('./routes/Admin')
+// var TicketRouter = require('./routes/Ticket');
+// var IdentifierRouter = require('./routes/Identifier');
+// var LoadingRouter = require('./routes/Loading');
+// var FastOrderRouter = require('./routes/FastOrder');
 
 var app = express();
 
@@ -32,19 +34,21 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/test', testRouter);
-app.use('/main', mainRouter);
-app.use('/main/TaiwanRailway', TrRouter);
-app.use('/main/Bus', BusRouter);
-app.use('/main/HSpeed', HRSRouter);
-app.use('/main/Login', LoginRouter);
-app.use('/main/Login_check', LoginCheckRouter);
-app.use('/main/Identifier', IdentifierRouter);
-app.use('/main/Admin', AdminRouter);
-app.use('/main/Ticket', TicketRouter);
-app.use('/main/Loading', LoadingRouter);
-app.use('/main/FastOrder', FastOrderRouter);
+app.use('/signin', signinRouter);
+
+// app.use('/users', usersRouter);
+// app.use('/test', testRouter);
+// app.use('/main', mainRouter);
+// app.use('/main/TaiwanRailway', TrRouter);
+// app.use('/main/Bus', BusRouter);
+// app.use('/main/HSpeed', HRSRouter);
+// app.use('/main/Login', LoginRouter);
+// app.use('/main/Login_check', LoginCheckRouter);
+// app.use('/main/Identifier', IdentifierRouter);
+// app.use('/main/Admin', AdminRouter);
+// app.use('/main/Ticket', TicketRouter);
+// app.use('/main/Loading', LoadingRouter);
+// app.use('/main/FastOrder', FastOrderRouter);
 
 app.use(express.static(path.join(__dirname, '/public')));
 

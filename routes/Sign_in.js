@@ -10,7 +10,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 router.get('/', function(req, res, next)
 {
-
+    const SHA256_module = require('./SHA256')
     let account='123'
     let password='456'
     let check
@@ -19,7 +19,7 @@ router.get('/', function(req, res, next)
         check=result
         if(check.length>0){
             //有輸入正確帳號
-            res.cookie('PassKey',check[0]['Name'])
+            res.cookie('PassKey',SHA256_module.SHA256(check[0]['Name']))
             console.log('fuck yeah')
 
         }else{

@@ -1,7 +1,18 @@
 function clickToChange(event){
     const clicked_button = event.currentTarget;
     if(clicked_button.classList.contains('delete')){
-
+        if(clicked_button.classList.contains('poster'))
+            if(dataExist('poster')) alert('刪除檔案')
+            else alert('現在未上傳任何檔案，無須刪除')
+        if(clicked_button.classList.contains('ppt'))
+            if(dataExist('ppt')) alert('刪除檔案')
+            else alert('現在未上傳任何檔案，無須刪除')
+        if(clicked_button.classList.contains('doc'))
+            if(dataExist('doc')) alert('刪除檔案')
+            else alert('現在未上傳任何檔案，無須刪除')
+        if(clicked_button.classList.contains('code'))
+            if(dataExist('code')) alert('刪除檔案')
+            else alert('現在未上傳任何檔案，無須刪除')
     }
     else if(clicked_button.classList.contains('choose')){
         if(clicked_button.classList.contains('poster'))

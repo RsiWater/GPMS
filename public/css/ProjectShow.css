@@ -7,7 +7,6 @@
 }
 
 .col-4{
-    text-align: center;
     font-weight: 600;
     font-size: x-large;
     border: 1px gray solid;
@@ -36,6 +35,18 @@
 
 .custom-file{
     margin: 3px;
+}
+
+.button{
+    font-weight: 500;
+    border-radius: 60px;
+    border: 2px darkgray solid;
+    background-color: white;
+    text-align: center;
+}
+.button:hover{
+    background-color: lightgray;
+    cursor: pointer;
 }
 
 .hidden{

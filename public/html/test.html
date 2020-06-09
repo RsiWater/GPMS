@@ -1,0 +1,46 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="styleTR.css">
+<div style="width: 100%;">
+    <div style="float:left; width: 70%" class="half-one">
+      <h3>台鐵訂票系統</h3>
+      <form action="/screen_2.html" method="post" id="test-form" oninput="o.value = parseInt(a.value)*600">
+  
+        <label for=passanger-name>姓名</label>
+        <input type="text" id="passanger-name" name="name" class="stored" placeholder="Enter Passenger Name" required/><br><br>
+
+        <label for=passanger-name>身分證號</label>
+        <input type="text" id="passanger-essn" name="essn" class="stored" placeholder="Enter Passenger ssn" required/>
+  
+        <label for=origin>起始站</label>
+        <input type="text" id="origin" list="data-list" required/>
+        <datalist id="data-list">
+          <option value="Delhi">
+          <option value="Chennahudgfcudi">
+          <option value="Mumbai">
+          <option value="Kolkata">
+          <option value="RSI">
+        </datalist><br><br>
+
+        <label for=destination>終點站</label>
+        <input type="text" id="destination" list="data-list"><br><br> 
+
+        <label for=phone>Phone</label>
+        <input type="text" id="phone" name="phone" placeholder="Enter mobile # here" class="stored" required/><br><br>
+
+        <label for=date-of-journey>Date of Journey</label>
+        <input type="date" id="date-of-journey" required/><br><br>
+
+        <label for=#-of-passangers># of Passangers</label>
+        <input type="number" id="#-of-passangers" name="a" min="2" max="6" required/><br><br>
+
+        <label>Your approximate ticket amount is <output id="o" name="o" style="display: inline;">0</output> INR.</label><br><br><br>
+        <label><input type="submit" id="submitButton" value="Submit" />
+          <input type="reset" value="Reset" id="reset" /></label>
+      </form>
+
+    </div>
+    
+  </div>
+  
+  
+  <!--<div style="clear:both"></div> -->

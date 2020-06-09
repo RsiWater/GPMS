@@ -30,19 +30,19 @@
     <div class="user_options-forms" id="user_options-forms">
       <div class="user_forms-login">
         <h2 class="forms_title">在此登入系統</h2>
-        <form class="forms_form">
+        <form class="forms_form" action="/" method="POST">
           <fieldset class="forms_fieldset">
             <div class="forms_field">
-              <input type="email" placeholder="帳號" class="forms_field-input" required autofocus />
+              <input type="email" placeholder="帳號" class="forms_field-input" name="Name" required autofocus />
             </div>
             <div class="forms_field">
-              <input type="password" placeholder="密碼" class="forms_field-input" required />
+              <input type="password" placeholder="密碼" class="forms_field-input" name="password" required />
             </div>
           </fieldset>
           <div class="forms_buttons">
             
-            <input type="submit" value="✎登入" class="forms_buttons-action">
-            <input type="back" value="←上一頁" class="forms_buttons-action">
+            <input type="submit" value="✎登入" class="forms_buttons-action" >
+            <input type="back" value="←上一頁" class="forms_buttons-action" >
           </div>
         </form>
       </div>

@@ -11,7 +11,8 @@
     font-weight: 600;
     font-size: x-large;
     border: 1px gray solid;
-    background-color: lightgray;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(203,195,196,1) 100%);
 }
 .col-8{
     height: 7vw;

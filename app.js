@@ -10,7 +10,7 @@ var loginRouter = require('./routes/Login')
 var systemManageRouter = require('./routes/systemManage');
 var accountManageRouter = require('./routes/AccountManage');
 var projectManageRouter = require('./routes/ProjectManage');
-var signinRouter = require('./routes/Sign_in');	
+// var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
 
@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);	
 app.use('/login', loginRouter)
-app.use('/signin', signinRouter);	
+// app.use('/signin', signinRouter);	
 app.use('/systemManage', systemManageRouter)
 app.use('/systemManage/account', accountManageRouter)
 app.use('/systemManage/project', projectManageRouter)

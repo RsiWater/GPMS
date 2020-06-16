@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Assignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'><link rel="stylesheet" href="../public/css/TeacherAssignment.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+
+  <header>
+    我的專題小組
+  </header>
+  <div class="wrapper">
+  <main>
+
+    <form>
+      <label for="item-input">學生</label>
+      <input type="text" id="item-input">
+      <label for="student_id-input">Student_id</label>
+      <input type="text" id="student_id-input">
+      <button type="submit" id="submit-btn">Add</button>
+      <button type="button" id="back-btn">儲存回上一頁</button>
+    </form>
+
+    <div id="lists">
+      <p class="list__label">未指派<span class="student_id" id="notassigned-num"></span></p>
+      <ul id="notassigned-list">
+      </ul>
+      <p class="list__label">已指派<span class="student_id" id="assigned-num"></span></p>
+      <ul id="assigned-list">
+      </ul>
+    </div>
+
+  </main>
+  <div class="push"></div>
+</div>
+
+
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone-min.js'></script>
+<script  src="../public/javascripts/TeacherAssignment.js"></script>
+</body>
+</html>

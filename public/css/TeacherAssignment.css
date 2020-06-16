@@ -1,0 +1,169 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 18px;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background:url(https://vignette.wikia.nocookie.net/doki-doki-literature-club/images/5/50/Club.png/revision/latest?cb=20171231181915);
+  background-size:cover;
+}
+
+a {
+  color: white;
+}
+
+header{
+  color: black;
+background: linear-gradient(0deg, rgba(255,255,255,0.8015581232492998) 0%, rgba(0,215,255,1) 100%);
+  width: 100vw;
+  text-align: center;
+  padding: .5em;
+  position: relative;
+}
+
+
+.push {
+  height: 2em;
+  
+}
+
+main {
+  width: 95vw;
+  margin: 1em auto;
+}
+
+.wrapper {
+  margin: 0 auto -2em;
+  margin-top: 5%;
+  padding-top: 2%;
+  border-radius: 10px;
+  width:40%;
+  background: linear-gradient(0deg, rgba(255,255,255,0.7903536414565826) 0%, rgba(255,255,255,1) 100%);
+}
+
+form {
+  width: inherit;
+
+}
+
+label {
+  display: block;
+  line-height: 1.5em;
+}
+
+input {
+  width: inherit;
+  padding: 1em;
+}
+
+button, .delete {
+  color: white;
+  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  border-radius: 12px;
+}
+
+
+button {
+  border: 0;
+  padding: 1em;
+  width: inherit;
+  margin: .75em 0;
+}
+
+button:hover {
+  border: 0;
+  padding: 1em;
+  width: inherit;
+  margin: .75em 0;
+  transform: scale(1.1);
+}
+.icon {
+  display: inline-block;
+  width: .9em;
+  height: .9em;
+  margin-right: .25em;
+  fill: #004A55;
+}
+
+#notassigned-list li:before, #assigned-list li:before {
+  content: "";
+  display: inline-block;
+  background-size: 100%;
+  height: .9em;
+  width: 1em;
+  margin-right: .3em;
+}
+#notassigned-list li:before {
+  background-image: url("https://res.cloudinary.com/ddy54k4ks/image/upload/v1454106412/svg/checkmark2.svg");
+}
+#assigned-list li:before {
+  background-image: url("https://res.cloudinary.com/ddy54k4ks/image/upload/v1454106412/svg/checkmark.svg");
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+li {
+  color: black;
+  padding: .75em;
+  cursor: pointer;
+  margin: .5em 0;
+  border: 1px solid #004A55;
+  position: relative;
+  transition: background-color .2s;
+}
+li:hover {
+  background-color: #A7CDCC;
+}
+
+.student_id {
+  color: #F87D09;
+}
+.student_id:before {
+  content: "(";
+}
+.student_id:after {
+  content: ")";
+}
+
+.delete {
+  float: right;
+  padding: inherit;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.delete:after {
+  clear: both;
+}
+
+#assigned-list li {
+  background-color: #F6F6F6;
+}
+#assigned-list li .student_id {
+  color: #666666;
+}
+
+.list__label {
+  border-bottom: 2px solid #F87D09;
+  font-size: .75em;
+  color: black;
+  padding: 0;
+}
+
+@media screen and (min-width: 420px) {
+  main {
+    width: 420px;
+  }
+}

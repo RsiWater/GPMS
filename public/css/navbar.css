@@ -22,7 +22,7 @@ ul {
     color: #C0C0C0;
   }
   #home{
-    background-image: url("../../images/GPMS_Logo.png");
+    background-image: url("../images/GPMS_Logo.png");
     background-size:contain;
     background-position: 50% 50%;
     margin:0 !important;

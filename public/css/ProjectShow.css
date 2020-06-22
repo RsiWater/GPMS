@@ -22,7 +22,7 @@ body{
 
 .item{
   background-color: #fafafd;
-  background-image: linear-gradient(130deg, #c6b8f5 0%, #c7e6f5 85%, #c7faf4 100%);
+  background-image: linear-gradient(130deg, #e9e4fa 0%, #e6f4fc 85%, #e9f8f6 100%);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   color: #201f1f;
   border-radius: 2px;
@@ -37,12 +37,13 @@ body{
   justify-content: center;
   font-size: 200%;
   background-color: #c8e6f8;
-  background-image: linear-gradient(160deg, #e6dffd 0%, #e7e2ff 127%);
+  background-image: linear-gradient(160deg, #f4f1fd 0%, #eceaf7 127%);
 }
 
 .description{
   height:35%;
   display:flex;
+  font-size: 130%;
   align-items: center;
   justify-content: center;
 }
@@ -58,6 +59,7 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 110%;
   margin-left: 0.5%;
   margin-right: 0.5%;
 }

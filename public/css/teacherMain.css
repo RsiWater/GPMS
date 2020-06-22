@@ -1,0 +1,17 @@
+body{
+    font-family:Microsoft JhengHei !important;
+}
+.card-title{
+    font-weight:bold;
+}
+.container{
+    margin-left: 25vw !important;
+}
+.modifyPassword{
+    border-style:none !important;
+}
+.navbar{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}

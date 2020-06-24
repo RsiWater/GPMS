@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="../public/css/ProjectShow.css">
     <link rel="stylesheet" href="../public/css/navbar.css"/>
+    <script src='../public/javascripts/ProjectShow.js' defer=''></script>
     <title>ProjectShow</title>
 </head>
 <body>
@@ -17,31 +18,67 @@
   </ul>
 
   <div class="container">
-    <div class="buttonBox">
-      <button type="button" class="btn btn-primary back">返回</button>
-      <button type="button" class="btn btn-success modify">修改資料</button>
+    <button type="button" class="btn btn-primary back">返回</button>
+    <button type="button" class="btn btn-success modify">修改資料</button>
+    
+    <div class="item title align-middle">
+      <div class="titleText">(標題)</div>
+      <form><input type="text" class="titleInput hidden"></form>
     </div>
-    <div class="item title align-middle">(標題)</div>
-    <div class="item description">(描述)</div>
+    <div class="item description">
+      <div class="desText">(描述)</div>
+      <form><textarea rows="4" style="width:100%;height:200%;" class="desInput hidden"></textarea></form>
+    </div>
 
     <div class="ppdc">
       <div class="item poster">
-        <img src="../public/images/poster (1).png" width="70%">
+        <img src="../public/images/poster (1).png" width="70%" class="posterFile">
         (海報)
       </div>
       <div class="item ppt">
-        <img src="../public/images/microsoft-powerpoint.png" width="70%">
+        <img src="../public/images/microsoft-powerpoint.png" width="70%" class="pptFile">
         (投影片)
       </div>
       <div class="item doc">
-        <img src="../public/images/microsoft-word.png" width="70%">
+        <img src="../public/images/microsoft-word.png" width="70%" class="docFile">
         (文件)
       </div>
       <div class="item code">
-        <img src="../public/images/compressed.png" width="70%">
+        <img src="../public/images/compressed.png" width="70%" class="codeFile">
         (程式碼)
       </div>
     </div>
+
+    <div class="ppdcText">
+      <div class="pptText">海報</div>
+      <div class="posterText">投影片</div>
+      <div class="docText">文件</div>
+      <div class="codeText">程式碼</div>
+    </div>
+
+    <div class="updateButton hidden">
+      <div class="posterCBox">
+        <button onclick="posterCh.click()">選擇海報</button>
+        <input type="file" accept=".pdf" id="posterCh" style="display:none;">
+        <button class="posterDel">刪除海報</button>
+      </div>
+      <div class="pptCBox">
+        <button onclick="pptCh.click()">選擇簡報</button>
+        <input type="file" accept=".ppt,.pptx" id="pptCh" style="display:none;">
+        <button class="pptDel">刪除簡報</button>
+      </div>
+      <div class="docCBox">
+        <button onclick="docCh.click()">選擇文件</button>
+        <input type="file" accept=".doc,.docx" id="docCh" style="display:none;">
+        <button class="docDel">刪除文件</button>
+      </div>
+      <div class="codeCBox">
+        <button onclick="codeCh.click()">選擇程式</button>
+        <input type="file" accept=".zip,.rar,.7z" id="codeCh" style="display:none;">
+        <button class="pptDel">刪除程式</button>
+      </div>
+    </div>
+
   </div>
 
 

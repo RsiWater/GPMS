@@ -103,9 +103,23 @@ $.ajax({
     data: '',
     datatype: 'json',
 }).done(function (rcvMessage) {
-    console.log("permission:"+rcvMessage)
+    console.log("permission:"+rcvMessage.permission)
     if(rcvMessage.permission==0)
     {
-        
+        document.querySelector(".Administrator").style="display:block"
+        document.querySelector(".Teacher").style="display:none"
+        document.querySelector(".Student").style="display:none"
+    }
+    if(rcvMessage.permission==1)
+    {
+        document.querySelector(".Administrator").style="display:none"
+        document.querySelector(".Teacher").style="display:block"
+        document.querySelector(".Student").style="display:none"
+    }
+    if(rcvMessage.permission==2)
+    {
+        document.querySelector(".Administrator").style="display:none"
+        document.querySelector(".Teacher").style="display:none"
+        document.querySelector(".Student").style="display:block"
     }
 })

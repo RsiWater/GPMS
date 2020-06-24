@@ -5,19 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../public/javascripts/projectManageStudent.js" defer></script>
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <title>首頁 - Let's chat 線上聊天室</title>
 </head>
 
@@ -181,79 +174,22 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">確定評分</button>
+            <button type="submit" class="btn btn-primary">確定評分</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    var lis = document.querySelectorAll(".card.w-25")
-    var isClick = 0
-    var clickNum = 10
-    for (const button of lis) {
-      button.onmouseover = function () {
-        // if (!isClick) {
-        var i = Array.prototype.indexOf.call(lis, button);
-        
-        for (var j = 0; j <= i; j++) {
-          var selectedHeart = lis[j]
-          selectedHeart.children[0].src = "../public/images/pheart.png"
-        }
-        for (var j = 9; j > i; j--) {
-          var selectedHeart = lis[j]
-          selectedHeart.children[0].src = "../public/images/bheart.png"
-        }
-        // }
-      }
 
-      button.onmouseout = function () {
-        // if (!isClick) {
-        var i = Array.prototype.indexOf.call(lis, button);
-        console.log(button)
-        if (clickNum == 10) {
-          for (var j = 0; j <= i; j++) {
-            var selectedHeart = lis[j]
-            if (selectedHeart.children[0].src = "../public/images/pheart.png")
-              selectedHeart.children[0].src = "../public/images/bheart.png"
-          }
-        }
-        else{
-          for (var j = 0; j <= clickNum; j++) {
-            var selectedHeart = lis[j]
-            selectedHeart.children[0].src = "../public/images/pheart.png"
-          }
-          for (var j = 9; j > clickNum; j--) {
-            var selectedHeart = lis[j]
-            selectedHeart.children[0].src = "../public/images/bheart.png"
-          }
-        }
-      }
-      // }
 
-      button.onclick = function () {
-        var i = Array.prototype.indexOf.call(lis, button);
-        console.log("click")
-        clickNum = i
-        isClick = 1
-        console.log(i)
-        for (var j = 0; j <= clickNum + 1; j++) {
-          var selectedHeart = lis[j]
-          selectedHeart.children[0].src = "../public/images/pheart.png"
-        }
-        for (var j = 9; j > clickNum; j--) {
-          var selectedHeart = lis[j]
-          if (selectedHeart.children[0].src = "../public/images/pheart.png")
-            selectedHeart.children[0].src = "../public/images/bheart.png"
-        }
-      }
-    }
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
   </script>
-
-
-
-
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

@@ -65,7 +65,8 @@ body {
   max-height:50px;
 }
 .forms_buttons-action:hover {
-  background-color: lightgreen;
+  background-color: lightblack;
+  transform: scale(1.1);
 }
 .text {
   grid-column: span 1;
@@ -134,7 +135,7 @@ body {
 .red {
   background-color: #cd5454;
 }
-.red:hover,.blue:hover,.orange:hover,.yellow:hover,.green:hover,.purple:hover,.pink:hover {
+.red:hover,.blue:hover,.orange:hover,.yellow:hover,.black:hover,.purple:hover,.pink:hover {
   transform: scale(1.1);
 }
 .orange {
@@ -146,8 +147,8 @@ body {
 .yellow {
   background-color: #ffed61;
 }
-.green {
-  background-color: #488b8f;
+.black {
+  background-color: #000000;
 }
 .purple {
   background-color: #714288;

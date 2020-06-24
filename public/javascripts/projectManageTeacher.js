@@ -3,26 +3,24 @@
 // 確認密碼要跟新密碼一樣
 
 //輸入的成績
-var score = document.querySelector('.form-control').nodeValue
-console.log(score)
 
 
 
-var SubmitControl = document.querySelector('scoreSubmit[type="submit"]');
+
+var SubmitControl = document.querySelector('.scoreSubmit');
 SubmitControl.addEventListener('click', (event) => {
-    if (processFormData()) {
-        console.log(Password)
-        let SendPassword = {
-            password: Password
+        var Score = document.querySelector('.scoreForm').value
+        console.log(Score)
+        let SendScore = {
+            score: Score
         };
-        console.log(SendPassword);
+        console.log(SendScore);
         $.ajax({
             url: '/main/Identifier/getData', //待修改
             type: 'POST',
-            data: SendPassword,
+            data: SendScore,
             datatype: 'json',
         }).done(function (rcvMessage) {
             console.log(rcvMessage)
         })
-    }
 });

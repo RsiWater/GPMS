@@ -25,7 +25,7 @@ router.post('/', function(req, res, next)
     DB_check('account',name,password,function(result){
         //console.log(result)
         check=result
-        if(check.length>0){
+        if(check[0]['Permission']==0){
             //有輸入正確帳號
             let encode=SHA256_module.SHA256(check[0]['Name'])
             const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
@@ -34,10 +34,39 @@ router.post('/', function(req, res, next)
                 if(err) throw err;
             })
             res.cookie('PassKey',SHA256_module.SHA256(check[0]['Name']))
-            console.log('fuck yeah')
+            console.log('syatem manage')
             res.redirect('/systemManage')
 
-        }else{
+        }
+        else if(check[0]['Permission']==1){
+            //沒有輸入正確帳號
+            //console.log('no')
+            //res.render('Login')
+            let encode=SHA256_module.SHA256(check[0]['Name'])
+            const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
+            db.run(sql_string, encode,check[0]['Name'], function(err, row)
+            {
+                if(err) throw err;
+            })
+            res.cookie('PassKey',SHA256_module.SHA256(check[0]['Name']))
+            console.log('teacher')
+            res.redirect('/teacherMain')
+        }
+        else if(check[0]['Permission']==2){
+            //沒有輸入正確帳號
+            //console.log('no')
+            //res.render('Login')
+            let encode=SHA256_module.SHA256(check[0]['Name'])
+            const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
+            db.run(sql_string, encode,check[0]['Name'], function(err, row)
+            {
+                if(err) throw err;
+            })
+            res.cookie('PassKey',SHA256_module.SHA256(check[0]['Name']))
+            console.log('student')
+            res.redirect('/studentMain')
+        }
+        else{
             //沒有輸入正確帳號
             console.log('no')
             res.render('Login')

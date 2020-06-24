@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');	
 var logger = require('morgan');	
 
+
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/Login')
 var systemManageRouter = require('./routes/systemManage');
@@ -31,10 +32,9 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);	
 app.use('/login', loginRouter)
-// app.use('/signin', signinRouter);	
 app.use('/systemManage', systemManageRouter)
 app.use('/systemManage/accountManage', accountManageRouter)
-app.use('/systemManage/accountManage/passwordModify', passwordModifyRouter)
+app.use('/systemManage/passwordModify', passwordModifyRouter)
 app.use('/systemManage/projectManage', projectManageRouter)
 app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
@@ -58,6 +58,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page	
   res.status(err.status || 500);	
+  console.log(err)
   res.render('error');	
 });	
 

@@ -13,6 +13,7 @@ var projectManageRouter = require('./routes/ProjectManage');
 var informManageRouter = require('./routes/informManage');
 var themePickerRouter = require('./routes/themePicker');
 var teacherMainRouter = require('./routes/teacherMain');
+var studentMainRouter = require('./routes/studentMain');
 // var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
@@ -35,6 +36,7 @@ app.use('/systemManage/projectManage', projectManageRouter)
 app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
 app.use('/teacherMain', teacherMainRouter)
+app.use('/studentMain', studentMainRouter)
 
 
 app.use(express.static(path.join(__dirname, '/public')));	

@@ -98,8 +98,8 @@ SubmitControl.addEventListener('click', (event) => {
 });
 
 $.ajax({
-    url: '/main/Identifier/getData', //待修改
-    type: 'GET',
+    url: '/systemManage/projectManage', //待修改
+    type: 'POST',
     data: '',
     datatype: 'json',
 }).done(function (rcvMessage) {

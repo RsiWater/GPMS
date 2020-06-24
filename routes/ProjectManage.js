@@ -10,30 +10,32 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
-  console.log(req.cookies.PassKey)
-  if(req.cookies.PassKey){
-    //console.log(req.cookies.PassKey)
-
-    const sql_string = 'SELECT * FROM account WHERE PassKey=?'
-     db.all(sql_string, req.cookies.PassKey, function(err, row)
-    {
-        if(err) throw err;
-        if(row[0]['Permission']==0){
-          console.log('yeah')
-          res.render('projectManage')
-        }
-        else{
-          console.log('no')
-          res.redirect('/Login')
-        }
-    })
-
-
-  }else{
-    console.log('no')
-    res.redirect('/Login')
-
-  }
+  res.render('projectManage')
 });
+
+router.post('/', function(req, res, next) {
+
+  const sql_string = 'SELECT * FROM account WHERE PassKey=?'
+  db.all(sql_string, req.cookies.PassKey, function(err, row)
+  {
+    if(row.length==0){
+      res.json({permission:3})
+    }
+    else{
+      if(row[0]['Permission']==0){
+        res.json({permission:0})
+      }
+      else if(row[0]['Permission']==1){
+        res.json({permission:1})
+      }
+      else{
+        res.json({permission:2})
+      }
+    }
+
+
+  });
+});
+
 
 module.exports = router;

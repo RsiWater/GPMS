@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
         }
         else{
           console.log('no')
-          res.redirect('/signi  n')
+          res.redirect('/signin')
         }
     })
 

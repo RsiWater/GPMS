@@ -10,6 +10,9 @@ var loginRouter = require('./routes/Login')
 var systemManageRouter = require('./routes/systemManage');
 var accountManageRouter = require('./routes/AccountManage');
 var projectManageRouter = require('./routes/ProjectManage');
+var informManageRouter = require('./routes/informManage');
+var themePickerRouter = require('./routes/themePicker');
+var teacherMainRouter = require('./routes/teacherMain');
 // var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
@@ -27,8 +30,12 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter)
 // app.use('/signin', signinRouter);	
 app.use('/systemManage', systemManageRouter)
-app.use('/systemManage/account', accountManageRouter)
-app.use('/systemManage/project', projectManageRouter)
+app.use('/systemManage/accountManage', accountManageRouter)
+app.use('/systemManage/projectManage', projectManageRouter)
+app.use('/systemManage/informManage', informManageRouter)
+app.use('/systemManage/themePicker', themePickerRouter)
+app.use('/teacherMain', teacherMainRouter)
+
 
 app.use(express.static(path.join(__dirname, '/public')));	
 

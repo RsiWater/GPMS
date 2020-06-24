@@ -14,11 +14,14 @@ router.get('/', function(req, res, next) {
   {
     if(err) throw err;
     let result = row;
-    console.log(row)
+    result.forEach(function(item)
+    {
+      console.log(item)
+    })
+
+    res.render('accountManage', {student: result});
   })
 
-
-  res.render('accountManage');
 });
 
 

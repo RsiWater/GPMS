@@ -28,12 +28,12 @@ SubmitControl.addEventListener('click', (event) => {
         };
         console.log(SendPassword);
         $.ajax({
-            url: '/systemManage/accountManage/passwordModify/send', //待修改
+            url: '/systemManage/passwordModify/send',
             type: 'POST',
             data: SendPassword,
             datatype: 'json',
         }).done(function (rcvMessage) {
-            console.log(rcvMessage)
+            window.location.href = rcvMessage.href
         })
     }
 });

@@ -17,6 +17,7 @@ var teacherMainRouter = require('./routes/teacherMain');
 var studentMainRouter = require('./routes/studentMain');
 var passwordModifyRouter = require('./routes/passwordModify');
 var userModifyPasswordRouter = require('./routes/userModifyPassword');
+var myProjectTeamRouter = require('./routes/myProjectTeam');
 // var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
@@ -40,6 +41,7 @@ app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
 app.use('/systemManage/userModifyPassword', userModifyPasswordRouter)
 app.use('/teacherMain', teacherMainRouter)
+app.use('/teacherMain/myProjectTeam', myProjectTeamRouter)
 app.use('/studentMain', studentMainRouter)
 
 

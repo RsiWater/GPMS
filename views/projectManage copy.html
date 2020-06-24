@@ -201,6 +201,10 @@
           var selectedHeart = lis[j]
           selectedHeart.children[0].src = "../public/images/pheart.png"
         }
+        for (var j = 9; j > i; j--) {
+          var selectedHeart = lis[j]
+          selectedHeart.children[0].src = "../public/images/bheart.png"
+        }
         // }
       }
 
@@ -216,6 +220,10 @@
           }
         }
         else{
+          for (var j = 0; j <= clickNum; j++) {
+            var selectedHeart = lis[j]
+            selectedHeart.children[0].src = "../public/images/pheart.png"
+          }
           for (var j = 9; j > clickNum; j--) {
             var selectedHeart = lis[j]
             selectedHeart.children[0].src = "../public/images/bheart.png"

@@ -6,7 +6,7 @@ body {
   background:url("https://qtxasset.com/2016-06/hotel-bell.jpg?iEzqLPqZYoroGfQ8.MefOby4do21mxtV");
   height: 100vh;
   background-size:cover;
-  font-family: "Montserrat",“Arial”,”Microsoft YaHei”,”黑體”,”宋體”, sans-serif;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
 }
 
 .bg {
@@ -54,7 +54,7 @@ body {
 
   margin-top: 50px;
   font-size: 1rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
   font-weight: 300;
   color: #fff;
   text-transform: uppercase;
@@ -65,7 +65,8 @@ body {
   max-height:50px;
 }
 .forms_buttons-action:hover {
-  background-color: lightgreen;
+  background-color: lightblack;
+  transform: scale(1.1);
 }
 .text {
   grid-column: span 1;
@@ -77,15 +78,15 @@ body {
 .text h1 {
   font-size: 25px;
   line-height: 0.5;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
+    
 }
 .text p {
   line-height: 1.2;
   padding-bottom: 1rem;
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
+   
 }
 
 .button {
@@ -96,8 +97,8 @@ body {
   font-size: 12px;
   color: #ffffff;
   text-decoration: none;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
+    
   font-weight: 700;
 }
 .colors {
@@ -134,7 +135,7 @@ body {
 .red {
   background-color: #cd5454;
 }
-.red:hover,.blue:hover,.orange:hover,.yellow:hover,.green:hover,.purple:hover,.pink:hover {
+.red:hover,.blue:hover,.orange:hover,.yellow:hover,.black:hover,.purple:hover,.pink:hover {
   transform: scale(1.1);
 }
 .orange {
@@ -146,8 +147,8 @@ body {
 .yellow {
   background-color: #ffed61;
 }
-.green {
-  background-color: #488b8f;
+.black {
+  background-color: #000000;
 }
 .purple {
   background-color: #714288;

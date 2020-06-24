@@ -39,9 +39,6 @@ router.post('/', function(req, res, next)
 
         }
         else if(check[0]['Permission']==1){
-            //沒有輸入正確帳號
-            //console.log('no')
-            //res.render('Login')
             let encode=SHA256_module.SHA256(check[0]['Name'])
             const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
             db.run(sql_string, encode,check[0]['Name'], function(err, row)
@@ -53,9 +50,6 @@ router.post('/', function(req, res, next)
             res.redirect('/teacherMain')
         }
         else if(check[0]['Permission']==2){
-            //沒有輸入正確帳號
-            //console.log('no')
-            //res.render('Login')
             let encode=SHA256_module.SHA256(check[0]['Name'])
             const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
             db.run(sql_string, encode,check[0]['Name'], function(err, row)

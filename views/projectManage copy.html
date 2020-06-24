@@ -179,32 +179,48 @@
   </div>
 
   <script>
-    var num=finalnum = tempnum= 0;
     var lis = document.querySelectorAll(".card.w-25")
-    var test=0
+    var isClick = 0
+    var clickNum = 9
     for (const button of lis) {
-      button.addEventListener('mouseover', function (event) {
-        var i = Array.prototype.indexOf.call(lis, button);
-        for (var j=0;j<=i;j++)
-        {
-          var selectedHeart=lis[j]
-          selectedHeart.children[0].src="../public/images/pheart.png"
+      button.onmouseover = function () {
+        if (!isClick) {
+          var i = Array.prototype.indexOf.call(lis, button);
+          for (var j = 0; j <= i; j++) {
+            var selectedHeart = lis[j]
+            selectedHeart.children[0].src = "../public/images/pheart.png"
+          }
         }
-      })
-    }
-    for (const button of lis) {
-      button.addEventListener('mouseout', function (event) {
-        var i = Array.prototype.indexOf.call(lis, button);
-        for (var j=0;j<=i;j++)
-        {
-          var selectedHeart=lis[j]
-          if(selectedHeart.children[0].src="../public/images/pheart.png")
-          selectedHeart.children[0].src="../public/images/bheart.png"
+      }
+
+      button.onmouseout = function () {
+        if (!isClick) {
+          var i = Array.prototype.indexOf.call(lis, button);
+          console.log(button)
+          for (var j = 0; j <= i; j++) {
+            var selectedHeart = lis[j]
+            if (selectedHeart.children[0].src = "../public/images/pheart.png")
+              selectedHeart.children[0].src = "../public/images/bheart.png"
+          }
         }
-      })
+      }
+
+      button.onclick = function () {
+        var i = Array.prototype.indexOf.call(lis, button);
+        console.log("click")
+        clickNum = i
+        isClick = 1
+        console.log(i)
+        for (var j = 0; j <= i + 1 ; j++) {
+          var selectedHeart = lis[j]
+          selectedHeart.children[0].src = "../public/images/pheart.png"
+        }
+        for(var j = 9; j > i; j--) {
+          if (selectedHeart.children[0].src = "../public/images/pheart.png")
+              selectedHeart.children[0].src = "../public/images/bheart.png"
+        }
+      }
     }
-
-
   </script>
 
 

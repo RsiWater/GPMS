@@ -14,7 +14,8 @@ var informManageRouter = require('./routes/informManage');
 var themePickerRouter = require('./routes/themePicker');
 var teacherMainRouter = require('./routes/teacherMain');
 var studentMainRouter = require('./routes/studentMain');
-var passwordModifyRouter = require('./route/passwordModify');
+var passwordModifyRouter = require('./routes/passwordModify');
+var userModifyPasswordRouter = require('./routes/userModifyPassword');
 // var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
@@ -33,10 +34,11 @@ app.use('/login', loginRouter)
 // app.use('/signin', signinRouter);	
 app.use('/systemManage', systemManageRouter)
 app.use('/systemManage/accountManage', accountManageRouter)
-app.use('/systemManage/passwordModify', passwordModifyRouter)
+app.use('/systemManage/accountManage/passwordModify', passwordModifyRouter)
 app.use('/systemManage/projectManage', projectManageRouter)
 app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
+app.use('/systemManage/userModifyPassword', userModifyPasswordRouter)
 app.use('/teacherMain', teacherMainRouter)
 app.use('/studentMain', studentMainRouter)
 

@@ -23,14 +23,14 @@ router.get('/', function(req, res, next) {
         }
         else{
           console.log('no')
-          res.redirect('/signin')
+          res.redirect('/Login')
         }
     })
 
 
   }else{
     console.log('no')
-    res.redirect('/signin')
+    res.redirect('/Login')
 
   }
 });

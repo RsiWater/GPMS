@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
      db.all(sql_string, req.cookies.PassKey, function(err, row)
     {
         if(err) throw err;
-        if(row.length>0){
+        if(row[0]['Permission']==2){
           console.log('yeah')
           res.render('studentMain')
         }

@@ -7,6 +7,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
   if(err) throw err;
 })
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log(req.cookies.PassKey)
@@ -17,7 +18,7 @@ router.get('/', function(req, res, next) {
      db.all(sql_string, req.cookies.PassKey, function(err, row)
     {
         if(err) throw err;
-        if(row.length>0){
+        if(row[0]['Permission']==0){
           console.log('yeah')
           res.render('systemManage')
         }

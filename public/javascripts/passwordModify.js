@@ -28,7 +28,7 @@ SubmitControl.addEventListener('click', (event) => {
         };
         console.log(SendPassword);
         $.ajax({
-            url: '/systemManage/accountManage/passwordModifye', //待修改
+            url: '/systemManage/accountManage/passwordModify/send', //待修改
             type: 'POST',
             data: SendPassword,
             datatype: 'json',

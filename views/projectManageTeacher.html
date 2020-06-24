@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='../public/javascripts/projectManageTeacher.js' defer=''></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
   </script>
@@ -157,12 +156,12 @@
           </div>
           <div class="modal-body">
             <div class="card-group w-100">
-              <input type="text" class="form-control" placeholder="輸入評分(0~100)" aria-label="輸入評分(0~100)" aria-describedby="button-addon2">
+              <input type="text" class="form-control scoreForm" placeholder="輸入評分(0~100)" aria-label="輸入評分(0~100)" aria-describedby="button-addon2">
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">確定評分</button>
+            <button type="button" class="btn btn-primary scoreSubmit">確定評分</button>
           </div>
         </div>
       </div>

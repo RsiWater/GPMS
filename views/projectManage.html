@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="../public/javascripts/projectManageStudent.js" defer></script>
+  <script src="../public/javascripts/projectManage.js" defer></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
@@ -49,7 +49,8 @@
     <p class="lead">專題管理</p>
   </div>
 
-<div class="container" style="display:none">
+<!--Administrator-->
+<div class="container Administrator" style="display:none">
 
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
@@ -155,6 +156,7 @@
 
 </div>
 
+  <!-- Student-->
 <div class="container">
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
@@ -263,7 +265,7 @@
 
 
 
-  <!-- Modal -->
+  <!-- Modal Student-->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -307,7 +309,8 @@
   </div>
 </div>
 
-<div class="container" style="display:none">
+<!--老師-->
+<div class="container Teacher">
 
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
@@ -416,7 +419,7 @@
 
 
 
-  <!-- Modal -->
+  <!-- Modal Teacher-->
   <div class="modal fade" id="exampleModalCenterTeacher" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

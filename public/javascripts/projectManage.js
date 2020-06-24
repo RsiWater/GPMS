@@ -103,5 +103,9 @@ $.ajax({
     data: '',
     datatype: 'json',
 }).done(function (rcvMessage) {
-    console.log(rcvMessage)
+    console.log("permission:"+rcvMessage)
+    if(rcvMessage.permission==0)
+    {
+        
+    }
 })

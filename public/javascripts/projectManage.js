@@ -64,7 +64,8 @@ var SubmitScore = document.querySelectorAll('button[type="submit"]')[1];
 
 SubmitScore.addEventListener('click', (event) => {
         let SendScore = {
-            score: clickNum + 1
+            score: clickNum + 1,
+            teamLeader: targetTeam
         };
         console.log(SendScore);
         $.ajax({

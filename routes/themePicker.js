@@ -1,4 +1,5 @@
 var express = require('express');
+const { InsufficientStorage } = require('http-errors');
 var router = express.Router();
 
 let sqlite3 = require('sqlite3').verbose()
@@ -36,4 +37,23 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.post('/', function(req, res, next)
+{
+  const sql_string = 'UPDATE theme SET themeType = ? WHERE id = 0'
+  db.run(sql_string, req.body.themeType, function(err, row)
+  {
+    if(err) throw err;
+    console.log('update theme success')
+  })
+})
+
+router.post('/changeColor', function(req, res, next)
+{
+  const sql_string = 'SELECT * FROM theme WHERE id = 0'
+  db.all(sql_string, function(err, row)
+  {
+    if(err) throw err;
+    res.json({themeType: row[0].themeType})
+  })
+})
 module.exports = router;

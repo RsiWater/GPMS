@@ -71,6 +71,24 @@ const dataSet = {
   }
 };
 
+const shape = dataSet.domstrings();
+const changeColor = function(color) {
+  try{
+    shape[0].style.fill = color[0];
+    shape[1].style.fill = color[1];
+    shape[2].style.fill = color[2];
+    for (let i = 3; i < shape.length - 1; i++) {
+      shape[i].style.background = color[0];
+    }
+    shape[8].style.background = color[3];
+    shape[7].style.backgroundImage = color[3];
+  }
+  catch
+  {
+    shape[8].style.background = color[3];
+  }
+};
+
 const boxes = document.querySelectorAll(".rectangle");
 for (const i of boxes) {
   const shape = dataSet.domstrings();
@@ -85,40 +103,64 @@ for (const i of boxes) {
     shape[7].style.backgroundImage = color[3];
   };
 
-let themeType = 0
   i.addEventListener("click", function() {
     if (i.classList.contains("red")) {
-      themeType = 0
       changeColor(dataSet.red());
     }
     if (i.classList.contains("orange")) {
-      themeType = 1
       changeColor(dataSet.orange());
     }
     if (i.classList.contains("blue")) {
-      themeType = 3
       changeColor(dataSet.blue());
     }
     if (i.classList.contains("yellow")) {
-      themeType = 6
       changeColor(dataSet.yellow());
     }
     if (i.classList.contains("black")) {
-      themeType = 2
       changeColor(dataSet.black());
     }
     if (i.classList.contains("purple")) {
-      themeType = 4
       changeColor(dataSet.purple());
     }
     if (i.classList.contains("pink")) {
-      themeType = 5
       changeColor(dataSet.pink());
     }
-
-    console.log(themeType)
   });
 }
+
+const empty = ''
+$.ajax({
+  url: '/systemManage/themePicker/changeColor', //待修改
+  type: 'POST',
+  data: empty,
+  datatype: 'json',
+}).done(function(rcvMessage)
+{
+  switch(rcvMessage.themeType)
+  {
+    case 0:
+      changeColor(dataSet.red());
+      break;
+    case 1:
+      changeColor(dataSet.orange());
+      break;
+    case 2:
+      changeColor(dataSet.black());
+      break;
+    case 3:
+      changeColor(dataSet.blue());
+      break;
+    case 4:
+      changeColor(dataSet.purple());
+      break;
+    case 5:
+      changeColor(dataSet.pink());
+      break;
+    default:
+      changeColor(dataSet.black());
+  }
+})
+
 $(document).ready(function(){
   $("ul").delay(200).fadeIn(1500);
 });

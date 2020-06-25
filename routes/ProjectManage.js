@@ -38,10 +38,10 @@ router.post('/', function(req, res, next) {
         res.json({permission:2})
       }
     }
-
-
   });
 });
+
+
 
 router.post('/addscore', function(req, res, next){
 

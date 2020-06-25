@@ -15,9 +15,23 @@ router.get('/', function(req, res, next) {
     if (err) throw err;
     res.render('projectManage', {project: row})
   })
-
-  
 });
+
+router.post('/getData', function(req, res, next)
+{
+  const _sql_string = 'SELECT * FROM GraduationProject'
+  db.all(_sql_string, function(err, row)
+  {
+    if(err) throw err;
+    let projectNameList = []
+    row.forEach(item =>
+      {
+        projectNameList.push(item.Name)
+      })
+    console.log(projectNameList)
+    res.json({projectNameList: projectNameList})
+  })
+})
 
 router.post('/', function(req, res, next) {
 

@@ -63,20 +63,6 @@ for (const button of lis) {
 var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
-<<<<<<< HEAD
-    let SendScore = {
-        score: clickNum + 1
-    };
-    console.log(SendScore);
-    $.ajax({
-        url: '/main/Identifier/getData', //待修改
-        type: 'POST',
-        data: SendScore,
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        console.log(rcvMessage)
-    })
-=======
         let SendScore = {
             score: clickNum + 1,
             teamLeader: targetTeam
@@ -90,7 +76,6 @@ SubmitScore.addEventListener('click', (event) => {
         }).done(function (rcvMessage) {
             window.location.reload();
         })
->>>>>>> 00e6274ed4079873728c0fc92f959d29233add68
 
 });
 

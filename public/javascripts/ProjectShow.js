@@ -22,18 +22,41 @@ class ProjectShow{
         docCh.addEventListener('change',this.fileChoose)
         const codeCh=document.getElementById('codeCh')
         codeCh.addEventListener('change',this.fileChoose)
-//https://pjchender.blogspot.com/2019/01/js-javascript-input-file-upload-file.html 上傳資料處理
+
         this.init(info.certification) //初始化設定
+
     }
 
     init(certification){
         if(certification){
             this.modifyButton.addEventListener('click',this.toModify)
-            this.titleText.innerText=info.title
-            this.desText.innerText=info.description
         }
         else{
             this.modifyButton.classList.add('hidden')
+        }
+
+        if(info.title!=null){
+            this.titleText.innerText=info.title
+        }else{
+            this.titleText.innerText="尚未設置標題..."
+        }
+        if(info.description!=null){
+            this.desText.innerText=info.description
+        }else{
+            this.desText.innerText="尚未設置專題描述..."
+        }
+
+        if(info.poster!=null){
+                        
+        }
+        if(info.ppt!=null){
+
+        }
+        if(info.doc!=null){
+
+        }
+        if(info.code!=null){
+            
         }
     }
 
@@ -72,26 +95,43 @@ class ProjectShow{
         updateButton.classList.add('hidden')
     }
 
+    downloadFile(fileName, content){
+        var aLink = document.createElement('a');
+        var blob = new Blob([content]);
+        var evt = document.createEvent('HTMLEvents');
+        evt.initEvent('click', false, false);
+        aLink.download = fileName;
+        aLink.href = URL.createObjectURL(blob);
+        aLink.dispatchEvent(evt);
+    }
+
     fileChoose(event){
-        //console.log(event.target.files)
         const filename=event.target.files[0].name
         console.log(event.target.files)
         switch(event.target.id){
             case 'posterCh':
-                const poster=document.querySelector('.poster')
-                poster.innerText=filename
+                const posterName=document.querySelector('.posterName')
+                posterName.innerText=filename
+                const posterImg=document.querySelector('.posterImg')
+                posterImg.setAttribute("src","../public/images/poster.png")
                 break
             case 'pptCh':
-                const ppt=document.querySelector('.ppt')
-                ppt.innerText=filename
+                const pptName=document.querySelector('.pptName')
+                pptName.innerText=filename
+                const pptImg=document.querySelector('.pptImg')
+                pptImg.setAttribute("src","../public/images/microsoft-powerpoint.png")
                 break
             case 'docCh':
-                const doc=document.querySelector('.doc')
-                doc.innerText=filename
+                const docName=document.querySelector('.docName')
+                docName.innerText=filename
+                const docImg=document.querySelector('.docImg')
+                docImg.setAttribute("src","../public/images/microsoft-word.png")
                 break
             case 'codeCh':
-                const code=document.querySelector('.code')
-                code.innerText=filename
+                const codeName=document.querySelector('.codeName')
+                codeName.innerText=filename
+                const codeImg=document.querySelector('.codeImg')
+                codeImg.setAttribute("src","../public/images/compressed.png")
                 break
         }
     }
@@ -102,5 +142,6 @@ class ProjectShow{
 }
 
 const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
-            'poster':'','ppt':'','doc':'','code':''}
+            'poster':'../fileTest/專題成果報告書_行車安全警示系統.pdf','ppt':'../fileTest/聊天機器人(上).pptx',
+            'doc':'../fileTest/專題成果報告書_NeoHand2.docx','code':'../fileTest/GA_A1065506.zip'}
 const ps=new ProjectShow(info)

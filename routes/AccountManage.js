@@ -49,6 +49,13 @@ router.get('/', function(req, res, next) {
 
 router.post('/addAccount', function(req, res, next)
 {
+  console.log(req.body.AccountName)
+  const sql_string = 'INSERT INTO account (Name,Password,Permission,EmployeeNumber) VALUES (?,?,?,?)'
+  db.run(sql_string, req.body.AccountName,req.body.Password,req.body.Permission,req.body.EmployeeNumber, function(err, row)
+  {
+    if(err) throw err;
+    //res.json({href: '/systemManage'})
+  })
 
 })
 

@@ -105,6 +105,7 @@ SubmitControl.addEventListener('click', (event) => {
             datatype: 'json',
         }).done(function (rcvMessage) {
             console.log(rcvMessage)
+            window.location.reload();
         })
 });
 

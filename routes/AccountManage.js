@@ -54,7 +54,7 @@ router.post('/addAccount', function(req, res, next)
   db.run(sql_string, req.body.AccountName,req.body.Password,req.body.Permission,req.body.EmployeeNumber, function(err, row)
   {
     if(err) throw err;
-    //res.json({href: '/systemManage'})
+    res.json({href: '/systemManage'})
   })
 
 })

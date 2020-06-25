@@ -29,11 +29,13 @@ document.querySelector('.sendNewAccount').addEventListener('click',function(even
         Password:password,
         Permission:permission,
         EmployeeNumber:employeeNumber
-    }
+    };
     $.ajax({
         url: '/systemManage/accountManage/addAccount', //待修改
         type: 'POST',
         data: SendNewAccount,
         datatype: 'json',
+    }).done(function (rcvMessage) {
+        window.location.reload()
     })
 })

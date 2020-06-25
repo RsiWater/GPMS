@@ -37,4 +37,24 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.post('/getData', function(req, res, next)
+{
+  const sql_string = 'SELECT * FROM account WHERE PassKey = ?'
+  db.all(sql_string, req.cookies.PassKey, function(err, row)
+  {
+    if(err) throw err
+    res.json({password: row[0].Password})
+  })
+})
+
+router.post('/', function(req, res, next)
+{
+  const sql_string = 'UPDATE account SET Password = ? WHERE PassKey = ?'
+  db.run(sql_string, req.body.password, req.cookies.PassKey, function(err, row)
+  {
+    if(err) throw err;
+    console.log("update")
+  })
+})
+
 module.exports = router;

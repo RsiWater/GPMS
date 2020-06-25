@@ -65,7 +65,7 @@ router.post('/addstudentscore', function(req, res, next){
   db.all(sql_string, req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
-    let score=parseInt(row[0]['Score'])+parseInt(req.body.score)
+    let score=parseInt(row[0]['Score'])+parseInt(req.body.score)  
 
     const update_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
     db.run(update_string,score, req.body.teamLeader, function(err, row){

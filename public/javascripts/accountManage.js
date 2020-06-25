@@ -1,4 +1,4 @@
-let btnList = document.querySelectorAll('button.btn-primary')
+let btnList = document.querySelectorAll('button.btn-primary:not(.sendNewAccount')
 btnList.forEach(item => 
 {
     item.addEventListener('click', function(event)

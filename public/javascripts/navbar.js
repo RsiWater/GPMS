@@ -85,28 +85,38 @@ for (const i of boxes) {
     shape[7].style.backgroundImage = color[3];
   };
 
+let themeType = 0
   i.addEventListener("click", function() {
     if (i.classList.contains("red")) {
+      themeType = 0
       changeColor(dataSet.red());
     }
     if (i.classList.contains("orange")) {
+      themeType = 1
       changeColor(dataSet.orange());
     }
     if (i.classList.contains("blue")) {
+      themeType = 3
       changeColor(dataSet.blue());
     }
     if (i.classList.contains("yellow")) {
+      themeType = 6
       changeColor(dataSet.yellow());
     }
     if (i.classList.contains("black")) {
+      themeType = 2
       changeColor(dataSet.black());
     }
     if (i.classList.contains("purple")) {
+      themeType = 4
       changeColor(dataSet.purple());
     }
     if (i.classList.contains("pink")) {
+      themeType = 5
       changeColor(dataSet.pink());
     }
+
+    console.log(themeType)
   });
 }
 $(document).ready(function(){

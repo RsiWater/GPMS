@@ -43,7 +43,8 @@ router.post('/', function(req, res, next)
   db.run(sql_string, req.body.themeType, function(err, row)
   {
     if(err) throw err;
-    console.log('update theme success')
+    //console.log('update theme success')
+    res.json({href: '/systemManage'})
   })
 })
 

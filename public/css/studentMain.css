@@ -20,7 +20,7 @@ body{
 }
 
 .notification{
-    z-index: -2;
+    z-index:1;
     background-image: url("../images/3dRuBV8.png");
     border-radius: 50px;
     background-size: cover;
@@ -31,7 +31,15 @@ body{
 }
 
 .notification:hover {
-    margin: .75em 0;
-    transform: scale(1.1);
+    margin: .05em 0;
   }
+
+.notification-container{
+    z-index:1;
+    position: fixed;
+    right: 10vw;
+    top:5vw;
+    max-width: 415px;
+    border: 2px solid #1cacff!important;
+}
 

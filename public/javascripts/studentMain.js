@@ -15,3 +15,19 @@ var Name = document.querySelector("#head h1")
 function showStudentName(){
     Name.innerHTML = "您好，"+ StudentName +"老師!"
 }
+
+var notificationSwitch=document.querySelector(".notification ")
+var notificationContainer=document.querySelector(".notification-container")
+var switchLocker=0
+notificationSwitch.addEventListener('click', (event) => {
+    if(switchLocker==0)
+    {
+        notificationContainer.style="display:none"
+        switchLocker=1
+    }
+    else if(switchLocker==1)
+    {
+        notificationContainer.style="display:block"
+        switchLocker=0
+    }
+});

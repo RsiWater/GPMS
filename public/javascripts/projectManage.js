@@ -60,9 +60,10 @@ for (const button of lis) {
 }
 
 
-var SubmitScore = document.querySelectorAll('button[type="submit"]')[1];
+var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
+<<<<<<< HEAD
     let SendScore = {
         score: clickNum + 1
     };
@@ -75,6 +76,21 @@ SubmitScore.addEventListener('click', (event) => {
     }).done(function (rcvMessage) {
         console.log(rcvMessage)
     })
+=======
+        let SendScore = {
+            score: clickNum + 1,
+            teamLeader: targetTeam
+        };
+        console.log(SendScore);
+        $.ajax({
+            url: '/studentMain/projectManage/addstudentscore', //待修改
+            type: 'POST',
+            data: SendScore,
+            datatype: 'json',
+        }).done(function (rcvMessage) {
+            window.location.reload();
+        })
+>>>>>>> 00e6274ed4079873728c0fc92f959d29233add68
 
 });
 
@@ -89,21 +105,22 @@ sucbtnList.forEach(item => {
 
 var SubmitControl = document.querySelector('.scoreSubmit');
 SubmitControl.addEventListener('click', (event) => {
-    var Score = document.querySelector('.scoreForm').value
-    console.log(Score)
-    let SendScore = {
-        score: Score,
-        teamLeader: targetTeam
-    };
-    console.log(SendScore);
-    $.ajax({
-        url: '/teacherMain/projectManage/addscore', //待修改
-        type: 'POST',
-        data: SendScore,
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        console.log(rcvMessage)
-    })
+        var Score = document.querySelector('.scoreForm').value
+        console.log(Score)
+        let SendScore = {
+            score: Score,
+            teamLeader: targetTeam
+        };
+        console.log(SendScore);
+        $.ajax({
+            url: '/teacherMain/projectManage/addscore', //待修改
+            type: 'POST',
+            data: SendScore,
+            datatype: 'json',
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            window.location.reload();
+        })
 });
 
 $.ajax({

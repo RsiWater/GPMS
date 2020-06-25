@@ -109,9 +109,24 @@
           <li class="page-item"><a class="page-link" href="#">2</a></li>
           <li class="page-item"><a class="page-link" href="#">3</a></li>
           <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  <nav class="navbar navbar-light bg-light">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+
+  <ul class="list-group">
+    <!-- <% project.forEach(ele => { %>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <%= ele.Name %>
+      <div>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-success" data-toggle="modal"
+            data-target="#exampleModalCenter" name="<%= ele.TeamLeader%>">互評專題</button>
         </div>
       </nav>
-    </div>
+    </div> -->
     <nav class="navbar navbar-light bg-light">
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -179,6 +194,13 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">確定評分</button>
           </div>
+<<<<<<< HEAD
+=======
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary btn-score">確定評分</button>
+>>>>>>> 00e6274ed4079873728c0fc92f959d29233add68
         </div>
       </div>
     </div>

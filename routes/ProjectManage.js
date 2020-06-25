@@ -57,22 +57,36 @@ router.post('/', function(req, res, next) {
 
 router.post('/addscore', function(req, res, next){
 
-  const sql_string = 'UPDATE GraduationProject SET Grade=? WHERE TeamLeader=?'
-  db.run(sql_string, req.body.score,req.body.teamLeader, function(err, row)
+  const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader=?'
+  db.all(sql_string, req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
-    res.json({href: '/systemManage'})
+    let score=parseInt(row[0]['Grade'])+parseInt(req.body.score)
+
+    const update_string = 'UPDATE GraduationProject SET Grade=? WHERE TeamLeader=?'
+    db.run(update_string,score, req.body.teamLeader, function(err, row){
+      if(err) throw err;
+      res.json({href: '/systemManage'})
+
+    })
   })
 
 });
 
 router.post('/addstudentscore', function(req, res, next){
 
-  const sql_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
-  db.run(sql_string, req.body.score,req.body.teamLeader, function(err, row)
+  const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader=?'
+  db.all(sql_string, req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
-    res.json({href: '/systemManage'})
+    let score=parseInt(row[0]['Score'])+parseInt(req.body.score)  
+
+    const update_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
+    db.run(update_string,score, req.body.teamLeader, function(err, row){
+      if(err) throw err;
+      res.json({href: '/systemManage'})
+
+    })
   })
 
 });

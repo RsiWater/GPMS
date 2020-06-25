@@ -79,12 +79,23 @@ SubmitScore.addEventListener('click', (event) => {
 });
 
 //輸入的成績
+let sucbtnList = document.querySelectorAll('button.btn-success')
+let targetTeam = ''
+sucbtnList.forEach(item => 
+    {
+        item.addEventListener('click', function(event)
+        {
+            targetTeam = event.target.name;
+        })
+    })
+
 var SubmitControl = document.querySelector('.scoreSubmit');
 SubmitControl.addEventListener('click', (event) => {
         var Score = document.querySelector('.scoreForm').value
         console.log(Score)
         let SendScore = {
-            score: Score
+            score: Score,
+            teamLeader: targetTeam
         };
         console.log(SendScore);
         $.ajax({

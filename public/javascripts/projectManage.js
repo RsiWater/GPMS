@@ -69,12 +69,12 @@ SubmitScore.addEventListener('click', (event) => {
         };
         console.log(SendScore);
         $.ajax({
-            url: '/main/Identifier/getData', //待修改
+            url: '/studentMain/projectManage/addstudentscore', //待修改
             type: 'POST',
             data: SendScore,
             datatype: 'json',
         }).done(function (rcvMessage) {
-            console.log(rcvMessage)
+            window.location.reload();
         })
 
 });

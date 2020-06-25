@@ -23,11 +23,11 @@
     
     <div class="item title align-middle">
       <div class="titleText">(標題)</div>
-      <form><input type="text" class="titleInput hidden"></form>
+      <form><input type="text" placeholder="請輸入標題..." class="titleInput hidden"></form>
     </div>
     <div class="item description">
       <div class="desText">(描述)</div>
-      <form><textarea rows="4" style="width:100%;height:200%;" class="desInput hidden"></textarea></form>
+      <form><textarea rows="4" placeholder="請輸入專題描述..." style="width:100%;height:200%;" class="desInput hidden"></textarea></form>
     </div>
 
     <div class="ppdc">
@@ -60,22 +60,22 @@
       <div class="posterCBox">
         <button onclick="posterCh.click()">選擇海報</button>
         <input type="file" accept=".pdf" id="posterCh" style="display:none;">
-        <button class="posterDel">刪除海報</button>
+        <button id="posterDel">刪除海報</button>
       </div>
       <div class="pptCBox">
         <button onclick="pptCh.click()">選擇簡報</button>
         <input type="file" accept=".ppt,.pptx" id="pptCh" style="display:none;">
-        <button class="pptDel">刪除簡報</button>
+        <button id="pptDel">刪除簡報</button>
       </div>
       <div class="docCBox">
         <button onclick="docCh.click()">選擇文件</button>
         <input type="file" accept=".doc,.docx" id="docCh" style="display:none;">
-        <button class="docDel">刪除文件</button>
+        <button id="docDel">刪除文件</button>
       </div>
       <div class="codeCBox">
         <button onclick="codeCh.click()">選擇程式</button>
         <input type="file" accept=".zip,.rar,.7z" id="codeCh" style="display:none;">
-        <button class="pptDel">刪除程式</button>
+        <button id="codeDel">刪除程式</button>
       </div>
     </div>
 

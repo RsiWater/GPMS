@@ -7,6 +7,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
   if(err) throw err;
 })
 
+let userPermission = -1
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('userModifyPassword');
@@ -21,6 +22,7 @@ router.get('/', function(req, res, next) {
         if(err) throw err;
         if(row.length>0){
           console.log('yeah')
+          userPermission = row[0].Permission
           res.render('userModifyPassword')
         }
         else{
@@ -53,7 +55,23 @@ router.post('/', function(req, res, next)
   db.run(sql_string, req.body.password, req.cookies.PassKey, function(err, row)
   {
     if(err) throw err;
-    res.json({href: '/systemManage'})
+    let directHref = ''
+    switch(userPermission)
+    {
+      case 0:
+        directHref = '/systemManage'
+        break;
+      case 1:
+        directHref = '/teacherMain'
+        break;
+      case 2:
+        directHref = '/studentMain'
+        break;
+      default:
+        directHref = '/login'
+        break;
+    }
+    res.json({href: directHref})
     console.log("update")
   })
 })

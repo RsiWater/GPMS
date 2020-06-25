@@ -38,15 +38,13 @@ router.post('/', function(req, res, next) {
         res.json({permission:2})
       }
     }
-
-
   });
 });
 
 router.post('/addscore', function(req, res, next){
 
-  const sql_string = 'INSERT INTO GraduationProject (Name,Password,Permission,EmployeeNumber) VALUES (?,?,?,?)'
-  db.run(sql_string, req.body.AccountName,req.body.Password,req.body.Permission,req.body.EmployeeNumber, function(err, row)
+  const sql_string = 'UPDATE GraduationProject SET Grade=? WHERE TeamLeader=?'
+  db.run(sql_string, req.body.score,req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
     res.json({href: '/systemManage'})
@@ -54,4 +52,14 @@ router.post('/addscore', function(req, res, next){
 
 });
 
+router.post('/addstudentscore', function(req, res, next){
+
+  const sql_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
+  db.run(sql_string, req.body.score,req.body.teamLeader, function(err, row)
+  {
+    if(err) throw err;
+    res.json({href: '/systemManage'})
+  })
+
+});
 module.exports = router;

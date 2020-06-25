@@ -41,9 +41,11 @@ app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
 app.use('/systemManage/userModifyPassword', userModifyPasswordRouter)
 app.use('/teacherMain', teacherMainRouter)
+app.use('/teacherMain/userModifyPassword', userModifyPasswordRouter)
 app.use('/teacherMain/projectManage', projectManageRouter)
 app.use('/teacherMain/myProjectTeam', myProjectTeamRouter)
 app.use('/studentMain', studentMainRouter)
+app.use('/studentMain/projectManage', projectManageRouter)
 
 
 app.use(express.static(path.join(__dirname, '/public')));	

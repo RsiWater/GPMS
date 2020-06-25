@@ -45,7 +45,7 @@ router.post('/', function(req, res, next) {
 
 router.post('/addscore', function(req, res, next){
 
-  const sql_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
+  const sql_string = 'UPDATE GraduationProject SET Grade=? WHERE TeamLeader=?'
   db.run(sql_string, req.body.score,req.body.teamLeader, function(err, row)
   {
     if(err) throw err;

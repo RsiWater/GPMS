@@ -10,7 +10,31 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('passwordModify');
+
+  console.log(req.cookies.PassKey)
+  if(req.cookies.PassKey){
+    //console.log(req.cookies.PassKey)
+
+    const sql_string = 'SELECT * FROM account WHERE PassKey=?'
+     db.all(sql_string, req.cookies.PassKey, function(err, row)
+    {
+        if(err) throw err;
+        if(row[0]['Permission']==0){
+          console.log('yeah')
+          res.render('passwordModify')
+        }
+        else{
+          console.log('no')
+          res.redirect('/Login')
+        }
+    })
+
+
+  }else{
+    console.log('no')
+    res.redirect('/Login')
+
+  }
 });
 
 

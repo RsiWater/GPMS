@@ -9,6 +9,12 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  const sql_string = 'SELECT * FROM GraduationProject'
+  db.all(sql_string, function(err, row)
+  {
+    if (err) throw err;
+    console.log(row)
+  })
 
   res.render('projectManage')
 });

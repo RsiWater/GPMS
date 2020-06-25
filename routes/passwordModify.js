@@ -10,21 +10,26 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 {
   if(err) throw err;
 })
-// express.bodyParser
-// express.use(bodyParser.json());
-// express.use(bodyParser.urlencoded({ extended: false }));
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log('ff')
   res.render('passwordModify');
 });
 
 
+let accountName = undefined
+
+router.post('/sendAccount', function(req, res, next)
+{
+  accountName = req.body.Name
+  res.json({href: '/systemManage/accountManage/passwordModify'})
+})
+
 router.post('/send', function(req, res, next)
 {
-  const sql_string = 'UPDATE account SET Password = ? WHERE Permission = 0'
-  db.run(sql_string, req.body.password, function(err, row)
+  const sql_string = 'UPDATE account SET Password = ? WHERE Name = ?'
+  db.run(sql_string, req.body.password, accountName, function(err, row)
   {
     if (err) throw err;
     // res.render('systemManage')

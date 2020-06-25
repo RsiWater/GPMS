@@ -35,7 +35,7 @@ app.use('/', indexRouter);
 app.use('/login', loginRouter)
 app.use('/systemManage', systemManageRouter)
 app.use('/systemManage/accountManage', accountManageRouter)
-app.use('/systemManage/passwordModify', passwordModifyRouter)
+app.use('/systemManage/accountManage/passwordModify', passwordModifyRouter)
 app.use('/systemManage/projectManage', projectManageRouter)
 app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
@@ -60,7 +60,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page	
   res.status(err.status || 500);	
-  console.log(err)
+  // console.log(err)
   res.render('error');	
 });	
 

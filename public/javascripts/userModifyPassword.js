@@ -13,7 +13,8 @@ $.ajax({
     data: "",
     datatype: 'json',
 }).done(function (rcvMessage) {
-    console.log(rcvMessage)
+    console.log(rcvMessage.Password)
+    OldPW = rcvMessage.Password
 })
 
 function processFormData() {

@@ -24,11 +24,13 @@ router.get('/', function(req, res, next) {
           db.all(sql_string, function(err, row)
           {
             if(err) throw err;
-            let result = row;
-            result.forEach(function(item)
+            let result = [];
+            let i = 0;
+            row.forEach(function(item)
             {
-              console.log(item)
+              result.push([item, i++])
             })
+            // console.log(result)
 
             res.render('accountManage', {student: result});
           })

@@ -1,4 +1,4 @@
-let btnList = document.querySelectorAll('button.btn-primary')
+let btnList = document.querySelectorAll('button.btn-primary:not(.sendNewAccount):not(.btn-danger-ensure)')
 btnList.forEach(item => 
 {
     item.addEventListener('click', function(event)
@@ -16,6 +16,29 @@ btnList.forEach(item =>
     })
 })
 
+let delbtnList = document.querySelectorAll('button.btn-danger')
+let delAccountName = undefined
+delbtnList.forEach(item => 
+    {
+        item.addEventListener('click', function(event)
+        {
+            delAccountName = {Name: event.target.name}
+            console.log(delAccountName)
+        })
+    })
+document.querySelector('button.btn-danger-ensure').addEventListener('click', function(event)
+{
+    $.ajax({
+        url: '/systemManage/accountManage/delAccount',
+        type: 'POST',
+        data: delAccountName,
+        datatype: 'json',
+    }).done(function(rcvMessage)
+    {
+        console.log('qsd')
+        window.location.reload();
+    })
+})
 
 
 document.querySelector('.sendNewAccount').addEventListener('click',function(event)
@@ -29,11 +52,13 @@ document.querySelector('.sendNewAccount').addEventListener('click',function(even
         Password:password,
         Permission:permission,
         EmployeeNumber:employeeNumber
-    }
+    };
     $.ajax({
         url: '/systemManage/accountManage/addAccount', //待修改
         type: 'POST',
         data: SendNewAccount,
         datatype: 'json',
+    }).done(function (rcvMessage) {
+        window.location.reload()
     })
 })

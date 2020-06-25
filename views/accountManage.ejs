@@ -66,7 +66,7 @@
     <li class="list-group-item d-flex justify-content-between align-items-center">
       <%= ele[0].Name %>
       <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name = <%= ele[1]%>>
-        <button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal" data-target="#exampleModal">刪除帳號</button>
+        <button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal" data-target="#exampleModal" name='<%= ele[0].Name %>'>刪除帳號</button>
         <button type="button" class="btn btn-primary" name='<%= ele[0].Name %>'>更改帳號</button>
       </div>
     </li>
@@ -100,7 +100,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">不!</button>
-        <button type="button" class="btn btn-primary">沒問題</button>
+        <button type="button" class="btn btn-primary btn-danger-ensure">沒問題</button>
       </div>
     </div>
   </div>

@@ -10,9 +10,9 @@ const logger = {
 
 
 const itemProto = {
-  assigned: false,
+  teamleader: false,
   toggle() {
-    this.assigned = !this.assigned;
+    this.teamleader = !this.teamleader;
     this.trigger("toggled", this);
   } };
 
@@ -73,8 +73,8 @@ const app = {
 const view = {
   init() {
 
-    this.$notassignedList = $("#notassigned-list");
-    this.$assignedList = $("#assigned-list");
+    this.$teammateList = $("#teammate-list");
+    this.$teamleaderList = $("#teamleader-list");
     this.$form = $("form");
 
     const handleSubmit = function (e) {
@@ -127,17 +127,17 @@ const view = {
   addToList(item, list) {
     let $item = item.$el || this.createListItem(item);
 
-    if (item.assigned) {
-      $item.prependTo(this.$assignedList);
+    if (item.teamleader) {
+      $item.prependTo(this.$teamleaderList);
     } else {
-      $item.appendTo(this.$notassignedList);
+      $item.appendTo(this.$teammateList);
     }
   },
 
   updateQuantities() {
     logger.log("updateQuantities");
-    $("#notassigned-num").html(this.$notassignedList.children().length);
-    $("#assigned-num").html(this.$assignedList.children().length);
+    $("#teammate-num").html(this.$teammateList.children().length);
+    $("#teamleader-num").html(this.$teamleaderList.children().length);
   },
 
   remove($el) {
@@ -158,17 +158,17 @@ const view = {
   render(items) {
     logger.log("render");
 
-    this.$notassignedList.empty();
-    this.$assignedList.empty();
+    this.$teammateList.empty();
+    this.$teamleaderList.empty();
 
     items.forEach(item => {
       let $item = $(`<li data-id=${item.id}>${item.name}<span>${item.student_id}</span></li>`);
 
-      if (item.assigned) {
-        this.$assignedList.append($item);
-        $item.addClass("assigned");
+      if (item.teamleader) {
+        this.$teamleaderList.append($item);
+        $item.addClass("teamleader");
       } else {
-        this.$notassignedList.append($item);
+        this.$teammateList.append($item);
       }
     });
 
@@ -177,8 +177,40 @@ const view = {
 
 app.init();
 
-items.add({
-  name: "王逼吧",
-  student_id: "A1065502" });
 
+
+
+
+  var SubmitControl = document.querySelector('.btn');
+  SubmitControl.addEventListener('click', (event) => {
+    var All_id = document.querySelectorAll('.student_id')
+    console.log(All_id);
+    var Leader_id = document.querySelectorAll('.student_id')[0].innerText
+    
+   
+    console.log(Leader_id);
+
+var Mate_list=[]
+    for (i = 0; i < All_id.length; i++) { 
+    Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)}
+   
+    console.log(Leader_id)
+    console.log(Mate_list)
+    console.log(All_id);
+    let Send_id = {
+      leader_id: Leader_id
+      ,mate_list: Mate_list
+      
+    };
+    
+  console.log(Send_id);
+  $.ajax({
+      url: '/main/Identifier/getData', //待修改
+      type: 'POST',
+      data: Send_id,
+      datatype: 'json',
+  }).done(function (rcvMessage) {
+      console.log(rcvMessage)
+  })
+});
 

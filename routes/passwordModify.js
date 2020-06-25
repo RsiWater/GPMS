@@ -52,11 +52,11 @@ router.post('/sendAccount', function(req, res, next)
 
 router.post('/send', function(req, res, next)
 {
+  console.log(req.body.password)
   const sql_string = 'UPDATE account SET Password = ? WHERE Name = ?'
   db.run(sql_string, req.body.password, accountName, function(err, row)
   {
     if (err) throw err;
-    // res.render('systemManage')
     res.json({href:'/systemManage'})
   })
 });

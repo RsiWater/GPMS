@@ -25,10 +25,10 @@ SubmitControl.addEventListener('click', (event) => {
         console.log(Password)
         let SendPassword = {
             password: Password
-        };window.location.href = rcvMessage.href
+        };
         console.log(SendPassword);
         $.ajax({
-            url: '/systemManage/passwordModify/send',
+            url: '/systemManage/accountManage/passwordModify/send',
             type: 'POST',
             data: SendPassword,
             datatype: 'json',

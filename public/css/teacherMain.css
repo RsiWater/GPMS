@@ -15,3 +15,6 @@ body{
     justify-content: center !important;
     align-items: center !important;
 }
+.contents{
+    margin-top: 15vh;
+}

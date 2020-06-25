@@ -1,5 +1,5 @@
-// 得到學生名字
-var StudentName = "CCC"
+// 得到老師名字
+var TeacherName = "AAA"
 
 $.ajax({
     url: '/main/Identifier/getData', //待修改
@@ -8,10 +8,11 @@ $.ajax({
     datatype: 'json',
 }).done(function (rcvMessage) {
     console.log(rcvMessage)
-    showStudentName();
+    showTeacherName();
 })
-
 var Name = document.querySelector("#head h1")
-function showStudentName(){
-    Name.innerHTML = "您好，"+ StudentName +"老師!"
+// showTeacherName();
+function showTeacherName(){
+    Name.innerHTML = "您好，"+ TeacherName +"老師!"
+
 }

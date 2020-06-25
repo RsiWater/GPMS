@@ -6,16 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../css/teacherMain.css">
-  <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
+  <link rel="stylesheet" href="../css/navbar.css" />
+  <script src='../javascripts/teacherMain.js' defer=''></script>
+  <script src="../javascripts/navbar.js" defer></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -23,41 +18,54 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-dark bg-dark d-flex justify-content-center align-items-center"> 
+  <!-- <nav class="navbar navbar-dark bg-dark d-flex justify-content-center align-items-center"> 
     <a class="navbar-brand text-light pageName">老師主頁面</a>
     <button class="btn btn-outline-primary my-2 my-sm-0 text-light modifyPassword" type="button">更改密碼</button>
-  </nav>
-
-  <div id="head" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">您好，XXX老師!</h1>
-  </div>
-
-<div class="container">
-  <div class="card-group" style="margin-bottom:1rem">
-
-    <div class="col-sm-4">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">瀏覽畢業專題</h5>
-          <p class="card-text">顯示專題列表，可查詢以及查看想要看的專題，並進行評分。</p>
-          <a href="/teacherMain/projectManage" class="btn btn-primary">進入 	&raquo;</a>
-        </div>
-      </div>
+  </nav> -->
+  <ul class="nav" style="display: block;">
+    <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
+    <li><a href="http://elearning.nuk.edu.tw" class="pageName navbar-brand text-light">老師主頁面</a></li>
+    <button class="btn btn-outline-primary my-2 my-sm-0 text-light modifyPassword" type="button">更改密碼</button>
+    </li>
+  </ul>
+  <div class="contents">
+    <div id="head" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">您好，XXX老師!</h1>
     </div>
 
-    <div class="col-sm-4">
-      <div class="card text-center">
-        <div class="card-body">
-          <h5 class="card-title">我的專題小組</h5>
-          <p class="card-text">進入頁面，可以指派專題小組成員，也可刪除專題小組成員，自由指派。</p>
-          <a href="/teacherMain/myProjectTeam" class="btn btn-primary">進入 	&raquo;</a>
+    <div class="container">
+      <div class="card-group" style="margin-bottom:1rem">
+
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">瀏覽畢業專題</h5>
+              <p class="card-text">顯示專題列表，可查詢以及查看想要看的專題，並進行評分。</p>
+              <a href="/teacherMain/projectManage" class="btn btn-primary">進入 &raquo;</a>
+            </div>
+          </div>
         </div>
+
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">我的專題小組</h5>
+              <p class="card-text">進入頁面，可以指派專題小組成員，也可刪除專題小組成員，自由指派。</p>
+              <a href="/teacherMain/myProjectTeam" class="btn btn-primary">進入 &raquo;</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
   </div>
-</div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>

@@ -43,5 +43,15 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.post('/addscore', function(req, res, next){
+
+  const sql_string = 'INSERT INTO GraduationProject (Name,Password,Permission,EmployeeNumber) VALUES (?,?,?,?)'
+  db.run(sql_string, req.body.AccountName,req.body.Password,req.body.Permission,req.body.EmployeeNumber, function(err, row)
+  {
+    if(err) throw err;
+    res.json({href: '/systemManage'})
+  })
+
+});
 
 module.exports = router;

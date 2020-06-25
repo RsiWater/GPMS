@@ -60,7 +60,7 @@ for (const button of lis) {
 }
 
 
-var SubmitScore = document.querySelectorAll('button[type="submit"]')[1];
+var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
         let SendScore = {

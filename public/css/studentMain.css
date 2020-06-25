@@ -18,3 +18,20 @@ body{
 .contents{
     margin-top: 15vh;
 }
+
+.notification{
+    z-index: -2;
+    background-image: url("../images/3dRuBV8.png");
+    border-radius: 50px;
+    background-size: cover;
+    width:48px;
+    height:48px;
+    position: fixed;
+    right: 10vw;
+}
+
+.notification:hover {
+    margin: .75em 0;
+    transform: scale(1.1);
+  }
+

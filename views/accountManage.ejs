@@ -59,7 +59,7 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    <button type="button" class="btn btn-success justify-content-end">新增帳號</button>
+    <button type="button" class="btn btn-success justify-content-end "data-toggle="modal" data-target="#Modal4NewAccount">新增帳號</button>
   </nav>
   <ul class="list-group">
     <% student.forEach(function(ele){%>
@@ -106,6 +106,50 @@
   </div>
 </div>
 
+</div>
+
+<!-- Modal NewAccount-->
+<div class="modal fade" id="Modal4NewAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">新增帳號</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">帳號名</span>
+          </div>
+          <input type="text" class="form-control accountName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">密碼</span>
+          </div>
+          <input type="text" class="form-control password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">權限</span>
+          </div>
+          <input type="text" class="form-control permission" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">員工編號(可選)</span>
+          </div>
+          <input type="text" class="form-control employeeNumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary sendNewAccount">確定新增</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

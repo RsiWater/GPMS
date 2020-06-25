@@ -11,3 +11,24 @@ document.querySelector('button.btn-primary').addEventListener('click', function(
         window.location.href = rcvMessage.href
     })
 })
+
+
+document.querySelector('.sendNewAccount').addEventListener('click',function(event)
+{
+    var accountName=document.querySelector('.accountName').value
+    var password=document.querySelector('.password').value
+    var permission=document.querySelector('.permission').value
+    var employeeNumber=document.querySelector('.employeeNumber').value
+    let SendNewAccount={
+        AccountName:accountName,
+        Password:password,
+        Permission:permission,
+        EmployeeNumber:employeeNumber
+    }
+    $.ajax({
+        url: '/main/Identifier/getData', //待修改
+        type: 'POST',
+        data: SendNewAccount,
+        datatype: 'json',
+    })
+})

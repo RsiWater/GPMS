@@ -99,7 +99,7 @@ SubmitControl.addEventListener('click', (event) => {
         };
         console.log(SendScore);
         $.ajax({
-            url: '/main/Identifier/getData', //待修改
+            url: '/teacherMain/projectManage/addscore', //待修改
             type: 'POST',
             data: SendScore,
             datatype: 'json',

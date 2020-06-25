@@ -63,20 +63,6 @@ for (const button of lis) {
 var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
-<<<<<<< HEAD
-    let SendScore = {
-        score: clickNum + 1
-    };
-    console.log(SendScore);
-    $.ajax({
-        url: '/main/Identifier/getData', //待修改
-        type: 'POST',
-        data: SendScore,
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        console.log(rcvMessage)
-    })
-=======
         let SendScore = {
             score: clickNum + 1,
             teamLeader: targetTeam
@@ -90,7 +76,6 @@ SubmitScore.addEventListener('click', (event) => {
         }).done(function (rcvMessage) {
             window.location.reload();
         })
->>>>>>> 00e6274ed4079873728c0fc92f959d29233add68
 
 });
 
@@ -152,6 +137,9 @@ var SubmitSearch = document.querySelector(".Administrator nav button")
 var SearchContent = document.querySelector(".Administrator input")
 var SA_Proj_List_Serach = document.querySelectorAll(".Administrator .list-group li")
 SubmitSearch.addEventListener('click', (event) => {
+    search();
+});
+function search(){
     sContent = SearchContent.value
     console.log(sContent)
     for (const list of SA_Proj_List_Serach) {
@@ -164,15 +152,22 @@ SubmitSearch.addEventListener('click', (event) => {
         if (sContent === text)
             list.style.display = "flex"
     }
-});
+}
+// $(".Administrator nav input").bind("keypress", {}, keypressInBox);
 
-$(".Administrator nav input").bind("keypress", {}, keypressInBox);
+// function keypressInBox(e) {
+//     var code = (e.keyCode ? e.keyCode : e.which);
+//     if (code == 13) { //Enter keycode
+//         e.preventDefault();
 
-function keypressInBox(e) {
-    var code = (e.keyCode ? e.keyCode : e.which);
-    if (code == 13) { //Enter keycode
-        e.preventDefault();
-
-        $(".Administrator button").submit();
+//         $(".Administrator button").click();
+//     }
+// };
+showSearch = function(event,self) {
+    if (event.keyCode == 13) {
+        search();
+        event.cancleBubble = true;
+        event.returnValue = false;
+        return false;
     }
-};
+}

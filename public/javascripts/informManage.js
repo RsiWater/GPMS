@@ -50,7 +50,7 @@ SubmitControl.addEventListener('click', (event) => {
     };
     console.log(SendDateAndType)
     $.ajax({
-        url: '/main/Identifier/getData', //待修改
+        url: '/systemManage/informManage', //待修改
         type: 'POST',
         data: SendDateAndType,
         datatype: 'json',

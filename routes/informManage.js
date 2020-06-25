@@ -36,7 +36,12 @@ router.get('/', function(req, res, next) {
   }
 });
 
-router.post('/', function(req, res, next) {
-  
-})
+router.post('/', function(req, res, next){
+
+  const sql_string = 'INSERT INTO inform (Time,Type) VALUES (?,?)'
+  db.run(sql_string, req.body.time,req.body.informType, function(err, row)
+  {
+    if(err) throw err;
+  })
+});
 module.exports = router;

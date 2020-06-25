@@ -10,3 +10,28 @@
 .Administrator .list-group{
     height:auto
 }
+
+.Student ul li{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+.Student nav li{
+    padding-left: 0;
+    margin-top: 2vh;
+}
+.Student .list-group{
+    height:auto
+}
+.Teacher ul li{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+.Teacher nav li{
+    padding-left: 0;
+    margin-top: 2vh;
+}
+.Teacher .list-group{
+    height:auto
+}

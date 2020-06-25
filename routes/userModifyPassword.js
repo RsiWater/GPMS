@@ -53,6 +53,7 @@ router.post('/', function(req, res, next)
   db.run(sql_string, req.body.password, req.cookies.PassKey, function(err, row)
   {
     if(err) throw err;
+    res.json({href: '/systemManage'})
     console.log("update")
   })
 })

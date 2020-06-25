@@ -42,6 +42,7 @@ router.post('/', function(req, res, next){
   db.run(sql_string, req.body.time,req.body.informType, function(err, row)
   {
     if(err) throw err;
+    res.json({href: '/systemManage'})
   })
 });
 module.exports = router;

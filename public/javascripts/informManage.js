@@ -55,6 +55,6 @@ SubmitControl.addEventListener('click', (event) => {
         data: SendDateAndType,
         datatype: 'json',
     }).done(function (rcvMessage) {
-        console.log(rcvMessage)
+        window.location.href = rcvMessage.href
     })
 });

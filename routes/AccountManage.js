@@ -40,17 +40,17 @@ router.get('/', function(req, res, next) {
           res.redirect('/Login')
         }
     })
-
-
   }else{
     console.log('no')
     res.redirect('/Login')
 
   }
-
-
 });
 
+router.post('/addAccount', function(req, res, next)
+{
+
+})
 
 
 module.exports = router;

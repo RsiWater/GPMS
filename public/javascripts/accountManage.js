@@ -31,7 +31,7 @@ document.querySelector('.sendNewAccount').addEventListener('click',function(even
         EmployeeNumber:employeeNumber
     }
     $.ajax({
-        url: '/main/Identifier/getData', //待修改
+        url: '/systemManage/accountManage/addAccount', //待修改
         type: 'POST',
         data: SendNewAccount,
         datatype: 'json',

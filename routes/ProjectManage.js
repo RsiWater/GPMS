@@ -13,10 +13,10 @@ router.get('/', function(req, res, next) {
   db.all(sql_string, function(err, row)
   {
     if (err) throw err;
-    console.log(row)
+    res.render('projectManage', {project: row})
   })
 
-  res.render('projectManage')
+  
 });
 
 router.post('/', function(req, res, next) {

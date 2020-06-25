@@ -9,11 +9,11 @@ for (const button of lis) {
 
         for (var j = 0; j <= i; j++) {
             var selectedHeart = lis[j]
-            selectedHeart.children[0].src = "../public/images/pheart.png"
+            selectedHeart.children[0].src = "../images/pheart.png"
         }
         for (var j = 9; j > i; j--) {
             var selectedHeart = lis[j]
-            selectedHeart.children[0].src = "../public/images/bheart.png"
+            selectedHeart.children[0].src = "../images/bheart.png"
         }
         // }
     }
@@ -25,17 +25,17 @@ for (const button of lis) {
         if (clickNum == 10) {
             for (var j = 0; j <= i; j++) {
                 var selectedHeart = lis[j]
-                if (selectedHeart.children[0].src = "../public/images/pheart.png")
-                    selectedHeart.children[0].src = "../public/images/bheart.png"
+                if (selectedHeart.children[0].src = "../images/pheart.png")
+                    selectedHeart.children[0].src = "../images/bheart.png"
             }
         } else {
             for (var j = 0; j <= clickNum; j++) {
                 var selectedHeart = lis[j]
-                selectedHeart.children[0].src = "../public/images/pheart.png"
+                selectedHeart.children[0].src = "../images/pheart.png"
             }
             for (var j = 9; j > clickNum; j--) {
                 var selectedHeart = lis[j]
-                selectedHeart.children[0].src = "../public/images/bheart.png"
+                selectedHeart.children[0].src = "../images/bheart.png"
             }
         }
     }
@@ -49,12 +49,12 @@ for (const button of lis) {
         console.log(i)
         for (var j = 0; j <= clickNum + 1; j++) {
             var selectedHeart = lis[j]
-            selectedHeart.children[0].src = "../public/images/pheart.png"
+            selectedHeart.children[0].src = "../images/pheart.png"
         }
         for (var j = 9; j > clickNum; j--) {
             var selectedHeart = lis[j]
-            if (selectedHeart.children[0].src = "../public/images/pheart.png")
-                selectedHeart.children[0].src = "../public/images/bheart.png"
+            if (selectedHeart.children[0].src = "../images/pheart.png")
+                selectedHeart.children[0].src = "../images/bheart.png"
         }
     }
 }

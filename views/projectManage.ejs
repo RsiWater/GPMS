@@ -59,66 +59,14 @@
     </form>
   </nav>
   <ul class="list-group">
+    <% project.forEach(ele => { %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
+      <%= ele.Name %>
       <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
         <button type="button" class="btn btn-primary">更改專題</button>
       </div>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-primary">更改專題</button>
-      </div>
-    </li>
+    <% }) %>
   </ul>
   <div class="row justify-content-md-center">
     <nav aria-label="Page navigation example">
@@ -164,22 +112,11 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </nav>
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
 
+  <ul class="list-group">
+    <% project.forEach(ele => { %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
+      <%= ele.Name %>
       <div>
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button type="button" class="btn btn-success" data-toggle="modal"
@@ -190,66 +127,8 @@
         </div>
       </div>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenter">互評專題</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
+    <% }) %>
+    
   </ul>
   <div class="row justify-content-md-center">
     <nav aria-label="Page navigation example">
@@ -278,25 +157,25 @@
         </div>
         <div class="modal-body">
           <div class="card-group w-100">
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
-            <span class="card w-25" style="border: 0px;"><img src="../public/images/bheart.png" class="card-img-top"
+            <span class="card w-25" style="border: 0px;"><img src="../images/bheart.png" class="card-img-top"
                 alt="..."></span>
           </div>
         </div>
@@ -319,8 +198,9 @@
     </form>
   </nav>
   <ul class="list-group">
+    <% project.forEach(ele => { %>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
+      <%= ele.Name%>
       <div>
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button type="button" class="btn btn-success" data-toggle="modal"
@@ -331,79 +211,7 @@
         </div>
       </div>
     </li>
-
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      專題名
-      <div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" data-toggle="modal"
-            data-target="#exampleModalCenterTeacher">專題評分</button>
-        </div>
-        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">瀏覽專題</button>
-        </div>
-      </div>
-    </li>
+    <% }) %>
   </ul>
   <div class="row justify-content-md-center">
     <nav aria-label="Page navigation example">

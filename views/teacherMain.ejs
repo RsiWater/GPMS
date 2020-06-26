@@ -38,18 +38,16 @@
       <div class="card-header">
         通知
       </div>
-      <div class="card card-body">
-        驚不驚奇？意不意外？我也是會開遊戲直播的好嗎！
-        ㄊㄓ
+      <% inform.forEach(ele => { %>
+      <div class="card card-body notificationBox">
+        <div class="notificationTime">
+          <p><%= ele.Time %></p>
+        </div>
+        <div class="notificationType">
+         <%= ele.Type %>
+        </div>
       </div>
-      <div class="card card-body">
-        驚不驚奇？意不意外？我也是會開遊戲直播的好嗎！
-        ㄊㄓ
-      </div>
-      <div class="card card-body">
-        驚不驚奇？意不意外？我也是會開遊戲直播的好嗎！
-        ㄊㄓ
-      </div>
+      <% }) %>
     </div>
     <div id="head" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">您好，XXX老師!</h1>

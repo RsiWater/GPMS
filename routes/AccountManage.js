@@ -47,6 +47,22 @@ router.get('/', function(req, res, next) {
   }
 });
 
+
+router.post('/getData', function(req, res, next)
+{
+  const _sql_string = 'SELECT * FROM account'
+  db.all(_sql_string, function(err, row)
+  {
+    if(err) throw err;
+    let nameList = []
+    row.forEach(item =>
+      {
+        nameList.push(item.Name)
+      })
+    res.json({nameList: nameList})
+  })
+})
+
 router.post('/addAccount', function(req, res, next)
 {
   const sql_string = 'INSERT INTO account (Name,Password,Permission,EmployeeNumber) VALUES (?,?,?,?)'

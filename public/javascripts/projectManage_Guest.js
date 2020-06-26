@@ -11,6 +11,9 @@ function GMS() {
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/Guest"
+
     var ProjectList
     $.ajax({
         url: '/Guest/projectManage/getdata',

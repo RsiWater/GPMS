@@ -8,6 +8,8 @@ function PMS() {
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/studentMain"
     var ProjectList
     var TeamLeaderList
     $.ajax({

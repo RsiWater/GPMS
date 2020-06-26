@@ -7,8 +7,11 @@ function SAS() {
     var page = document.querySelector(".Administrator .row .pagination")
 
 
-    var HOME = document.querySelectorAll('.nav li a')[1]
-    HOME.href = "projectManage"
+    var replay = document.querySelectorAll('.nav li a')[1]
+    replay.href = "projectManage"
+
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/systemManage"
     var ProjectList
     $.ajax({
         url: '/systemManage/projectManage/getdata',

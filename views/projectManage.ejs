@@ -34,11 +34,11 @@
 <body>
   <ul class="nav">
     <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
-    <li><a href="http://elearning.nuk.edu.tw">專題瀏覽</a></li>
-    <li><a >登出</a></li>
-    <li><a href="http://elearning.nuk.edu.tw">更改密碼</a></li>
-    <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a>
-    </li>
+    <li><a href="http://elearning.nuk.edu.tw">顯示全部</a></li>
+    <li><a href="http://elearning.nuk.edu.tw">回到主頁面</a></li>
+    <li><a class='signout' href="">登出</a></li>
+    <!-- <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a>
+    </li> -->
   </ul>
 
 
@@ -113,12 +113,14 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="button">搜尋</button>
       </form>
     </nav>
+  
 
 
     <ul class="list-group">
       <% project.forEach(ele => { %>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <%= ele.Name %>
+        <div class="scoreContainer">學生互評:<%= ele.Score %>,訪客投票:<%= ele.Vote %></div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter"
@@ -199,6 +201,7 @@
       <% project.forEach(ele => { %>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <%= ele.Name%>
+        <div class="scoreContainer">老師評分:<%= ele.Grade %></div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterTeacher"

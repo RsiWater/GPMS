@@ -10,6 +10,7 @@ $.ajax({
     console.log(rcvMessage)
     showTeacherName();
 })
+
 var Name = document.querySelector("#head h1")
 // showTeacherName();
 function showTeacherName(){

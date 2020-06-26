@@ -20,20 +20,20 @@ var storage =   multer.diskStorage({
     //   })
     },
     filename: function (req, file, callback) {
-        console.log(file)
+        
       callback(null, file.fieldname + '-' + Date.now());
     }
   });
 
 
 router.post('/upload',function(req,res){
-    console.log(req)
     var upload = multer({ storage : storage}).single('userFile');
     upload(req,res,function(err) {
         if(err) {
             console.log(err)
             return res.end("Error uploading file.");
         }
+        console.log(req.file)
         res.end("File is uploaded");
     });
 });

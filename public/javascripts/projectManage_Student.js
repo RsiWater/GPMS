@@ -5,19 +5,22 @@ function PMS() {
     var listGroup = document.querySelector(".Student .list-group")
     var pageid = document.querySelector(".Student #pageid")
     var page = document.querySelector(".Student .row .pagination")
-    
+
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
     var ProjectList
+    var TeamLeaderList
     $.ajax({
-        url: '/teacherMain/projectManage/getdata',
+        url: '/studentMain/projectManage/getdata',
         type: 'POST',
         data: '',
         datatype: 'json',
     }).done(function (rcvMessage) {
         ProjectList = rcvMessage.projectNameList
+        TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
-        paging(ProjectList, 1,pageid,listGroup);
+        console.log(TeamLeaderList)
+        paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
     })
     SubmitSearch.addEventListener('click', (event) => {
         search();

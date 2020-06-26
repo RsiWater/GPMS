@@ -248,9 +248,6 @@ class ProjectShow{
             url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
             data: sendData,
-            // cache: false,
-            // contentType: false,
-            // processData: false,
             datatype: 'json'
         }).done(function (rcvMessage) {
             console.log(rcvMessage)

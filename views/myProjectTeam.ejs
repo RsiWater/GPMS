@@ -5,8 +5,14 @@
   <title>Teacher Assignment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href='https://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/myProjectTeam.css">
-
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -21,20 +27,42 @@
   <main>
 
     <form>
-      <label for="item-input">學生</label>
+      <label for="item-input">Student Name</label>
       <input type="text" id="item-input">
-      <label for="student_id-input">Student_id</label>
+      <label for="student_id-input">Student ID</label>
       <input type="text" id="student_id-input">
+      <label for="YourTeam">Choose team</label>
+      <select name="YourTeam">
+        　<option value="葉子碩">A1065525</option>
+        </select>
       
-      
-      <button type="submit" class="submit-btn" id="submit-btn">Add</button>
-      <button type="button" class="btn" id="back-btn">儲存回上一頁</button>
+      <button type="submit" class="submit-btn btn btn-success" id="submit-btn">Add</button>
+      <button type="button" class="btn btn-primary" id="back-btn">Save</button>
+
+      <button type="button"  id="back-btn-test"  class="btn btn-primary" data-toggle="modal" data-target="#alert">Save(Alert Test)</button>
     </form>
 
+    <div class="modal" id="alert" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document"> 
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title">警告</h5>
+                 <button type="button" class="close btn btn-light" data-dismiss="modal" aria-label="Close">X</button> 
+             </div>
+             <div class="modal-body">
+                                 <p>查無此學生，請重新輸入</p> 
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">確定</button>
+                
+             </div>
+        </div>
+    </div>
+ </div>
+
+ 
+
     <div id="lists">
-
-      
-
       <p class="list__label">組長<span class="indicator" id="teamleader-num"></span></p>
       <ul id="teamleader-list">
       </ul>

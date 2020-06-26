@@ -7,6 +7,8 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
   if(err) throw err;
 })
 
+
+let userContent = undefined
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
@@ -18,6 +20,7 @@ router.get('/', function(req, res, next) {
      db.all(sql_string, req.cookies.PassKey, function(err, row)
     {
         if(err) throw err;
+        userContent = row[0]
         if(row[0]['Permission']==1){
           console.log('yeah')
           res.render('myProjectTeam')
@@ -35,5 +38,25 @@ router.get('/', function(req, res, next) {
 
   }
 });
+
+router.post('/', function(req, res, next)
+{
+  let studentList = JSON.parse(req.body.mate_list)
+  let studentLeader = req.body.leader_id
+
+  try{
+    studentList.forEach(id =>
+      {
+        const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
+        db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
+        {
+          if(err) throw err;
+        })
+      })
+      res.json({res: true})
+  }catch{
+    res.json({res: false})
+  }
+})
 
 module.exports = router;

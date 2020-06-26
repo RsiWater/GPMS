@@ -55,6 +55,10 @@ class ProjectShow{
         this.docDel=docDel//文件刪除按鈕
         const codeDel=document.getElementById('codeDel')
         this.codeDel=codeDel//程式碼刪除按鈕
+        this.poster=document.querySelector('.poster')
+        this.ppt=document.querySelector('.ppt')
+        this.doc=document.querySelector('.doc')
+        this.code=document.querySelector('.code')
 
         let upData //預定儲存上傳的訊息
         this.upData=upData
@@ -82,23 +86,43 @@ class ProjectShow{
         }
 
         if(info.poster!=null){ //四個檔案初始化
-            this.posterName.innerText=info.poster/////////////files[0].name
+            this.posterName.innerText=info.poster/////////////info.poster.files[0].name
             this.posterImg.setAttribute("src",imgSrc.poster)
+            //設置download
+            $(".poster").click(function(){
+                window.open("http://elearning.nuk.edu.tw/m_teacher/m_tea_txbook_files.php?jteabook_sd=126217")
+            })
+            this.poster.classList.add('downhover')
         }
         if(info.ppt!=null){
-            this.pptName.innerText=info.ppt//////////////////
+            this.pptName.innerText=info.ppt////////////////// info.ppt.files[0].name
             this.pptImg.setAttribute("src",imgSrc.ppt)
+            //設置download
+            $(".ppt").click(function(){
+                window.open("http://elearning.nuk.edu.tw/m_teacher/m_tea_txbook_files.php?jteabook_sd=126217")
+            })
+            this.ppt.classList.add('downhover')
         }
         if(info.doc!=null){
-            this.docName.innerText=info.doc//////////////////
+            this.docName.innerText=info.doc////////////////// info.doc.files[0].name
             this.docImg.setAttribute("src",imgSrc.doc)
+            //設置download
+            $(".doc").click(function(){
+                window.open("http://elearning.nuk.edu.tw/m_teacher/m_tea_txbook_files.php?jteabook_sd=126217")
+            })
+            this.doc.classList.add('downhover')
         }
         if(info.code!=null){
-            this.codeName.innerText=info.code/////////////////
+            this.codeName.innerText=info.code///////////////// info.code.files[0].name
             this.codeImg.setAttribute("src",imgSrc.code)
+            //設置download
+            $(".code").click(function(){
+                window.open("http://elearning.nuk.edu.tw/m_teacher/m_tea_txbook_files.php?jteabook_sd=126217")
+            })
+            this.code.classList.add('downhover')
         }
 
-        this.upData={'title':[false,null],'description':[false,null],'poster':[false,null],
+        this.upData={'title':[true,null],'description':[true,null],'poster':[false,null],
         'ppt':[false,null],'doc':[false,null],'code':[false,null]} //Boolean為false表示未經過修改
     }
 
@@ -144,18 +168,34 @@ class ProjectShow{
             case 'posterCh':
                 this.posterName.innerText=filename
                 this.posterImg.setAttribute("src",imgSrc.poster)
+                this.poster.classList.remove('downhover') //移除下載綁定
+                $(".poster").unbind('click')
+                this.upData.poster[0]=true
+                this.upData.poster[1]=this.posterCh.files
                 break
             case 'pptCh':
                 this.pptName.innerText=filename
                 this.pptImg.setAttribute("src",imgSrc.ppt)
+                this.ppt.classList.remove('downhover') //移除下載綁定
+                $(".ppt").unbind('click')
+                this.upData.ppt[0]=true
+                this.upData.ppt[1]=this.pptCh.files
                 break
             case 'docCh':
                 this.docName.innerText=filename
                 this.docImg.setAttribute("src",imgSrc.doc)
+                this.doc.classList.remove('downhover')  //移除下載綁定
+                $(".doc").unbind('click')
+                this.upData.doc[0]=true
+                this.upData.doc[1]=this.docCh.files
                 break
             case 'codeCh':
                 this.codeName.innerText=filename
                 this.codeImg.setAttribute("src",imgSrc.code)
+                this.code.classList.remove('downhover') //移除下載綁定
+                $(".code").unbind('click')
+                this.upData.code[0]=true
+                this.upData.code[1]=this.codeCh.files
                 break
         }
     }
@@ -165,40 +205,60 @@ class ProjectShow{
             case 'posterDel':
                 this.posterName.innerText="尚未上傳檔案"
                 this.posterImg.setAttribute("src","")
+                this.poster.classList.remove('downhover') //移除下載綁定
+                $(".poster").unbind('click')
+                this.upData.poster[0]=true
+                this.upData.poster[1]=null
                 break
             case 'pptDel':
                 this.pptName.innerText="尚未上傳檔案"
                 this.pptImg.setAttribute("src","")
+                this.ppt.classList.remove('downhover') //移除下載綁定
+                $(".ppt").unbind('click')
+                this.upData.ppt[0]=true
+                this.upData.ppt[1]=null
                 break
             case 'docDel':
                 this.docName.innerText="尚未上傳檔案"
                 this.docImg.setAttribute("src","")
+                this.doc.classList.remove('downhover')  //移除下載綁定
+                $(".doc").unbind('click')
+                this.upData.doc[0]=true
+                this.upData.doc[1]=null
                 break
             case 'codeDel':
                 this.codeName.innerText="尚未上傳檔案"
                 this.codeImg.setAttribute("src","")
+                this.code.classList.remove('downhover') //移除下載綁定
+                $(".code").unbind('click')
+                this.upData.code[0]=true
+                this.upData.code[1]=null
                 break
         }
     }
 
     toUpdate(){ //上傳資料
-        /*upData.title=titleInput.value
-        upData.description=desInput.value
-        upData.poster=posterCh.files
-        upData.ppt=pptCh.files
-        upData.doc=docCh.files
-        upData.code=codeCh.files*/
-        
+        this.upData.title[1]=this.titleInput.value
+        this.upData.description[1]=this.desInput.value
+        $.ajax({
+            url: '/teacherMain/projectManage/addscore', //待修改
+            type: 'POST',
+            data: SendScore,
+            datatype: 'json',
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            window.location.reload();
+        })
     }
 }
 const imgSrc={'poster':'../public/images/poster.png','ppt':'../public/images/microsoft-powerpoint.png',
               'doc':'../public/images/microsoft-word.png','code':'../public/images/compressed.png',download:"../public/images/download_icon.png"}
 
-/*const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
-            'poster':'../fileTest/專題成果報告書_行車安全警示系統.pdf','ppt':'../fileTest/聊天機器人(上).pptx',
-            'doc':'../fileTest/專題成果報告書_NeoHand2.docx','code':'../fileTest/GA_A1065506.zip'}*/
+const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
+            'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
+            'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
 
-const info={'certification':true,'title':null,'description':null,
+/*const info={'certification':true,'title':null,'description':null,
             'poster':null,'ppt':null,
-            'doc':null,'code':null}
+            'doc':null,'code':null}*/
 const ps=new ProjectShow(info,imgSrc)

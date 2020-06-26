@@ -6,9 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="../javascripts/projectManage.js" defer></script>
   <link rel="stylesheet" href="../css/projectManage.css" />
+  <script src="../javascripts/pagination.js" defer></script>
   <script src="../javascripts/projectManage_Administrator.js" defer></script>
+  <script src="../javascripts/projectManage_Student.js" defer></script>
+  <script src="../javascripts/projectManage_Teacher.js" defer></script>
+  <script src="../javascripts/projectManage_Guest.js" defer></script>
+  <script src="../javascripts/projectManage.js" defer></script>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -54,25 +58,20 @@
     </nav>
     <ul class="list-group">
       <% project.forEach(ele => { %>
-      <li class="list-group-item <%= ele.Name %>">
+      <li class="list-group-item">
         <%= ele.Name %>
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary">更改專題</button>
+          <button type="button" class="btn btn-primary  <%= ele.Name %>">更改專題</button>
         </div>
       </li>
       <% }) %>
     </ul>
 
     <div class="row justify-content-md-center">
-      <nav aria-label="Page navigation example">
-        <div class="pagination">
-          <li class="page-item disabled"><a class="page-link">上一頁</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      <div aria-label="Page navigation example">
+        <div class="pagination" id="pageid">
         </div>
-      </nav>
+      </div>
     </div>
 
 
@@ -126,7 +125,7 @@
               name="<%= ele.TeamLeader%>">互評專題</button>
           </div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary">瀏覽專題</button>
+            <button type="button" class="btn btn-primary  <%= ele.Name %>">瀏覽專題</button>
           </div>
         </div>
       </li>
@@ -134,15 +133,10 @@
     </ul>
 
     <div class="row justify-content-md-center">
-      <nav aria-label="Page navigation example">
-        <div class="pagination">
-          <li class="page-item disabled"><a class="page-link">前一頁</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      <div aria-label="Page navigation example">
+        <div class="pagination" id="pageid">
         </div>
-      </nav>
+      </div>
     </div>
 
 
@@ -211,7 +205,7 @@
               name="<%= ele.TeamLeader%>">專題評分</button>
           </div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary">瀏覽專題</button>
+            <button type="button" class="btn btn-primary  <%= ele.Name %>">瀏覽專題</button>
           </div>
         </div>
       </li>
@@ -219,15 +213,10 @@
     </ul>
 
     <div class="row justify-content-md-center">
-      <nav aria-label="Page navigation example">
-        <div class="pagination">
-          <li class="page-item disabled"><a class="page-link">前一頁</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      <div aria-label="Page navigation example">
+        <div class="pagination" id="pageid">
         </div>
-      </nav>
+      </div>
     </div>
 
 
@@ -273,7 +262,7 @@
         <%= ele.Name%>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-primary">瀏覽專題</button>
+            <button type="button" class="btn btn-primary  <%= ele.Name %>">瀏覽專題</button>
           </div>
         </div>
       </li>
@@ -281,16 +270,12 @@
     </ul>
 
     <div class="row justify-content-md-center">
-      <nav aria-label="Page navigation example">
-        <div class="pagination">
-          <li class="page-item disabled"><a class="page-link">前一頁</a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+      <div aria-label="Page navigation example">
+        <div class="pagination" id="pageid">
         </div>
-      </nav>
+      </div>
     </div>
+
   </div>
 
 

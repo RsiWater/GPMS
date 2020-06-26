@@ -1,3 +1,5 @@
+
+
 const classNames = {
   DELETE: "delete" };
 
@@ -70,8 +72,7 @@ const app = {
   } };
 
 
-const view = 
-{
+const view = {
   init() {
 
     this.$teammateList = $("#teammate-list");
@@ -173,54 +174,43 @@ const view =
       }
     });
 
-  } 
-};
+  } };
 
 
 app.init();
 
 
-var SubmitControl = document.querySelector('.btn');
-SubmitControl.addEventListener('click', (event) => {
-  var All_id = document.querySelectorAll('.student_id')
-  console.log(All_id);
-  var Leader_id = document.querySelectorAll('.student_id')[0].innerText
-  
-  console.log(Leader_id);
 
-  var Mate_list=[]
-  for (i = 0; i < All_id.length; i++) 
-  { 
-    Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)
-  }
-  
-  console.log(Leader_id)
-  console.log(Mate_list)
-  console.log(All_id);
-  let Send_id = {
-    mate_list: Mate_list,
-    leader_id: Leader_id
-  };
-  
+  var SubmitControl = document.querySelector('.btn');
+  SubmitControl.addEventListener('click', (event) => {
+    var All_id = document.querySelectorAll('.student_id')
+    console.log(All_id);
+    var Leader_id = document.querySelectorAll('.student_id')[0].innerText
+    
+   
+    console.log(Leader_id);
+
+    var Mate_list=[]
+    for (i = 0; i < All_id.length; i++) { 
+    Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)}
+   
+    console.log(Leader_id)
+    console.log(Mate_list)
+    console.log(All_id);
+    let Send_id = {
+      leader_id: Leader_id
+      ,mate_list: Mate_list
+      
+    };
+    
   console.log(Send_id);
-  sendToServer(Mate_list, Leader_id)
-});
-
-let sendToServer = function(mate_list, leader_id)
-{
-  console.log(leader_id)
-  console.log(mate_list)
-  let Send_id = {
-    mate_list: JSON.stringify(mate_list),
-    leader_id: leader_id  
-  };
   $.ajax({
-    url: '/teacherMain/myProjectTeam',
-    type: 'POST',
-    data: Send_id,
-    datatype: 'json',
+      url: '/main/Identifier/getData', //待修改
+      type: 'POST',
+      data: Send_id,
+      datatype: 'json',
   }).done(function (rcvMessage) {
-      console.log(rcvMessage.res)
+      console.log(rcvMessage)
   })
-}
+});
 

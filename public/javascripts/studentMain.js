@@ -18,7 +18,7 @@ function showStudentName(){
 
 var notificationSwitch=document.querySelector(".notification ")
 var notificationContainer=document.querySelector(".notification-container")
-var switchLocker=0
+var switchLocker=1
 notificationSwitch.addEventListener('click', (event) => {
     if(switchLocker==0)
     {

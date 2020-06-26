@@ -35,10 +35,11 @@ body{
   }
 
 .notification-container{
+    display: none;
     z-index:1;
     position: fixed;
     right: 10vw;
-    top:5vw;
+    top:48px;
     max-width: 415px;
     border: 2px solid #1cacff!important;
 }

@@ -20,7 +20,13 @@ router.get('/', function(req, res, next) {
         if(err) throw err;
         if(row[0]['Permission']==1){
           console.log('yeah')
-          res.render('teacherMain')
+          const select_string = 'SELECT * FROM inform WHERE Type=? OR Type=?'
+          db.all(select_string,0,2, function(err, row)
+          {
+            if (err) throw err;
+            //console.log('yeah fuck')
+            res.render('teacherMain',{inform: row})
+          })
         }
         else{
           console.log('no')

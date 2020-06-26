@@ -60,7 +60,8 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage,TeamLeaderList)
         data.forEach((item,index) => {
             if (whopage === "stduentManage") {
                 str += '<li class="list-group-item d-flex justify-content-between align-items-center">' +
-                    item + '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">'+
+                    item +'<div class="scoreContainer">學生互評:訪客評分:</div>'+ 
+                '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">'+
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" name="' +
                 TeamLeaderList[index] + '">互評專題</button></div>' +
                     '<div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">' +
@@ -76,7 +77,8 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage,TeamLeaderList)
             }
             else if(whopage === "teacherManage"){
                 str += '<li class="list-group-item d-flex justify-content-between align-items-center"' + '>' +
-                    item + '<div><div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">'+
+                    item + '<div class="scoreContainer">老師評分:</div>'+
+                '<div><div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">'+
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterTeacher"name="' +
                 TeamLeaderList[index] + '">專題評分</button></div>' +
                     '<div class="btn-group btn-group-sm" role="group" style="padding-left:1vw" aria-label="Basic example">' +

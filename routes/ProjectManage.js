@@ -17,8 +17,40 @@ router.get('/', function(req, res, next) {
   })
 });
 
+
 router.post('/getData', function(req, res, next)
 {
+  if(userPermission == 2)
+  {
+    const _sql_string = 'SELECT * FROM GraduationProject'
+    db.all(_sql_string, function(err, row)
+    {
+      if(err) throw err;
+      let projectNameList = []
+      let projectTeamLeaderList = []
+      let projectScoreList = []
+      let projectVoteList = []
+      row.forEach(item =>
+        {
+          projectNameList.push(item.Name)
+          projectTeamLeaderList.push(item.TeamLeader)
+          projectScoreList.push(item.Score)
+          projectVoteList.push(item.Vote)
+        })
+
+
+      let sendData = {
+        projectNameList: projectNameList,
+        projectTeamLeaderList: projectTeamLeaderList,
+        projectScoreList: projectScoreList,
+        projectVoteList: projectVoteList
+      }
+      console.log(projectTeamLeaderList)
+      res.json(sendData)
+    })  
+  }
+
+
   const _sql_string = 'SELECT * FROM GraduationProject'
   db.all(_sql_string, function(err, row)
   {
@@ -35,6 +67,8 @@ router.post('/getData', function(req, res, next)
   })
 })
 
+let userPermission = -1
+
 router.post('/', function(req, res, next) {
 
   const sql_string = 'SELECT * FROM account WHERE PassKey=?'
@@ -42,16 +76,20 @@ router.post('/', function(req, res, next) {
   {
     if(row.length==0){
       res.json({permission:3})
+      userPermission = 3
     }
     else{
       if(row[0]['Permission']==0){
         res.json({permission:0})
+        userPermission = 0
       }
       else if(row[0]['Permission']==1){
         res.json({permission:1})
+        userPermission = 1
       }
       else{
         res.json({permission:2})
+        userPermission = 2
       }
     }
   });

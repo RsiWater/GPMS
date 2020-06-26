@@ -244,16 +244,10 @@ class ProjectShow{
         let sendData={'title':JSON.stringify(this.upData['title']),'description':JSON.stringify(this.upData['description']),'poster':JSON.stringify(this.upData['poster']),
         'ppt':JSON.stringify(this.upData['ppt']),'doc':JSON.stringify(this.upData['doc']),'code':JSON.stringify(this.upData['code'])}
 
-        console.log($('#codeCh')[0].files[0])
-        let testData = new FormData()
-        testData.append('wow', $('#codeCh')[0].files[0])
-        let testData2 = $('#codeCh')[0].files[0]
-        console.log(testData2)
-
         $.ajax({
             url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
-            data: {testData: testData2, wow:'wow'},
+            data: sendData,
             // cache: false,
             // contentType: false,
             // processData: false,

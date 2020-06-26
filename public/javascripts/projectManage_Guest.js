@@ -19,8 +19,10 @@ function GMS() {
         datatype: 'json',
     }).done(function (rcvMessage) {
         ProjectList = rcvMessage.projectNameList
+        TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
-        paging(ProjectList, 1,pageid,listGroup);
+        console.log(TeamLeaderList)
+        paging(ProjectList, 1,pageid,listGroup,"guestManage",TeamLeaderList);
 
     })
     SubmitSearch.addEventListener('click', (event) => {

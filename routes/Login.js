@@ -27,10 +27,10 @@ router.post('/', function(req, res, next)
         check=result
         if(check.length == 0)
         {
-            res.cookie.Passkey = 3
+            res.cookie('PassKey', 0)
             res.redirect('/guest/projectManage')
         }
-        if(check[0]['Permission']==0){
+        else if(check[0]['Permission']==0){
             //有輸入正確帳號
             let encode=SHA256_module.SHA256(check[0]['Name'])
             const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'

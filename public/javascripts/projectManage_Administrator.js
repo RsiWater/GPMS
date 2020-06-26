@@ -7,8 +7,11 @@ function SAS() {
     var page = document.querySelector(".Administrator .row .pagination")
 
 
-    var HOME = document.querySelectorAll('.nav li a')[1]
-    HOME.href = "projectManage"
+    var replay = document.querySelectorAll('.nav li a')[1]
+    replay.href = "projectManage"
+
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/systemManage"
     var ProjectList
     $.ajax({
         url: '/systemManage/projectManage/getdata',
@@ -20,7 +23,7 @@ function SAS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
-        paging(ProjectList, 1,pageid,listGroup,"systemManage",TeamLeaderList);
+        // paging(ProjectList, 1,pageid,listGroup,"systemManage",TeamLeaderList);
 
     })
     SubmitSearch.addEventListener('click', (event) => {

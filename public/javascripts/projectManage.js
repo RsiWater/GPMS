@@ -108,6 +108,7 @@ SubmitControl.addEventListener('click', (event) => {
     })
 });
 
+
 $.ajax({
     url: '/systemManage/projectManage', //待修改
     type: 'POST',

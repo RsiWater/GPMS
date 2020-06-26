@@ -8,6 +8,8 @@ function PMS() {
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/studentMain"
     var ProjectList
     var TeamLeaderList
     $.ajax({
@@ -20,7 +22,7 @@ function PMS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
-        paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
+        // paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
     })
     SubmitSearch.addEventListener('click', (event) => {
         search();

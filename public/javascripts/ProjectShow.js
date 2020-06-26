@@ -241,24 +241,17 @@ class ProjectShow{
         this.upData.title[1]=this.titleInput.value
         this.upData.description[1]=this.desInput.value
 
-        let sendData={'title':JSON.stringify(this.upData['title']),'description':JSON.stringify(this.upData['description']),'poster':JSON.stringify(this.upData['poster']),
+        let sendData={'title':this.upData['title'][1],'description':this.upData['description'][1],'poster':JSON.stringify(this.upData['poster']),
         'ppt':JSON.stringify(this.upData['ppt']),'doc':JSON.stringify(this.upData['doc']),'code':JSON.stringify(this.upData['code'])}
-
-        console.log($('#codeCh')[0].files[0])
-        let testData = new FormData()
-        testData.append('wow', $('#codeCh')[0].files[0])
 
         $.ajax({
             url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
-            // cache: false,
-            contentType: false,
-            processData: false,
-            data: {testData: testData},
+            data: sendData,
             datatype: 'json'
         }).done(function (rcvMessage) {
             console.log(rcvMessage)
-            window.location.reload();
+            // window.location.reload();
         })
     }
 }

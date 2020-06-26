@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');	
 
 
+var testRouter = require('./routes/test')
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/Login')
 var systemManageRouter = require('./routes/systemManage');
@@ -18,6 +19,7 @@ var studentMainRouter = require('./routes/studentMain');
 var passwordModifyRouter = require('./routes/passwordModify');
 var userModifyPasswordRouter = require('./routes/userModifyPassword');
 var myProjectTeamRouter = require('./routes/myProjectTeam');
+var projectShowRouter = require('./routes/projectShow');
 // var signinRouter = require('./routes/Sign_in');	
 
 var app = express();	
@@ -31,12 +33,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));	
 app.use(cookieParser());	
 
+app.use('/test', testRouter)
 app.use('/', indexRouter);	
 app.use('/login', loginRouter)
 app.use('/systemManage', systemManageRouter)
 app.use('/systemManage/accountManage', accountManageRouter)
 app.use('/systemManage/accountManage/passwordModify', passwordModifyRouter)
 app.use('/systemManage/projectManage', projectManageRouter)
+app.use('/systemManage/projectManage/projectShow', projectShowRouter)
 app.use('/systemManage/informManage', informManageRouter)
 app.use('/systemManage/themePicker', themePickerRouter)
 app.use('/systemManage/userModifyPassword', userModifyPasswordRouter)
@@ -46,7 +50,7 @@ app.use('/teacherMain/projectManage', projectManageRouter)
 app.use('/teacherMain/myProjectTeam', myProjectTeamRouter)
 app.use('/studentMain', studentMainRouter)
 app.use('/studentMain/projectManage', projectManageRouter)
-
+app.use('/guest/projectManage', projectManageRouter)
 
 app.use(express.static(path.join(__dirname, '/public')));	
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../javascripts/test.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" name="file" id="file" />
+    <button id="upload">上傳</button>
+    <span id="progress">0</span>
+    <img id="image" src="" width="200" />
+
+    <br><br><br>
+    <form id        =  "uploadForm"
+     enctype   =  "multipart/form-data"
+     action    =  "/test/upload"
+     method    =  "post"
+    >
+<input type="file" name="userFile" />
+<input type="submit" value="Upload File" name="submit">
+</form>
+</body>
+</html>

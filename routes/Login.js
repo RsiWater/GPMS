@@ -25,7 +25,12 @@ router.post('/', function(req, res, next)
     DB_check('account',name,password,function(result){
         //console.log(result)
         check=result
-        if(check[0]['Permission']==0){
+        if(check.length == 0)
+        {
+            res.cookie('PassKey', 0)
+            res.redirect('/guest/projectManage')
+        }
+        else if(check[0]['Permission']==0){
             //有輸入正確帳號
             let encode=SHA256_module.SHA256(check[0]['Name'])
             const sql_string = 'UPDATE account SET PassKey=? WHERE Name=?'
@@ -67,6 +72,12 @@ router.post('/', function(req, res, next)
         }
     })
 
+})
+
+router.post('/signout', function(req, res, next)
+{
+    res.cookie('PassKey', undefined)
+    res.json({href: '/login'})
 })
 
 module.exports = router;

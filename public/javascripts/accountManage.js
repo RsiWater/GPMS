@@ -1,4 +1,3 @@
-function AccountManage() {
     let btnList = document.querySelectorAll('button.btn-primary:not(.sendNewAccount):not(.btn-danger-ensure)')
     btnList.forEach(item => {
         item.addEventListener('click', function (event) {
@@ -99,4 +98,3 @@ function AccountManage() {
             window.location.href = rcvMessage.href
         })
     })
-}

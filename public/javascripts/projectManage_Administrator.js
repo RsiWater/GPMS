@@ -23,7 +23,7 @@ function SAS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
-        paging(ProjectList, 1,pageid,listGroup,"systemManage",TeamLeaderList);
+        // paging(ProjectList, 1,pageid,listGroup,"systemManage",TeamLeaderList);
 
     })
     SubmitSearch.addEventListener('click', (event) => {

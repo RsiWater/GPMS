@@ -4,7 +4,6 @@ var multer  =   require('multer');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log('asd')
   res.render('projectShow');
 });
 
@@ -25,6 +24,11 @@ var storage =   multer.diskStorage({
     callback(null, file.fieldname + '-' + Date.now());
   }
 });
+
+router.post('/modifyProject', function(req, res, next)
+{
+  console.log(req.body.title)
+})
 
 router.post('/upload',function(req, res, next)
 {   

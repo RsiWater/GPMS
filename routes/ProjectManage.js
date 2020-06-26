@@ -49,22 +49,46 @@ router.post('/getData', function(req, res, next)
       res.json(sendData)
     })  
   }
-
-
-  const _sql_string = 'SELECT * FROM GraduationProject'
-  db.all(_sql_string, function(err, row)
+  else if(userPermission == 1)
   {
-    if(err) throw err;
-    let projectNameList = []
-    let projectTeamLeaderList = []
-    row.forEach(item =>
-      {
-        projectNameList.push(item.Name)
-        projectTeamLeaderList.push(item.TeamLeader)
-      })
-    console.log(projectTeamLeaderList)
-    res.json({projectNameList: projectNameList, projectTeamLeaderList: projectTeamLeaderList})
-  })
+    const _sql_string = 'SELECT * FROM GraduationProject'
+    db.all(_sql_string, function(err, row)
+    {
+      if(err) throw err;
+      let projectNameList = []
+      let projectTeamLeaderList = []
+      let projectGradeList = []
+      row.forEach(item =>
+        {
+          projectNameList.push(item.Name)
+          projectTeamLeaderList.push(item.TeamLeader)
+          projectGradeList.push(item.Grade)
+        })
+      let sendData = {
+        projectNameList: projectNameList,
+        projectTeamLeaderList: projectTeamLeaderList,
+        projectGradeList: projectGradeList
+      }
+      res.json(sendData)
+    })
+  }
+  else
+  {
+    const _sql_string = 'SELECT * FROM GraduationProject'
+    db.all(_sql_string, function(err, row)
+    {
+      if(err) throw err;
+      let projectNameList = []
+      let projectTeamLeaderList = []
+      row.forEach(item =>
+        {
+          projectNameList.push(item.Name)
+          projectTeamLeaderList.push(item.TeamLeader)
+        })
+      console.log(projectTeamLeaderList)
+      res.json({projectNameList: projectNameList, projectTeamLeaderList: projectTeamLeaderList})
+    })
+  }  
 })
 
 let userPermission = -1

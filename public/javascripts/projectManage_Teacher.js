@@ -1,17 +1,16 @@
-function SAS() {
-    var SubmitSearch = document.querySelector(".Administrator nav button")
-    var SearchContent = document.querySelector(".Administrator input")
+function GAS() {
+    var SubmitSearch = document.querySelector(".Teacher nav button")
+    var SearchContent = document.querySelector(".Teacher input")
     // var SA_Proj_List_Serach = document.querySelectorAll(".Administrator .list-group li")
-    var listGroup = document.querySelector(".Administrator .list-group")
-    var pageid = document.querySelector(".Administrator #pageid")
-    var page = document.querySelector(".Administrator .row .pagination")
-
+    var listGroup = document.querySelector(".Teacher .list-group")
+    var pageid = document.querySelector(".Teacher #pageid")
+    var page = document.querySelector(".Teacher .row .pagination")
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
     var ProjectList
     $.ajax({
-        url: '/systemManage/projectManage/getdata',
+        url: '/teacherMain/projectManage/getdata',
         type: 'POST',
         data: '',
         datatype: 'json',
@@ -19,12 +18,15 @@ function SAS() {
         ProjectList = rcvMessage.projectNameList
         console.log(ProjectList)
         paging(ProjectList, 1,pageid,listGroup);
-
     })
+
+
+
+    
+
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";
-
     });
 
 
@@ -40,7 +42,7 @@ function SAS() {
             } else {
                 havethis = 0
             }
-            console.log(listGroup.innerHTML)
+            // console.log(listGroup.innerHTML)
         }
         console.log(havethis)
         listGroup.innerHTML = ""
@@ -52,11 +54,13 @@ function SAS() {
                 '</li>'
         }
     }
+
     showSearch = function (event, self) {
         if (event.keyCode == 13) {
             search();
             page.style.display = "none";
 
+            page.style.display = "none";
             event.cancleBubble = true;
             event.returnValue = false;
             return false;

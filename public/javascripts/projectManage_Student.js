@@ -1,17 +1,16 @@
-function SAS() {
-    var SubmitSearch = document.querySelector(".Administrator nav button")
-    var SearchContent = document.querySelector(".Administrator input")
+function PMS() {
+    var SubmitSearch = document.querySelector(".Student nav button")
+    var SearchContent = document.querySelector(".Student input")
     // var SA_Proj_List_Serach = document.querySelectorAll(".Administrator .list-group li")
-    var listGroup = document.querySelector(".Administrator .list-group")
-    var pageid = document.querySelector(".Administrator #pageid")
-    var page = document.querySelector(".Administrator .row .pagination")
-
-
+    var listGroup = document.querySelector(".Student .list-group")
+    var pageid = document.querySelector(".Student #pageid")
+    var page = document.querySelector(".Student .row .pagination")
+    
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
     var ProjectList
     $.ajax({
-        url: '/systemManage/projectManage/getdata',
+        url: '/teacherMain/projectManage/getdata',
         type: 'POST',
         data: '',
         datatype: 'json',
@@ -19,14 +18,11 @@ function SAS() {
         ProjectList = rcvMessage.projectNameList
         console.log(ProjectList)
         paging(ProjectList, 1,pageid,listGroup);
-
     })
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";
-
     });
-
 
     function search() {
         var havethis = 0
@@ -52,11 +48,11 @@ function SAS() {
                 '</li>'
         }
     }
+
     showSearch = function (event, self) {
         if (event.keyCode == 13) {
             search();
             page.style.display = "none";
-
             event.cancleBubble = true;
             event.returnValue = false;
             return false;

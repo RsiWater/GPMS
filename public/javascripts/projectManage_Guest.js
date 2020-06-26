@@ -1,17 +1,17 @@
-function SAS() {
-    var SubmitSearch = document.querySelector(".Administrator nav button")
-    var SearchContent = document.querySelector(".Administrator input")
+function GMS() {
+    var SubmitSearch = document.querySelector(".Guest nav button")
+    var SearchContent = document.querySelector(".Guest input")
     // var SA_Proj_List_Serach = document.querySelectorAll(".Administrator .list-group li")
-    var listGroup = document.querySelector(".Administrator .list-group")
-    var pageid = document.querySelector(".Administrator #pageid")
-    var page = document.querySelector(".Administrator .row .pagination")
+    var listGroup = document.querySelector(".Guest .list-group")
+    var pageid = document.querySelector(".Guest #pageid")
+    var page = document.querySelector(".Guest .row .pagination")
 
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
     var ProjectList
     $.ajax({
-        url: '/systemManage/projectManage/getdata',
+        url: '/Guest/projectManage/getdata',
         type: 'POST',
         data: '',
         datatype: 'json',

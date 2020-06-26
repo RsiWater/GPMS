@@ -6,22 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
+  <link rel="stylesheet" href="../css/accountManage.css" />
+  <script src="../javascripts/pagination.js" defer></script>
+  <script src='../javascripts/accountManage.js' defer></script>
+  <script src='../javascripts/accountManage_search_paging.js' defer></script>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
   </script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
   </script>
-  <script src = '../javascripts/accountManage.js' defer></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <title>首頁 - Let's chat 線上聊天室</title>
-  <link rel="stylesheet" href="../css/navbar.css"/>
+  <link rel="stylesheet" href="../css/navbar.css" />
   <script src="../javascripts/navbar.js" defer>
   </script>
 </head>
@@ -29,119 +31,123 @@
 <body>
   <ul class="nav">
     <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
-      <li><a href="http://elearning.nuk.edu.tw">專題瀏覽</a></li>
-      <li><a class = 'signout'href="">登出</a></li>
-      <li><a href="http://elearning.nuk.edu.tw">更改密碼</a></li>
-      <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
-    </ul>
+    <li><a href="http://elearning.nuk.edu.tw">專題瀏覽</a></li>
+    <li><a class='signout' href="">登出</a></li>
+    <li><a href="http://elearning.nuk.edu.tw">更改密碼</a></li>
+    <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a>
+    </li>
+  </ul>
 
-    
+
 
   <div id="head" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">帳號管理</h1>
-    <p class="lead">帳號管理</p>
-    <p class="lead">帳號管理</p>
   </div>
 
-<div class="container">
-  <div class="row justify-content-md-center">
-    <nav aria-label="Page navigation example">
-      <div class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </div>
+  <div class="container account">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+          onkeydown="showSearch(event,this)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button">搜尋</button>
+      </form>
+      <button type="button" class="btn btn-success justify-content-end " data-toggle="modal"
+        data-target="#Modal4NewAccount">新增帳號</button>
     </nav>
+    <ul class="list-group">
+      <% student.forEach(function(ele){%>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= ele[0].Name %>
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name="<%= ele[1]%>">
+          <button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal"
+            data-target="#exampleModal" name='<%= ele[0].Name %>'>刪除帳號</button>
+          <button type="button" class="btn btn-primary" name='<%= ele[0].Name %>'>更改帳號</button>
+        </div>
+      </li>
+      <%})%>
+    </ul>
+
+    <div class="row justify-content-md-center">
+      <div aria-label="Page navigation example">
+        <div class="pagination" id="pageid">
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">確定要刪除帳號?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            此操作將不可復原
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">不!</button>
+            <button type="button" class="btn btn-primary btn-danger-ensure">沒問題</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    <button type="button" class="btn btn-success justify-content-end "data-toggle="modal" data-target="#Modal4NewAccount">新增帳號</button>
-  </nav>
-  <ul class="list-group">
-    <% student.forEach(function(ele){%>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      <%= ele[0].Name %>
-      <div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name = <%= ele[1]%>>
-        <button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal" data-target="#exampleModal" name='<%= ele[0].Name %>'>刪除帳號</button>
-        <button type="button" class="btn btn-primary" name='<%= ele[0].Name %>'>更改帳號</button>
-      </div>
-    </li>
-    <%})%>
-  </ul>
- 
 
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">確定要刪除帳號?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        此操作將不可復原
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">不!</button>
-        <button type="button" class="btn btn-primary btn-danger-ensure">沒問題</button>
+  <!-- Modal NewAccount-->
+  <div class="modal fade" id="Modal4NewAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">新增帳號</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">帳號名</span>
+            </div>
+            <input type="text" class="form-control accountName" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">密碼</span>
+            </div>
+            <input type="text" class="form-control password" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">權限</span>
+            </div>
+            <input type="text" class="form-control permission" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">員工編號(可選)</span>
+            </div>
+            <input type="text" class="form-control employeeNumber" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary sendNewAccount">確定新增</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-</div>
-
-<!-- Modal NewAccount-->
-<div class="modal fade" id="Modal4NewAccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">新增帳號</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">帳號名</span>
-          </div>
-          <input type="text" class="form-control accountName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">密碼</span>
-          </div>
-          <input type="text" class="form-control password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">權限</span>
-          </div>
-          <input type="text" class="form-control permission" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">員工編號(可選)</span>
-          </div>
-          <input type="text" class="form-control employeeNumber" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary sendNewAccount">確定新增</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 

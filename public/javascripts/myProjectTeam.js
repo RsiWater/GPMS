@@ -197,12 +197,8 @@ SubmitControl.addEventListener('click', (event) => {
   console.log(Leader_id)
   console.log(Mate_list)
   console.log(All_id);
-  let Send_id = {
-    mate_list: Mate_list,
-    leader_id: Leader_id
-  };
-  
-  console.log(Send_id);
+
+
   sendToServer(Mate_list, Leader_id)
 });
 
@@ -222,24 +218,8 @@ let sendToServer = function(mate_list, leader_id)
   }).done(function (rcvMessage) {
       console.log(rcvMessage.res)
   })
-<<<<<<< HEAD
- 
-    
-})
 
 
-
-
-
-
-
-
-
-  
-
-
-
-=======
 }
 
 $.ajax({
@@ -250,4 +230,4 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
 })
->>>>>>> 22b4e82e94236fb9cf74dcab01958e919c740580
+

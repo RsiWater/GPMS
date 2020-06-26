@@ -8,6 +8,8 @@ function GAS() {
 
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
+    var main = document.querySelectorAll('.nav li a')[2]
+    main.href = "/teacherMain"
     var ProjectList
     $.ajax({
         url: '/teacherMain/projectManage/getdata',

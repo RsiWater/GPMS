@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <script src="../javascripts/navbar.js" defer></script>
     <link rel="stylesheet" href="../css/informManage.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,13 +17,12 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
-        <a class="navbar-brand" href="#">
-          <!-- <img src="../images/GPMS_Logo.png"
-           width="30" height="30" class="d-inline-block align-top" alt=""> -->
-          發布通知設定
-        </a>
-      </nav>
+    <ul class="nav" style="display: block;">
+        <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw" style="height:auto;"><img class="placeHolder" src="" alt="" /></a></li>
+        <li ><a href="/systemManage" class="pageName navbar-brand text-light">通知設定</a></li>
+        </li>
+    </ul>
+
     <form class="informManageForm" id="informManageForm">
         <fieldset class="form-group">
             <div class="row optionName">

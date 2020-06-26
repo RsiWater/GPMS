@@ -5,8 +5,11 @@ var listGroup = document.querySelector(".account .list-group")
 var pageid = document.querySelector(".account #pageid")
 var page = document.querySelector(".account .row .pagination")
 
-// var HOME = document.querySelectorAll('.nav li a')[1]
-// HOME.href = "projectManage"
+var HOME = document.querySelectorAll('.nav li a')[1]
+HOME.href = "accountManage"
+
+var main = document.querySelectorAll('.nav li a')[2]
+main.href = "/systemManage"
 var AccountList
 
 $.ajax({

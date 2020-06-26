@@ -54,3 +54,10 @@
 .Guest .list-group{
     height:auto
 }
+
+.scoreContainer{
+    align-items: flex-end;
+    font-size: small;
+    vertical-align:bottom;
+    margin-top: 5vh ;
+}

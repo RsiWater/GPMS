@@ -16,6 +16,8 @@ function PMS() {
         datatype: 'json',
     }).done(function (rcvMessage) {
         ProjectList = rcvMessage.projectNameList
+        team = rcvMessage.projectTeamLeaderList
+        console.log(team)
         console.log(ProjectList)
         paging(ProjectList, 1,pageid,listGroup);
     })

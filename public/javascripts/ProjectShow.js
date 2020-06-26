@@ -250,7 +250,7 @@ class ProjectShow{
         $.ajax({
             url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
-            data: {file:testData},
+            data: sendData,
             datatype: 'json',
         }).done(function (rcvMessage) {
             console.log(rcvMessage)

@@ -25,6 +25,11 @@ router.post('/', function(req, res, next)
     DB_check('account',name,password,function(result){
         //console.log(result)
         check=result
+        if(check.length == 0)
+        {
+            res.cookie.Passkey = 3
+            res.redirect('/guest/projectManage')
+        }
         if(check[0]['Permission']==0){
             //有輸入正確帳號
             let encode=SHA256_module.SHA256(check[0]['Name'])

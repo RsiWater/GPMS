@@ -247,18 +247,20 @@ class ProjectShow{
         console.log($('#codeCh')[0].files[0])
         let testData = new FormData()
         testData.append('wow', $('#codeCh')[0].files[0])
+        let testData2 = $('#codeCh')[0].files[0]
+        console.log(testData2)
 
         $.ajax({
             url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
+            data: {testData: testData2, wow:'wow'},
             // cache: false,
-            contentType: false,
-            processData: false,
-            data: {testData: testData},
+            // contentType: false,
+            // processData: false,
             datatype: 'json'
         }).done(function (rcvMessage) {
             console.log(rcvMessage)
-            window.location.reload();
+            // window.location.reload();
         })
     }
 }

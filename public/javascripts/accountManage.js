@@ -62,3 +62,15 @@ document.querySelector('.sendNewAccount').addEventListener('click',function(even
         window.location.reload()
     })
 })
+
+document.querySelector('a.signout').addEventListener('click', function(event)
+{
+    $.ajax({
+        url: '/login/signout',
+        type: 'POST',
+        data: '',
+        datatype: 'json',
+      }).done(function (rcvMessage) {
+          window.location.href = rcvMessage.href
+      })
+})

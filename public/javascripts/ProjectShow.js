@@ -240,10 +240,17 @@ class ProjectShow{
     toUpdate(){ //上傳資料
         this.upData.title[1]=this.titleInput.value
         this.upData.description[1]=this.desInput.value
+
+        let sendData={'title':JSON.stringify(this.upData['title']),'description':JSON.stringify(this.upData['description']),'poster':JSON.stringify(this.upData['poster']),
+        'ppt':JSON.stringify(this.upData['ppt']),'doc':JSON.stringify(this.upData['doc']),'code':JSON.stringify(this.upData['code'])}
+
+        let testData = new FormData()
+        testData.append('wow', this.upData['code'][1])
+
         $.ajax({
-            url: '/teacherMain/projectManage/addscore', //待修改
+            url: '/systemManage/projectManage/projectShow/modifyProject',
             type: 'POST',
-            data: SendScore,
+            data: {file:testData},
             datatype: 'json',
         }).done(function (rcvMessage) {
             console.log(rcvMessage)
@@ -251,8 +258,8 @@ class ProjectShow{
         })
     }
 }
-const imgSrc={'poster':'../public/images/poster.png','ppt':'../public/images/microsoft-powerpoint.png',
-              'doc':'../public/images/microsoft-word.png','code':'../public/images/compressed.png',download:"../public/images/download_icon.png"}
+const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
+              'doc':'../../images/microsoft-word.png','code':'../../images/compressed.png',download:"../../images/download_icon.png"}
 
 const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
             'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',

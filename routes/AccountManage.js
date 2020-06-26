@@ -11,11 +11,11 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 router.get('/', function(req, res, next) {
 
   console.log(req.cookies.PassKey)
-  if(req.cookies.PassKey){
-    //console.log(req.cookies.PassKey)
+  if(req.cookies.PassKey != 'undefined'){
+    // console.log(req.cookies.PassKey)
 
     const sql_string = 'SELECT * FROM account WHERE PassKey=?'
-     db.all(sql_string, req.cookies.PassKey, function(err, row)
+    db.all(sql_string, req.cookies.PassKey, function(err, row)
     {
         if(err) throw err;
         if(row[0]['Permission']==0){

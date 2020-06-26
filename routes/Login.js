@@ -69,6 +69,12 @@ router.post('/', function(req, res, next)
 
 })
 
+router.post('/signout', function(req, res, next)
+{
+    res.cookie('PassKey', undefined)
+    res.json({href: '/login'})
+})
+
 module.exports = router;
 
 

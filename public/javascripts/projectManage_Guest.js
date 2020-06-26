@@ -5,6 +5,8 @@ function GMS() {
     var listGroup = document.querySelector(".Guest .list-group")
     var pageid = document.querySelector(".Guest #pageid")
     var page = document.querySelector(".Guest .row .pagination")
+    var SubmitVote = document.querySelector('.liketovote');
+    var liketovote=0;
 
 
     var HOME = document.querySelectorAll('.nav li a')[1]
@@ -26,7 +28,21 @@ function GMS() {
         page.style.display = "none";
 
     });
-
+    
+        
+    SubmitVote.addEventListener('click', (event) => {
+      
+      if (liketovote==0)
+        {
+            document.querySelector('#myspan').textContent  = '已喜歡!♥'
+            liketovote=1
+        }
+      else
+        {
+        document.querySelector('#myspan').textContent  = '我喜歡♡'
+        liketovote=0;
+        }
+    });
 
     function search() {
         var havethis = 0
@@ -53,31 +69,12 @@ function GMS() {
         }
     }
 
-    function liketovote() {
-        Boolean vote=true;
-        var SubmitControl = document.querySelector('.liketovote');
-        SubmitControl.addEventListener('click', (event) => {
-          var votestatus = document.querySelectorAll('.liketovote').innertext
-          
-         voteststus = "我喜歡!♥"
-          
-         
-          
+   
       
-          var Mate_list=[]
-          for (i = 0; i < All_id.length; i++) { 
-          Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)}
-         
-          console.log(Leader_id)
-          console.log(Mate_list)
-          console.log(All_id);
-          let Send_id = {
-            leader_id: Leader_id
-            ,mate_list: Mate_list
-            
-          };
+          
+          
 
-    }
+
 
     showSearch = function (event, self) {
         if (event.keyCode == 13) {

@@ -98,7 +98,7 @@ class ProjectShow{
             this.codeImg.setAttribute("src",imgSrc.code)
         }
 
-        this.upData={'title':[false,null],'description':[false,null],'poster':[false,null],
+        this.upData={'title':[true,null],'description':[true,null],'poster':[false,null],
         'ppt':[false,null],'doc':[false,null],'code':[false,null]} //Boolean為false表示未經過修改
     }
 
@@ -144,18 +144,26 @@ class ProjectShow{
             case 'posterCh':
                 this.posterName.innerText=filename
                 this.posterImg.setAttribute("src",imgSrc.poster)
+                this.upData.poster[0]=true
+                this.upData.poster[1]=this.posterCh.files
                 break
             case 'pptCh':
                 this.pptName.innerText=filename
                 this.pptImg.setAttribute("src",imgSrc.ppt)
+                this.upData.ppt[0]=true
+                this.upData.ppt[1]=this.pptCh.files
                 break
             case 'docCh':
                 this.docName.innerText=filename
                 this.docImg.setAttribute("src",imgSrc.doc)
+                this.upData.doc[0]=true
+                this.upData.doc[1]=this.docCh.files
                 break
             case 'codeCh':
                 this.codeName.innerText=filename
                 this.codeImg.setAttribute("src",imgSrc.code)
+                this.upData.code[0]=true
+                this.upData.code[1]=this.codeCh.files
                 break
         }
     }
@@ -165,30 +173,42 @@ class ProjectShow{
             case 'posterDel':
                 this.posterName.innerText="尚未上傳檔案"
                 this.posterImg.setAttribute("src","")
+                this.upData.poster[0]=true
+                this.upData.poster[1]=null
                 break
             case 'pptDel':
                 this.pptName.innerText="尚未上傳檔案"
                 this.pptImg.setAttribute("src","")
+                this.upData.ppt[0]=true
+                this.upData.ppt[1]=null
                 break
             case 'docDel':
                 this.docName.innerText="尚未上傳檔案"
                 this.docImg.setAttribute("src","")
+                this.upData.doc[0]=true
+                this.upData.doc[1]=null
                 break
             case 'codeDel':
                 this.codeName.innerText="尚未上傳檔案"
                 this.codeImg.setAttribute("src","")
+                this.upData.code[0]=true
+                this.upData.code[1]=null
                 break
         }
     }
 
     toUpdate(){ //上傳資料
-        /*upData.title=titleInput.value
-        upData.description=desInput.value
-        upData.poster=posterCh.files
-        upData.ppt=pptCh.files
-        upData.doc=docCh.files
-        upData.code=codeCh.files*/
-        
+        this.upData.title[1]=this.titleInput.value
+        this.upData.description[1]=this.desInput.value
+        $.ajax({
+            url: '/teacherMain/projectManage/addscore', //待修改
+            type: 'POST',
+            data: SendScore,
+            datatype: 'json',
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            window.location.reload();
+        })
     }
 }
 const imgSrc={'poster':'../public/images/poster.png','ppt':'../public/images/microsoft-powerpoint.png',

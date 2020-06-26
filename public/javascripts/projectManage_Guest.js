@@ -25,7 +25,7 @@ function GMS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
-        paging(ProjectList, 1,pageid,listGroup,"guestManage",TeamLeaderList);
+        // paging(ProjectList, 1,pageid,listGroup,"guestManage",TeamLeaderList);
 
     })
     SubmitSearch.addEventListener('click', (event) => {
@@ -34,20 +34,56 @@ function GMS() {
 
     });
     
-        
-    SubmitVote.addEventListener('click', (event) => {
+    let btnList = document.querySelectorAll('.liketovote')
+        btnList.forEach(item => 
+            {
+                item.addEventListener('click', function(event)
+                {
+                    if (liketovote==0)
+                    {
+                        item.innerText= '已喜歡!♥';
+           
+                        liketovote=1;
+                    }
+                    else
+                    {
+                        item.innerText = '我喜歡♡';
+       
+                        liketovote=0;
+                     }
+                })
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // SubmitVote.addEventListener('click', (event) => {
       
-      if (liketovote==0)
-        {
-            document.querySelector('#myspan').textContent  = '已喜歡!♥'
-            liketovote=1
-        }
-      else
-        {
-        document.querySelector('#myspan').textContent  = '我喜歡♡'
-        liketovote=0;
-        }
-    });
+    //   if (liketovote==0)
+    //     {
+    //         document.getElementById('liketovote').innerText = '已喜歡!♥';
+           
+    //         liketovote=1;
+    //     }
+    //   else
+    //     {
+    //         document.getElementById('liketovote').innerText = '我喜歡♡';
+       
+    //         liketovote=0;
+    //     }
+    // });
 
     function search() {
         var havethis = 0

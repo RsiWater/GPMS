@@ -63,6 +63,8 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage, TeamLeaderList
                     item + '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">' +
                     '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" name="' +
                     TeamLeaderList[index] + '">互評專題</button></div>' +
+                    item +'<div class="scoreContainer">學生互評:訪客評分:</div>'+ 
+                '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">'+
                     '<div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">' +
                     ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
                     ' </div></div></li>'
@@ -88,7 +90,26 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage, TeamLeaderList
                     '<button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal"' +
                     'data-target="#exampleModal" name="' + item + '">刪除帳號</button>' +
                     '<button type="button" class="btn btn-primary" name="' + item + '">更改帳號</button></div></li>';
+                    item + '<div class="scoreContainer">老師評分:</div>'+
+                '<div><div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">'+
+                '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterTeacher"name="' +
+                TeamLeaderList[index] + '">專題評分</button></div>' +
+                    '<div class="btn-group btn-group-sm" role="group" style="padding-left:1vw" aria-label="Basic example">' +
+                    ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
+                    ' </div></div></li>'
             }
+            else if(whopage === "guestManage"){
+
+            }
+            // else if(whopage === "accountManage"){
+            //     console.log('asd')
+
+            //     str += '<li class="list-group-item d-flex justify-content-between align-items-center">'+ item +
+            //         '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name="'+ item +'">'+
+            //         '<button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal"'+
+            //         'data-target="#exampleModal" name="'+item+'">刪除帳號</button>'+
+            //          '<button type="button" class="btn btn-primary sendNewAccount" name="'+ item +'">更改帳號</button></div></li>'
+            // }
         });
         listGroup.innerHTML = str;
         if (whopage === "stduentManage") {

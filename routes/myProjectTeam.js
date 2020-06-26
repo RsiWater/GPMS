@@ -1,4 +1,5 @@
 var express = require('express');
+const { InsufficientStorage } = require('http-errors');
 var router = express.Router();
 
 let sqlite3 = require('sqlite3').verbose()
@@ -38,6 +39,22 @@ router.get('/', function(req, res, next) {
 
   }
 });
+
+router.post('/getData', function(req, res, next)
+{
+  const teacher_sql_string = "SELECT * FROM account WHERE PassKey = ?"
+  db.all(teacher_sql_string, req.cookies.PassKey, function(err, row)
+  {
+    if(err) throw err;
+    let teacherNumber = row[0].EmployeeNumber
+    const stu_sql_string = 'SELECT * FROM student WHERE GuideTeacher = ?'
+    db.all(stu_sql_string, teacherNumber, function(err, row)
+    {
+      if(err) throw err
+      res.json({studentList: row})
+    })
+  })
+})
 
 router.post('/', function(req, res, next)
 {

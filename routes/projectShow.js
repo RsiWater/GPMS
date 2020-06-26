@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/modifyProject', function(req, res, next)
 {
-    console.log(req.file)
+    console.log(req.body.testData)
     // console.log(JSON.parse(req.body.code))
 })
 

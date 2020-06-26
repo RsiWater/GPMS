@@ -119,16 +119,25 @@ $.ajax({
         document.querySelector(".Administrator").style = "display:block"
         document.querySelector(".Teacher").style = "display:none"
         document.querySelector(".Student").style = "display:none"
+        document.querySelector(".Guest").style = "display:none"
     }
     if (rcvMessage.permission == 1) {
         document.querySelector(".Administrator").style = "display:none"
         document.querySelector(".Teacher").style = "display:block"
         document.querySelector(".Student").style = "display:none"
+        document.querySelector(".Guest").style = "display:none"
     }
     if (rcvMessage.permission == 2) {
         document.querySelector(".Administrator").style = "display:none"
         document.querySelector(".Teacher").style = "display:none"
         document.querySelector(".Student").style = "display:block"
+        document.querySelector(".Guest").style = "display:none"
+    }
+    if (rcvMessage.permission == 3) {
+        document.querySelector(".Administrator").style = "display:none"
+        document.querySelector(".Teacher").style = "display:none"
+        document.querySelector(".Student").style = "display:none"
+        document.querySelector(".Guest").style = "display:block"
     }
 })
 

@@ -35,3 +35,16 @@
 .Teacher .list-group{
     height:auto
 }
+
+.Guest ul li{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+.Guest nav li{
+    padding-left: 0;
+    margin-top: 2vh;
+}
+.Guest .list-group{
+    height:auto
+}

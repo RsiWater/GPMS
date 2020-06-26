@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="../css/projectManage.css" />
   <script src="../javascripts/projectManage_Administrator.js" defer></script>
 
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
     integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
@@ -192,7 +191,7 @@
       </div>
     </div>
   </div>
-  <!--老師-->
+  <!--Teacher-->
   <div class="container Teacher">
 
     <nav class="navbar navbar-light bg-light">
@@ -256,6 +255,41 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+    <!--Guest-->
+  <div class="container Guest">
+    <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+          onkeydown="showSearch(event,this)">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button">搜尋</button>
+      </form>
+    </nav>
+    <ul class="list-group">
+      <% project.forEach(ele => { %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= ele.Name%>
+        <div>
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary">瀏覽專題</button>
+          </div>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+
+    <div class="row justify-content-md-center">
+      <nav aria-label="Page navigation example">
+        <div class="pagination">
+          <li class="page-item disabled"><a class="page-link">前一頁</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">下一頁</a></li>
+        </div>
+      </nav>
     </div>
   </div>
 

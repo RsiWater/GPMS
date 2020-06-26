@@ -179,8 +179,6 @@ app.init();
 
 
 
-
-
   var SubmitControl = document.querySelector('.btn');
   SubmitControl.addEventListener('click', (event) => {
     var All_id = document.querySelectorAll('.student_id')
@@ -190,7 +188,7 @@ app.init();
    
     console.log(Leader_id);
 
-var Mate_list=[]
+    var Mate_list=[]
     for (i = 0; i < All_id.length; i++) { 
     Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)}
    

@@ -1,6 +1,7 @@
-function paging(ProjectList, nowPage,pageid,listGroup) {
-console.log('paging')
-pagination(ProjectList, nowPage)
+function paging(ProjectList, nowPage, pageid, listGroup, whopage,TeamLeaderList) {
+    console.log('paging')
+    pagination(ProjectList, nowPage)
+
     function pagination(jsonData, nowPage) {
         console.log(nowPage);
         // 取得全部資料長度
@@ -56,12 +57,35 @@ pagination(ProjectList, nowPage)
     function displayData(data) {
         let str = '';
         listGroup.innerHTML = ""
-        data.forEach((item) => {
-            str += '      <li class="list-group-item ">' +
-                item + '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example"' + '>' +
-                '<button type="button" class="btn btn-primary ' + item + '">更改專題</button>' +
-                '</div>' +
-                '</li>';
+        data.forEach((item,index) => {
+            if (whopage === "stduentManage") {
+                str += '<li class="list-group-item d-flex justify-content-between align-items-center">' +
+                    item + '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">'+
+                '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" name="' +
+                TeamLeaderList[index] + '">互評專題</button></div>' +
+                    '<div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">' +
+                    ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
+                    ' </div></div></li>'
+            } 
+            else if (whopage === "systemManage") {
+                str += '      <li class="list-group-item ">' +
+                    item + '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example"' + '>' +
+                    '<button type="button" class="btn btn-primary ' + item + '">更改專題</button>' +
+                    '</div>' +
+                    '</li>';
+            }
+            else if(whopage === "teacherManage"){
+                str += '<li class="list-group-item d-flex justify-content-between align-items-center"' + '>' +
+                    item + '<div><div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">'+
+                '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterTeacher"name="' +
+                TeamLeaderList[index] + '">專題評分</button></div>' +
+                    '<div class="btn-group btn-group-sm" role="group" style="padding-left:1vw" aria-label="Basic example">' +
+                    ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
+                    ' </div></div></li>'
+            }
+            else if(whopage === "guestManage"){
+
+            }
         });
         listGroup.innerHTML = str;
     }

@@ -180,7 +180,7 @@ const view =
 app.init();
 
 
-var SubmitControl = document.querySelector('.btn');
+var SubmitControl = document.querySelector('#back-btn');
 SubmitControl.addEventListener('click', (event) => {
   var All_id = document.querySelectorAll('.student_id')
   console.log(All_id);
@@ -229,5 +229,17 @@ $.ajax({
   datatype: 'json',
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
+  
 })
+
+items.add({
+  name: "擠奶節",
+  student_id: 1 });
+
+
+items.add({
+  name: "窯靜芸",
+  student_id: 1 });
+
+
 

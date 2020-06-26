@@ -24,12 +24,14 @@ router.post('/getData', function(req, res, next)
   {
     if(err) throw err;
     let projectNameList = []
+    let projectTeamLeaderList = []
     row.forEach(item =>
       {
         projectNameList.push(item.Name)
+        projectTeamLeaderList.push(item.TeamLeader)
       })
     console.log(projectNameList)
-    res.json({projectNameList: projectNameList})
+    res.json({projectNameList: projectNameList, projectTeamLeaderList: projectTeamLeaderList})
   })
 })
 

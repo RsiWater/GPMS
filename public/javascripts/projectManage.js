@@ -63,19 +63,19 @@ for (const button of lis) {
 var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
-        let SendScore = {
-            score: clickNum + 1,
-            teamLeader: targetTeam
-        };
-        console.log(SendScore);
-        $.ajax({
-            url: '/studentMain/projectManage/addstudentscore', //待修改
-            type: 'POST',
-            data: SendScore,
-            datatype: 'json',
-        }).done(function (rcvMessage) {
-            window.location.reload();
-        })
+    let SendScore = {
+        score: clickNum + 1,
+        teamLeader: targetTeam
+    };
+    console.log(SendScore);
+    $.ajax({
+        url: '/studentMain/projectManage/addstudentscore', //待修改
+        type: 'POST',
+        data: SendScore,
+        datatype: 'json',
+    }).done(function (rcvMessage) {
+        window.location.reload();
+    })
 
 });
 
@@ -90,22 +90,22 @@ sucbtnList.forEach(item => {
 
 var SubmitControl = document.querySelector('.scoreSubmit');
 SubmitControl.addEventListener('click', (event) => {
-        var Score = document.querySelector('.scoreForm').value
-        console.log(Score)
-        let SendScore = {
-            score: Score,
-            teamLeader: targetTeam
-        };
-        console.log(SendScore);
-        $.ajax({
-            url: '/teacherMain/projectManage/addscore', //待修改
-            type: 'POST',
-            data: SendScore,
-            datatype: 'json',
-        }).done(function (rcvMessage) {
-            console.log(rcvMessage)
-            window.location.reload();
-        })
+    var Score = document.querySelector('.scoreForm').value
+    console.log(Score)
+    let SendScore = {
+        score: Score,
+        teamLeader: targetTeam
+    };
+    console.log(SendScore);
+    $.ajax({
+        url: '/teacherMain/projectManage/addscore', //待修改
+        type: 'POST',
+        data: SendScore,
+        datatype: 'json',
+    }).done(function (rcvMessage) {
+        console.log(rcvMessage)
+        window.location.reload();
+    })
 });
 
 $.ajax({
@@ -116,28 +116,32 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log("permission:" + rcvMessage.permission)
     if (rcvMessage.permission == 0) {
+        SAS();
         document.querySelector(".Administrator").style = "display:block"
         document.querySelector(".Teacher").style = "display:none"
         document.querySelector(".Student").style = "display:none"
         document.querySelector(".Guest").style = "display:none"
     }
     if (rcvMessage.permission == 1) {
+        GAS();
         document.querySelector(".Administrator").style = "display:none"
         document.querySelector(".Teacher").style = "display:block"
         document.querySelector(".Student").style = "display:none"
         document.querySelector(".Guest").style = "display:none"
     }
     if (rcvMessage.permission == 2) {
+        PMS();
         document.querySelector(".Administrator").style = "display:none"
         document.querySelector(".Teacher").style = "display:none"
         document.querySelector(".Student").style = "display:block"
         document.querySelector(".Guest").style = "display:none"
     }
     if (rcvMessage.permission == 3) {
+        GMS();
         document.querySelector(".Administrator").style = "display:none"
         document.querySelector(".Teacher").style = "display:none"
         document.querySelector(".Student").style = "display:none"
         document.querySelector(".Guest").style = "display:block"
     }
-})
 
+})

@@ -43,6 +43,7 @@ button {
   border: 0;
   outline: 0;
   cursor: pointer;
+  
 }
 
 input {
@@ -212,7 +213,20 @@ input::placeholder {
           justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
-  margin-top: 35px;
+
+  margin-left: 33%;
+  
+}
+.user_options-forms .forms_buttonsguest {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+
+  margin-left: 30%;
+  
 }
 .user_options-forms .forms_buttons-forgot {
   font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;

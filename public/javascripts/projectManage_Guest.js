@@ -52,6 +52,33 @@ function GMS() {
                 '</li>'
         }
     }
+
+    function liketovote() {
+        Boolean vote=true;
+        var SubmitControl = document.querySelector('.liketovote');
+        SubmitControl.addEventListener('click', (event) => {
+          var votestatus = document.querySelectorAll('.liketovote').innertext
+          
+         voteststus = "我喜歡!♥"
+          
+         
+          
+      
+          var Mate_list=[]
+          for (i = 0; i < All_id.length; i++) { 
+          Mate_list.push(document.querySelectorAll('.student_id')[i].innerText)}
+         
+          console.log(Leader_id)
+          console.log(Mate_list)
+          console.log(All_id);
+          let Send_id = {
+            leader_id: Leader_id
+            ,mate_list: Mate_list
+            
+          };
+
+    }
+
     showSearch = function (event, self) {
         if (event.keyCode == 13) {
             search();

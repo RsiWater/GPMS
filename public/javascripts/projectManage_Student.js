@@ -22,7 +22,7 @@ function PMS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
-        paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
+        // paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
     })
     SubmitSearch.addEventListener('click', (event) => {
         search();

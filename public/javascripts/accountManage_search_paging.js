@@ -10,6 +10,7 @@ HOME.href = "accountManage"
 
 var main = document.querySelectorAll('.nav li a')[2]
 main.href = "/systemManage"
+
 var AccountList
 
 $.ajax({
@@ -20,7 +21,7 @@ $.ajax({
 }).done(function (rcvMessage) {
     AccountList = rcvMessage.nameList
     console.log(AccountList)
-    paging(AccountList, 1, pageid, listGroup, "accountManage", []);
+    // paging(AccountList, 1, pageid, listGroup, "accountManage", []);
 })
 SubmitSearch.addEventListener('click', (event) => {
     search();

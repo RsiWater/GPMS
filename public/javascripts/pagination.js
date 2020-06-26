@@ -86,6 +86,13 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage,TeamLeaderList)
             else if(whopage === "guestManage"){
 
             }
+            else if(whopage === "accountManage"){
+                str += '<li class="list-group-item d-flex justify-content-between align-items-center">'+ item +
+                    '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name="'+ item +'">'+
+                    '<button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal"'+
+                    'data-target="#exampleModal" name="'+item+'">刪除帳號</button>'+
+                     '<button type="button" class="btn btn-primary" name="'+ item +'">更改帳號</button></div></li>'
+            }
         });
         listGroup.innerHTML = str;
     }

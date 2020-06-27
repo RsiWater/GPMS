@@ -16,7 +16,6 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 /* GET home page. */
 let projectKey = undefined
 router.get('/', function(req, res, next) {
-  // cons
   res.render('projectShow');
 });
 
@@ -42,8 +41,8 @@ var storage =   multer.diskStorage({
 
 router.post('/sendProject', function(req, res, next)
 {
-  projectKey = req.body.teanLeader
-  res.json({href: '/systemManage/accountManage/projectShow'})
+  projectKey = req.body.teamLeader
+  res.json({href: '/systemManage/projectManage/projectShow'})
 })
 router.post('/getData', function(req, res, next)
 {
@@ -51,7 +50,16 @@ router.post('/getData', function(req, res, next)
   db.all(sql_string, projectKey, function(err, row)
   {
     if(err) throw err;
-    res.json({info: row[0]})
+    let sendData = {
+      certification: true,
+      title: row[0].Name,
+      description: row[0].ProjectText,
+      poster: '123',
+      ppt: '456',
+      doc: '789',
+      code: 'fuck'
+    }
+    res.json({info: sendData})
   })
 })
 
@@ -75,7 +83,12 @@ router.post('/upload',function(req, res, next)
 
 router.post('/download', function(req, res, next)
 {
-  res.download('uploads/p2.doc')
+  console.log(req.body.downloadType)
+
+  const sql_string = "SELECT * FROM project WHERE "
+
+  res.download('uploads/p1.txt')
+  
   // var filePath = path.join(__dirname, '/uploads/p1.txt');
   // var stat = fileSystem.statSync(filePath);
 

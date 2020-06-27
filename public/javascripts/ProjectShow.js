@@ -47,6 +47,7 @@ class ProjectShow{
     }
 
     init(certification){
+        console.log(info)
         if(certification){ //專題修改認證
             this.modifyTD.addEventListener('click',this.titleDesMod)
             this.modifyUpData.addEventListener('click',this.updateMod)
@@ -99,8 +100,8 @@ class ProjectShow{
         }else
             this.code.setAttribute("onclick",null)
 
-        this.upData={'title':[true,null],'description':[true,null],'poster':[false,null],
-        'ppt':[false,null],'doc':[false,null],'code':[false,null]} //Boolean為false表示未經過修改
+        //使用ajax通道上傳的資料
+        this.upData={'title':"",'description':"",'poster':false,'ppt':false,'doc':false,'code':false}
     }
 
     titleDesMod(){
@@ -109,8 +110,10 @@ class ProjectShow{
 
         this.titleText.innerText=""
         this.titleInput.classList.remove('hidden') //標題輸入框
+        this.titleInput.value=info.title
         this.desText.innerText=""
         this.desInput.classList.remove('hidden') //描述輸入框
+        this.desInput.value=info.description
 
         const chooseButton=document.querySelectorAll(".choose")
         for(let choose of chooseButton){
@@ -134,8 +137,7 @@ class ProjectShow{
     }
 
     updateMod(){
-        const pT=document.querySelector(".ppdcText")
-        pT.classList.add('hidden')
+        this.ppdcText.classList.add('hidden')
         this.updateButton.classList.remove('hidden')//選擇資料按鈕
 
         const chooseButton=document.querySelectorAll(".choose")
@@ -178,32 +180,24 @@ class ProjectShow{
                 this.posterImg.setAttribute("src",imgSrc.poster)
                 this.poster.classList.remove('downhover') //移除下載綁定
                 this.poster.setAttribute("onclick",null)
-                this.upData.poster[0]=true
-                this.upData.poster[1]=this.posterCh.files
                 break
             case 'pptCh':
                 this.pptName.innerText=filename
                 this.pptImg.setAttribute("src",imgSrc.ppt)
                 this.ppt.classList.remove('downhover') //移除下載綁定
                 this.ppt.setAttribute("onclick",null)
-                this.upData.ppt[0]=true
-                this.upData.ppt[1]=this.pptCh.files
                 break
             case 'docCh':
                 this.docName.innerText=filename
                 this.docImg.setAttribute("src",imgSrc.doc)
                 this.doc.classList.remove('downhover')  //移除下載綁定
                 this.doc.setAttribute("onclick",null)
-                this.upData.doc[0]=true
-                this.upData.doc[1]=this.docCh.files
                 break
             case 'codeCh':
                 this.codeName.innerText=filename
                 this.codeImg.setAttribute("src",imgSrc.code)
                 this.code.classList.remove('downhover') //移除下載綁定
                 this.code.setAttribute("onclick",null)
-                this.upData.code[0]=true
-                this.upData.code[1]=this.codeCh.files
                 break
         }
     }
@@ -215,52 +209,47 @@ class ProjectShow{
                 this.posterImg.setAttribute("src","")
                 this.poster.classList.remove('downhover') //移除下載綁定
                 this.poster.setAttribute("onclick",null)
-                this.upData.poster[0]=true
-                this.upData.poster[1]=null
+                this.upData.poster=true
                 break
             case 'pptDel':
                 this.pptName.innerText="尚未上傳檔案"
                 this.pptImg.setAttribute("src","")
                 this.ppt.classList.remove('downhover') //移除下載綁定
                 this.ppt.setAttribute("onclick",null)
-                this.upData.ppt[0]=true
-                this.upData.ppt[1]=null
+                this.upData.ppt=true
                 break
             case 'docDel':
                 this.docName.innerText="尚未上傳檔案"
                 this.docImg.setAttribute("src","")
                 this.doc.classList.remove('downhover')  //移除下載綁定
                 this.doc.setAttribute("onclick",null)
-                this.upData.doc[0]=true
-                this.upData.doc[1]=null
+                this.upData.doc=true
                 break
             case 'codeDel':
                 this.codeName.innerText="尚未上傳檔案"
                 this.codeImg.setAttribute("src","")
                 this.code.classList.remove('downhover') //移除下載綁定
                 this.code.setAttribute("onclick",null)
-                this.upData.code[0]=true
-                this.upData.code[1]=null
+                this.upData.code=true
                 break
         }
     }
 
     toUpdate(){ //上傳資料
-        this.upData.title[1]=this.titleInput.value
-        this.upData.description[1]=this.desInput.value
+        this.upData.title=this.titleInput.value
+        this.upData.description=this.desInput.value
 
-        let sendData={'title':this.upData['title'][1],'description':this.upData['description'][1],'poster':JSON.stringify(this.upData['poster']),
-        'ppt':JSON.stringify(this.upData['ppt']),'doc':JSON.stringify(this.upData['doc']),'code':JSON.stringify(this.upData['code'])}
-
-        // $.ajax({
-        //     url: '/systemManage/projectManage/projectShow/modifyProject',
-        //     type: 'POST',
-        //     data: sendData,
-        //     datatype: 'json'
-        // }).done(function (rcvMessage) {
-        //     console.log(rcvMessage)
-        //     // window.location.reload();
-        // })
+        let sendData = this.upData
+        
+        $.ajax({
+            url: '/systemManage/projectManage/projectShow/modifyProject',
+            type: 'POST',
+            data: sendData,
+            datatype: 'json'
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            // window.location.reload();
+        })
     }
 }
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
@@ -280,7 +269,7 @@ $.ajax({
         data: null,
         datatype: 'json'
     }).done(function (rcvMessage) {
-        info=rcvMessage
+        info=rcvMessage.info
+        const ps=new ProjectShow(info,imgSrc)
     })
-
-const ps=new ProjectShow(info,imgSrc)
+//const ps=new ProjectShow(info,imgSrc)

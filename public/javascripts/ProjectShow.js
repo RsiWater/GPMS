@@ -118,6 +118,7 @@ class ProjectShow{
             //設置download
             $(".code").click(function(){
                 window.open("http://elearning.nuk.edu.tw/m_teacher/m_tea_txbook_files.php?jteabook_sd=126217")
+                // window.open("../uploads/p1.txt")
             })
             this.code.classList.add('downhover')
         }
@@ -277,3 +278,5 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log(rcvMessage)
 })
+
+// url = URL.createObjectURL(FILELIST)

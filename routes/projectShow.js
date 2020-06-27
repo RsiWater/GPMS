@@ -30,6 +30,12 @@ var storage =   multer.diskStorage({
   }
 });
 
+router.post('/sendProject', function(req, res, next)
+{
+  projectName = req.body.Name
+  res.json({href: '/systemManage/accountManage/passwordModify'})
+})
+
 router.post('/modifyProject', function(req, res, next)
 {
   console.log(req.body.title)
@@ -49,21 +55,22 @@ router.post('/upload',function(req, res, next)
 
 router.post('/download', function(req, res, next)
 {
-  var filePath = path.join(__dirname, '/uploads/p1.txt');
-  var stat = fileSystem.statSync(filePath);
+  res.download('uploads/p2.doc')
+  // var filePath = path.join(__dirname, '/uploads/p1.txt');
+  // var stat = fileSystem.statSync(filePath);
 
-  res.writeHead(200, {
-    'Content-Type': 'audio/mpeg',
-    'Content-Length': stat.size,
-    'Content-Disposition': 'attachment; filename=p1.txt'
-  });
-  var file = fs.readFile(filePath, 'binary');
+  // res.writeHead(200, {
+  //   'Content-Type': 'audio/mpeg',
+  //   'Content-Length': stat.size,
+  //   'Content-Disposition': 'attachment; filename=p1.txt'
+  // });
+  // var file = fs.readFile(filePath, 'binary');
 
-  res.setHeader('Content-Length', stat.size);
-  res.setHeader('Content-Type', 'audio/mpeg');
-  res.setHeader('Content-Disposition', 'attachment; filename=p1.txt');
-  res.write(file, 'binary');
-  res.end();
+  // res.setHeader('Content-Length', stat.size);
+  // res.setHeader('Content-Type', 'audio/mpeg');
+  // res.setHeader('Content-Disposition', 'attachment; filename=p1.txt');
+  // res.write(file, 'binary');
+  // res.end();
 })
 
 module.exports = router;

@@ -16,7 +16,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 /* GET home page. */
 let projectKey = undefined
 router.get('/', function(req, res, next) {
-  // cons
+  console.log('??')
   res.render('projectShow');
 });
 
@@ -43,7 +43,7 @@ var storage =   multer.diskStorage({
 router.post('/sendProject', function(req, res, next)
 {
   projectKey = req.body.teanLeader
-  res.json({href: '/systemManage/accountManage/projectShow'})
+  res.json({href: '/systemManage/projectManage/projectShow'})
 })
 router.post('/getData', function(req, res, next)
 {

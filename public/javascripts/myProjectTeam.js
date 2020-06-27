@@ -254,10 +254,9 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
     student_list=rcvMessage.studentList
-
-
-    if(student_list[0].Name!=undefined)
-      console.log(student_list[0].Name);
+    if (student_list.Name != undefined)
+    {
+    console.log(student_list)
     console.log(typeof student_list)
     
     for (i = 0; i < student_list.length; i++) 
@@ -275,7 +274,7 @@ $.ajax({
        
   }
   
-
+    }
 })
 
 

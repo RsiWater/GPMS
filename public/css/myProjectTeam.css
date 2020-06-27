@@ -70,14 +70,15 @@ input {
   background: linear-gradient(90deg, rgba(249,255,0,1) 0%, rgba(255,132,0,1) 50%, rgba(255,0,0,1) 100%);
   border-radius: 12px;
 }
-
+*/
 
 button {
-  border: 0;
+
   padding: 1em;
-  width: inherit;
+
   margin: .75em 0;
-}*/
+  margin-left: 5.3em;
+}
 
 button:hover {
  

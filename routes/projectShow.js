@@ -16,7 +16,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 /* GET home page. */
 let projectKey = undefined
 router.get('/', function(req, res, next) {
-  cons
+  // cons
   res.render('projectShow');
 });
 
@@ -45,6 +45,16 @@ router.post('/sendProject', function(req, res, next)
   projectKey = req.body.teanLeader
   res.json({href: '/systemManage/accountManage/projectShow'})
 })
+router.post('/getData', function(req, res, next)
+{
+  const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader = ?'
+  db.all(sql_string, projectKey, function(err, row)
+  {
+    if(err) throw err;
+    res.json({info: row[0]})
+  })
+})
+
 
 router.post('/modifyProject', function(req, res, next)
 {

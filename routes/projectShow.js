@@ -115,39 +115,43 @@ router.post('/getData', function(req, res, next)
       db.all('SELECT * FROM account WHERE Passkey = ?', req.cookies.PassKey, function(err, row)
       {
         if(err) throw err;
-        if(row[0].Permission == 0) passCer(true)
-        else if (row[0].Permission == 1)
-        {
-          db.all('SELECT * FROM GraduationProject WHERE GuideTeacher = ?', row[0].EmployeeNumber, function(err, row)
+        if(row[0] == undefined) passCer(false)
+        else{
+          if(row[0].Permission == 0) passCer(true)
+          else if (row[0].Permission == 1)
           {
-            if(err) throw err;
-            db.all('SELECT * FROM GraduationProject WHERE TeamLeader = ?', projectKey, function(err, row_s)
+            db.all('SELECT * FROM GraduationProject WHERE GuideTeacher = ?', row[0].EmployeeNumber, function(err, row)
             {
               if(err) throw err;
-              console.log(row_s)
-              if(row_s[0].GuideTeacher == row[0].EmployeeNumber) passCer(true)
-              else passCer(false)
-            })
-          })
-        }
-        else
-        {
-          db.all('SELECT * FROM account WHERE PassKey = ?', req.cookies.PassKey, function(err, row_s)
-          {
-            if(err) throw err;
-            db.all('SELECT * FROM student WHERE TeamLeader = ?', projectKey, function(err, row_ss)
-            {
-              if(err) throw err;
-              let pass = false
-              for(i in row_ss)
+              db.all('SELECT * FROM GraduationProject WHERE TeamLeader = ?', projectKey, function(err, row_s)
               {
-                if(row_ss[i].StudentID == row_s[0].Name) pass = true
-              }
-              if(pass) passCer(true)
-              else passCer(false)
+                if(err) throw err;
+                console.log(row_s)
+                if(row_s[0].GuideTeacher == row[0].EmployeeNumber) passCer(true)
+                else passCer(false)
+              })
             })
-          })
+          }
+          else
+          {
+            db.all('SELECT * FROM account WHERE PassKey = ?', req.cookies.PassKey, function(err, row_s)
+            {
+              if(err) throw err;
+              db.all('SELECT * FROM student WHERE TeamLeader = ?', projectKey, function(err, row_ss)
+              {
+                if(err) throw err;
+                let pass = false
+                for(i in row_ss)
+                {
+                  if(row_ss[i].StudentID == row_s[0].Name) pass = true
+                }
+                if(pass) passCer(true)
+                else passCer(false)
+              })
+            })
+          }
         }
+        
       })
 
       

@@ -9,7 +9,6 @@ class ProjectShow{
         this.toUpdate=this.toUpdate.bind(this)
         this.cancelMod=this.cancelMod.bind(this)
         this.fileChoose=this.fileChoose.bind(this)
-        this.fileDel=this.fileDel.bind(this)
         const modifyButton=document.querySelector('.modify')
         this.modifyButton=modifyButton //修改資料按鈕
         this.modifyTD=document.getElementById("modifyTD")//選擇修改標題/描述
@@ -35,10 +34,6 @@ class ProjectShow{
         this.pptCh=document.getElementById('pptCh') //選擇投影片按鈕
         this.docCh=document.getElementById('docCh') //選擇文件按鈕
         this.codeCh=document.getElementById('codeCh') //程式碼選擇按鈕
-        this.posterDel=document.getElementById('posterDel') //海報刪除按鈕
-        this.pptDel=document.getElementById('pptDel') //投影片刪除按鈕
-        this.docDel=document.getElementById('docDel') //文件刪除按鈕
-        this.codeDel=document.getElementById('codeDel') //程式碼刪除按鈕
         this.poster=document.querySelector('.poster')
         this.ppt=document.querySelector('.ppt')
         this.doc=document.querySelector('.doc')
@@ -51,7 +46,7 @@ class ProjectShow{
     }
 
     init(certification){
-        console.log(info)
+        this.backButton.classList.add('hidden')
         if(certification){ //專題修改認證
             this.modifyTD.addEventListener('click',this.titleDesMod)
             this.modifyUpData.addEventListener('click',this.updateMod)
@@ -127,12 +122,13 @@ class ProjectShow{
             this.code.setAttribute("onclick",null)
 
         //使用ajax通道上傳的資料
-        this.upData={'title':"",'description':"",'poster':false,'ppt':false,'doc':false,'code':false}
+        this.upData={'title':"",'description':""}
     }
 
     titleDesMod(){
-        this.ppdcText.classList.add('hidden')
-        this.updateButton.classList.remove('hidden')//選擇資料按鈕
+        this.ppdcText.classList.remove('hidden')
+        this.updateButton.classList.add('hidden')//選擇資料按鈕
+        this.backButton.classList.remove('hidden')
 
         this.titleText.innerText=""
         this.titleInput.classList.remove('hidden') //標題輸入框
@@ -145,25 +141,6 @@ class ProjectShow{
         for(let choose of chooseButton){
             choose.classList.add("hidden")
         }
-        const deleteButton=document.querySelectorAll(".delete")
-        if(info.student !== null)
-        {
-            for(let del of deleteButton){
-                del.classList.remove("hidden")
-            }
-        }
-        else
-        {
-            for(let del of deleteButton){
-                del.classList.add("hidden")
-            }
-        }
-        
-
-        this.posterDel.addEventListener('click',this.fileDel)//刪除資料按鈕綁定event
-        this.pptDel.addEventListener('click',this.fileDel)
-        this.docDel.addEventListener('click',this.fileDel)
-        this.codeDel.addEventListener('click',this.fileDel)
 
         this.modifyButton.textContent="儲存修改"//"選擇修改"按鈕改成"儲存修改"並綁定event
         this.modifyButton.addEventListener('click',this.toUpdate)
@@ -175,6 +152,7 @@ class ProjectShow{
     updateMod(){
         this.ppdcText.classList.add('hidden')
         this.updateButton.classList.remove('hidden')//選擇資料按鈕
+        this.backButton.classList.remove('hidden')
 
         const chooseButton=document.querySelectorAll(".choose")
         for(let choose of chooseButton){
@@ -234,39 +212,6 @@ class ProjectShow{
                 this.codeImg.setAttribute("src",imgSrc.code)
                 this.code.classList.remove('downhover') //移除下載綁定
                 this.code.setAttribute("onclick",null)
-                break
-        }
-    }
-
-    fileDel(event){//檔案刪除
-        switch(event.target.id){
-            case 'posterDel':
-                this.posterName.innerText="尚未上傳檔案"
-                this.posterImg.setAttribute("src","")
-                this.poster.classList.remove('downhover') //移除下載綁定
-                this.poster.setAttribute("onclick",null)
-                this.upData.poster=true
-                break
-            case 'pptDel':
-                this.pptName.innerText="尚未上傳檔案"
-                this.pptImg.setAttribute("src","")
-                this.ppt.classList.remove('downhover') //移除下載綁定
-                this.ppt.setAttribute("onclick",null)
-                this.upData.ppt=true
-                break
-            case 'docDel':
-                this.docName.innerText="尚未上傳檔案"
-                this.docImg.setAttribute("src","")
-                this.doc.classList.remove('downhover')  //移除下載綁定
-                this.doc.setAttribute("onclick",null)
-                this.upData.doc=true
-                break
-            case 'codeDel':
-                this.codeName.innerText="尚未上傳檔案"
-                this.codeImg.setAttribute("src","")
-                this.code.classList.remove('downhover') //移除下載綁定
-                this.code.setAttribute("onclick",null)
-                this.upData.code=true
                 break
         }
     }

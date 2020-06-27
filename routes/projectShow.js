@@ -6,6 +6,7 @@ var express = require('express');
 var router = express.Router();
 var multer  =   require('multer');
 var fs = require('fs');
+const { post } = require('../app');
 
 let sqlite3 = require('sqlite3').verbose()
 let db = new sqlite3.Database('db_GPMS.db', function(err)
@@ -23,7 +24,6 @@ router.get('/', function(req, res, next) {
 // POST below
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
-    console.log('??')
       callback(null, './uploads')
   //   fs.mkdir('./uploads', function(err) {
   //       if(err) {
@@ -34,9 +34,7 @@ var storage =   multer.diskStorage({
   //   })
   },
   filename: function (req, file, callback) {
-    console.log('???')
-      
-    callback(null, file.fieldname + '-' + Date.now());
+    callback(null, Date.now() + '-' + file.originalname );
   }
 });
 
@@ -52,14 +50,24 @@ router.post('/getData', function(req, res, next)
   db.all(sql_string, projectKey, function(err, row)
   {
     if(err) throw err;
+    let posterName, pptName, docName, codeName;
+    if (row[0].PosterPath 
+      != null) posterName = row[0].PosterPath.split('\\')[1]
+    else posterName = null
+    if (row[0].PptPath != null) pptName = row[0].PptPath.split('\\')[1]
+    else pptName = null
+    if (row[0].DataPath != null) docName = row[0].DataPath.split('\\')[1]
+    else docName = null
+    if (row[0].ExePath != null) codeName = row[0].ExePath.split('\\')[1]
+    else codeName = null
     let sendData = {
       certification: true,
       title: row[0].Name,
       description: row[0].ProjectText,
-      poster: row[0].PosterPath,
-      ppt: row[0].PptPath,
-      doc: row[0].DataPath,
-      code: row[0].ExePath
+      poster: posterName,
+      ppt: pptName,
+      doc: docName,
+      code: codeName
     }
     res.json({info: sendData})
   })
@@ -69,18 +77,36 @@ router.post('/getData', function(req, res, next)
 router.post('/modifyProject', function(req, res, next)
 {
   console.log(req.body.title)
+  const sql_string = 'UPDATE GraduationProject SET Name = ?, ProjectText = ? WHERE TeamLeader = ?'
+  db.run(sql_string, req.body.title, req.body.description, projectKey, function(err)
+  {
+    if(err) throw err
+    res.json({href:'/projectShow'})
+  })
 })
 
 router.post('/upload',function(req, res, next)
 {   
   var upload = multer({ storage : storage}).single('userFile');
   upload(req,res,function(err) {
-      console.log('??')
       if(err) {
           console.log(err)
-          return res.json({href:"Error uploading file."});
+          // return res.json({href:"Error uploading file."});
       }
-      res.json({href:"Uploading file Success."})
+      let type = req.body.uploadType
+      let pathType = ''
+      if (type === 'poster') pathType = 'PosterPath'
+      else if(type === 'doc') pathType = 'DataPath'
+      else if(type === 'ppt') pathType = 'PptPath'
+      else pathType = 'ExePath'
+
+      const sql_string = "UPDATE GraduationProject SET " + pathType + " = ? WHERE TeamLeader = ?"
+      db.run(sql_string, req.file.path , projectKey, function(err)
+      {
+        if(err) throw err
+      })
+      res.redirect('../projectShow')
+      // res.json({href:"Uploading file Success."})
   });
 })
 
@@ -103,7 +129,6 @@ router.post('/download', function(req, res, next)
     res.download(filePath)
   })
 
-  res.download('uploads/p1.txt')
 })
 
 module.exports = router;

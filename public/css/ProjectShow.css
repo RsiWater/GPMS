@@ -6,11 +6,6 @@ body{
   display:block;
 }
 
-.modify{
-  position: absolute;
-  right: 3%;
-}
-
 .container{
   width: 48%;
   height: 72%;

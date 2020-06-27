@@ -9,12 +9,22 @@
     <script src='../../javascripts/ProjectShow.js' defer=''></script>
     <title>ProjectShow</title>
 </head>
-<body>
-  <ul class="nav">
+<body style="font-family: '微軟正黑體';">
+  <!-- <ul class="nav">
     <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
       <li><a href="http://elearning.nuk.edu.tw">專題瀏覽</a></li>
       <li><a href="http://elearning.nuk.edu.tw">登入</a></li>
       <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
+  </ul> -->
+  <ul class="nav" style="display: block;">
+    <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
+    <li ><a href="" class="pageName navbar-brand text-light">專題資訊</a></li>
+    <button class="btn btn-link my-2 my-sm-0 text-light modifyPassword " type="button">
+      <a style="color: white;" href="">
+        回到主頁
+      </a>
+    </button>
+    </li>
   </ul>
 
   <div class="container">
@@ -104,7 +114,6 @@
           <input type="submit" id="posterSub" name="submit" style="display: none;">
 
        </form>
-        <button class="delete" id="posterDel">刪除海報</button>
       </div>
       <div class="pptCBox">
         <!-- <button onclick="pptCh.click()">選擇簡報</button>
@@ -119,7 +128,6 @@
           <input type="text" value="ppt" name = 'uploadType' style="display: none;">
           <input type="submit" id="pptSub" name="submit" style="display:none;">
        </form>
-        <button class="delete" id="pptDel">刪除簡報</button>
       </div>
       <div class="docCBox">
         <!-- <button onclick="docCh.click()">選擇文件</button>
@@ -133,8 +141,7 @@
           <button class="choose" onclick="this.disabled=true;docSub.click()">確認上傳</button>
           <input type="text" value="doc" name = 'uploadType' style="display: none;">
           <input type="submit" id="docSub" name="submit" style="display:none;">
-       </form>
-        <button class="delete" id="docDel">刪除文件</button>
+        </form>
       </div>
       <div class="codeCBox">
         <!-- <button onclick="codeCh.click()">選擇程式</button>
@@ -149,7 +156,6 @@
           <input type="text" value="code" name = 'uploadType' style="display: none;">
           <input type="submit" id="codeSub" name="submit" style="display:none;">
        </form>
-        <button class="delete" id="codeDel">刪除程式</button>
       </div>
     </div>
 

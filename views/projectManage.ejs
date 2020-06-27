@@ -37,7 +37,6 @@
     <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a></li>
     <li><a href="http://elearning.nuk.edu.tw">顯示全部</a></li>
     <li><a href="http://elearning.nuk.edu.tw">回到主頁面</a></li>
-    <li><a class='signout' href="">登出</a></li>
     <!-- <li id="search" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a>
     </li> -->
   </ul>
@@ -61,7 +60,10 @@
       <img src="../images/ERROR.gif" style="display: none;">
       <% project.forEach(ele => { %>
       <li class="list-group-item">
-        <%= ele.Name %>
+        <div class="nameAndScore">
+          <span><%= ele.Name%></span>
+          <span class="scoreContainer" style="color:#707070">年度：<%= ele.Semester%></span>
+        </div>
         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
           <button type="button" class="btn btn-primary btn-visit" name="<%= ele.TeamLeader%>">更改專題</button>
         </div>
@@ -124,7 +126,7 @@
       <li class="list-group-item">
         <div class="nameAndScore">
           <span><%= ele.Name%></span>
-          <span class="scoreContainer" style="color:#707070">學生互評:<%= ele.Score %>,訪客投票:<%= ele.Vote %></span>
+          <span class="scoreContainer" style="color:#707070">年度：<%= ele.Semester%>, 學生互評:<%= ele.Score %>, 訪客投票:<%= ele.Vote %></span>
         </div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -208,7 +210,7 @@
       <li class="list-group-item">
         <div class="nameAndScore">
           <span><%= ele.Name%></span>
-          <span class="scoreContainer" style="color:#707070">老師評分:<%= ele.Grade %></span>
+          <span class="scoreContainer" style="color:#707070">年度：<%= ele.Semester%>, 老師評分:<%= ele.Grade %></span>
         </div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -273,7 +275,7 @@
       <li class="list-group-item">
         <div class="nameAndScore">
           <span><%= ele.Name%></span>
-          <span class="scoreContainer" style="color:#707070">訪客投票數:<%= ele.Vote %></span>
+          <span class="scoreContainer" style="color:#707070">年度：<%= ele.Semester%>, 訪客投票數:<%= ele.Vote %></span>
         </div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">

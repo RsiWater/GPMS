@@ -19,7 +19,9 @@
 
   <div class="container">
     <button type="button" class="btn btn-primary back">返回</button>
-    <button type="button" class="btn btn-success modify">修改資料</button>
+    <button type="button" class="btn btn-success modify" data-toggle="modal" data-target="#exampleModalCenter">
+      修改資料
+    </button>
     
     <div class="item title align-middle">
       <div class="titleText">(標題)</div>
@@ -31,22 +33,49 @@
     </div>
 
     <div class="ppdc">
-      <div class="item poster">
-        <img src="" width="70%" class="posterImg">
-        <div class="posterName">尚未上傳檔案</div>
-      </div>
-      <div class="item ppt">
-        <img src="" width="70%" class="pptImg">
-        <div class="pptName">尚未上傳檔案</div>
-      </div>
-      <div class="item doc">
-        <img src="" width="70%" class="docImg">
-        <div class="docName">尚未上傳檔案</div>
-      </div>
-      <div class="item code">
-        <img src="" width="70%" class="codeImg">
-        <div class="codeName">尚未上傳檔案</div>
-      </div>
+      <form id        =  "uploadForm"
+        enctype   =  "multipart/form-data"
+        action    =  "/systemManage/projectManage/projectShow/download"
+        method    =  "post">
+        <div class="item poster" onclick="">
+          <img src="" width="70%" class="posterImg">
+          <div class="posterName">尚未上傳檔案</div>
+        </div>
+        <input type="submit" id="posterDownload" name="posterDownload" style="display:none;">
+      </form>
+
+      <form id        =  "uploadForm"
+        enctype   =  "multipart/form-data"
+        action    =  "/systemManage/projectManage/projectShow/download"
+        method    =  "post">
+        <div class="item ppt" onclick="">
+          <img src="" width="70%" class="pptImg">
+          <div class="pptName">尚未上傳檔案</div>
+        </div>
+        <input type="submit" id="pptDownload" name="pptDownload" style="display:none;">
+      </form>
+      
+      <form id        =  "uploadForm"
+        enctype   =  "multipart/form-data"
+        action    =  "/systemManage/projectManage/projectShow/download"
+        method    =  "post">
+        <div class="item doc" onclick="">
+          <img src="" width="70%" class="docImg">
+          <div class="docName">尚未上傳檔案</div>
+        </div>
+        <input type="submit" id="docDownload" name="docDownload" style="display:none;">
+      </form>
+
+      <form id        =  "uploadForm"
+        enctype   =  "multipart/form-data"
+        action    =  "/systemManage/projectManage/projectShow/download"
+        method    =  "post">
+        <div class="item code" onclick="">
+          <img src="" width="70%" class="codeImg">
+          <div class="codeName">尚未上傳檔案</div>
+        </div>
+        <input type="submit" id="codeDownload" name="codeDownload" style="display:none;">
+      </form>
     </div>
 
     <div class="ppdcText">
@@ -64,12 +93,12 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button onclick="posterCh.click()">選擇海報</button>
+          <button class="choose" onclick="posterCh.click()">選擇海報</button>
           <input type="file" accept=".pdf" id="posterCh" style="display:none;">
-          <button onclick="posterSub.click()">確認上傳</button>
-          <input type="submit" id="posterSub" name="submit">
+          <button class="choose" onclick="posterSub.click()">確認上傳</button>
+          <input type="submit" id="posterSub" name="submit" style="display:none;">
        </form>
-        <button id="posterDel">刪除海報</button>
+        <button class="delete" id="posterDel">刪除海報</button>
       </div>
       <div class="pptCBox">
         <!-- <button onclick="pptCh.click()">選擇簡報</button>
@@ -78,11 +107,12 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button onclick="pptCh.click()">選擇簡報</button>
+          <button class="choose" onclick="pptCh.click()">選擇簡報</button>
           <input type="file" accept=".ppt,.pptx" id="pptCh" style="display:none;">
-          <input type="submit" value="確認上傳" name="submit">
+          <button class="choose" onclick="pptSub.click()">確認上傳</button>
+          <input type="submit" id="pptSub" name="submit" style="display:none;">
        </form>
-        <button id="pptDel">刪除簡報</button>
+        <button class="delete" id="pptDel">刪除簡報</button>
       </div>
       <div class="docCBox">
         <!-- <button onclick="docCh.click()">選擇文件</button>
@@ -91,11 +121,12 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button onclick="docCh.click()">選擇文件</button>
+          <button class="choose" onclick="docCh.click()">選擇文件</button>
           <input type="file" accept=".doc,.docx" id="docCh" style="display:none;">
-          <input type="submit" value="確認上傳" name="submit">
+          <button class="choose" onclick="docSub.click()">確認上傳</button>
+          <input type="submit" id="docSub" name="submit" style="display:none;">
        </form>
-        <button id="docDel">刪除文件</button>
+        <button class="delete" id="docDel">刪除文件</button>
       </div>
       <div class="codeCBox">
         <!-- <button onclick="codeCh.click()">選擇程式</button>
@@ -104,16 +135,35 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button onclick="codeCh.click()">選擇程式</button>
+          <button class="choose" onclick="codeCh.click()">選擇程式</button>
           <input type="file" enctype="multipart/form-data" accept=".zip,.rar,.7z" id="codeCh" style="display:none;">
-          <input type="submit" value="確認上傳" name="submit">
+          <button class="choose" onclick="codeSub.click()">確認上傳</button>
+          <input type="submit" id="codeSub" name="submit" style="display:none;">
        </form>
-        <button id="codeDel">刪除程式</button>
+        <button class="delete" id="codeDel">刪除程式</button>
       </div>
     </div>
 
   </div>
 
+  <!-- 修改資料button彈跳視窗 -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">選擇修改...</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="modifyTD" data-dismiss="modal">修改標題/描述/刪除資料</div>
+          <div id="modifyUpData" data-dismiss="modal">上傳資料</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 修改資料button彈跳視窗 -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

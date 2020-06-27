@@ -1,3 +1,5 @@
+var main = document.querySelectorAll('.nav a')[2]
+main.href = "/studentMain"
 class ProjectShow{
     //待處理事項: 提供下載檔案 上傳檔案資料設定
     constructor(info,imgSrc) {

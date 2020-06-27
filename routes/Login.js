@@ -1,5 +1,3 @@
-// 頁面導向
-
 var express = require('express');
 var router = express.Router();
 
@@ -25,7 +23,7 @@ router.post('/', function(req, res, next)
     let password=req.body.Password
     let check
     DB_check('account',name,password,function(result){
-        console.log(result)
+        //console.log(result)
         check=result
         if(check.length == 0)
         {
@@ -88,11 +86,10 @@ module.exports = router;
 function DB_check(tableName ,account,password,callback)
 {
     const sql_string = 'SELECT * FROM '+tableName+' WHERE Name=? and Password=?';
-
-    db.all(sql_string, account,password, function(err, row)
+     db.all(sql_string, account,password, function(err, row)
     {
         if(err) throw err;
-        // console.log(row)
+        //console.log(row)
         let result=row
         return callback(result)
     })

@@ -119,7 +119,7 @@ const view =
       let id = $(e.target).data("id").toString(),
       item = _.find(items.list, {
         "id": id });
-
+        
 
     };
 
@@ -182,9 +182,14 @@ const view =
 
 
 app.init();
-
-
 var SubmitControl = document.querySelector('#back-btn');
+
+
+
+
+
+
+
 // var AddControl = document.querySelector('#submit-btn');
 
 SubmitControl.addEventListener('click', (event) => {
@@ -213,6 +218,7 @@ let sendToServer = function(mate_list, leader_id)
 {
   console.log(leader_id)
   console.log(mate_list)
+
   let Send_id = {
     mate_list: JSON.stringify(mate_list),
     leader_id: leader_id  

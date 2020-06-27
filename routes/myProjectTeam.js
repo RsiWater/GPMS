@@ -100,6 +100,13 @@ router.post('/', function(req, res, next)
   //   cb()
   // }
 
+  const sql_string = 'UPDATE student SET GuideTeacher=0 WHERE GuideTeacher=?'
+  db.run(sql_string,  userContent['EmployeeNumber'], function(err, row)
+  {
+    if(err) throw err;
+    //console.log('ffy')
+  })
+
   for(var i=0;i<studentList.length;i++){
     //iterFunction(id, sendFunction)
     const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'

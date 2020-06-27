@@ -76,7 +76,17 @@ SubmitScore.addEventListener('click', (event) => {
         data: SendScore,
         datatype: 'json',
     }).done(function (rcvMessage) {
-        window.location.reload();
+        console.log(rcvMessage)
+        if(rcvMessage.scored==1)
+        {
+            alert("您已經評分過了!")
+            window.location.reload();
+        }
+        else
+        {
+            alert("評分成功!")
+            window.location.reload();
+        }
     })
 
 });
@@ -128,7 +138,16 @@ SubmitControl.addEventListener('click', (event) => {
         datatype: 'json',
     }).done(function (rcvMessage) {
         console.log(rcvMessage)
-        window.location.reload();
+        if(rcvMessage.scored==1)
+        {
+            alert("您已經評分過了!")
+            window.location.reload();
+        }
+        else
+        {
+            alert("評分成功!")
+            window.location.reload();
+        }
     })
 });
 

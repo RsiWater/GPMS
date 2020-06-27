@@ -49,6 +49,7 @@ class ProjectShow{
     }
 
     init(certification){
+        console.log(info)
         if(certification){ //專題修改認證
             this.modifyTD.addEventListener('click',this.titleDesMod)
             this.modifyUpData.addEventListener('click',this.updateMod)
@@ -256,6 +257,10 @@ class ProjectShow{
     toUpdate(){ //上傳資料
         this.upData.title=this.titleInput.value
         this.upData.description=this.desInput.value
+        console.log('wewe')
+
+        let sendData = this.upData
+
         // $.ajax({
         //     url: '/systemManage/projectManage/projectShow/modifyProject',
         //     type: 'POST',
@@ -263,7 +268,7 @@ class ProjectShow{
         //     datatype: 'json'
         // }).done(function (rcvMessage) {
         //     console.log(rcvMessage)
-        //     // window.location.reload();
+        //     window.location.reload();
         // })
     }
 }
@@ -278,14 +283,14 @@ const info={'certification':true,'title':'生活助理','teacher':'黃老師','s
 // const info={'certification':true,'title':null,'teacher':null,'student':null,'description':null,
 //             'poster':null,'ppt':null,
 //             'doc':null,'code':null}
-// let info
-// $.ajax({
-//         url: '/systemManage/projectManage/projectShow/getData',
-//         type: 'POST',
-//         data: null,
-//         datatype: 'json'
-//     }).done(function (rcvMessage) {
-//         info=rcvMessage
-//         const ps=new ProjectShow(info,imgSrc)
-//     })
-const ps=new ProjectShow(info,imgSrc)
+let info
+$.ajax({
+        url: '/systemManage/projectManage/projectShow/getData',
+        type: 'POST',
+        data: null,
+        datatype: 'json'
+    }).done(function (rcvMessage) {
+        info=rcvMessage.info
+        const ps=new ProjectShow(info,imgSrc)
+    })
+//const ps=new ProjectShow(info,imgSrc)

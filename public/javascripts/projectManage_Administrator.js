@@ -13,21 +13,8 @@ function SAS() {
     var main = document.querySelectorAll('.nav li a')[2]
     main.href = "/systemManage"
     var lis = document.querySelectorAll(".Administrator .list-group li")
-    var ProjectList
-    $.ajax({
-        url: '/systemManage/projectManage/getdata',
-        type: 'POST',
-        data: '',
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        ProjectList = rcvMessage.projectNameList
-        TeamLeaderList = rcvMessage.projectTeamLeaderList
-        console.log(ProjectList)
-        console.log(TeamLeaderList)
-        paging(lis, 1, pageid);
-        // paging(ProjectList, 1,pageid,listGroup,"systemManage",TeamLeaderList);
-
-    })
+    paging(lis, 1, pageid);
+    
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";

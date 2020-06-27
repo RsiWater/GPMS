@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <script src="../javascripts/navbar.js" defer>
+    </script>
+    <link rel="stylesheet" href="../css/exhibit.css" />
+    <script src='../javascripts/exhibit.js' defer></script>
+    <!-- <script src="../public/javascripts/pagination.js" defer></script> -->
+    <!-- <script src='../public/javascripts/accountManage_search_paging.js' defer></script> -->
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>首頁 - Let's chat 線上聊天室</title>
+
+</head>
+
+<body>
+    <ul class="nav">
+        <li id="home" class="icon"><a href="http://elearning.nuk.edu.tw"><img class="placeHolder" src="" alt="" /></a>
+        </li>
+        <li><a href="/systemManage">回到主頁面</a></li>
+        <li><a class='signout' href="">登出</a></li>
+    </ul>
+
+
+
+    <div id="head" class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">專題展籌備管理</h1>
+    </div>
+
+    <div class="container exhibit">
+        <nav class="navbar navbar-light bg-light">
+            <!-- <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    onkeydown="showSearch(event,this)">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button">搜尋</button>
+            </form> -->
+            <button type="button" class="btn btn-success justify-content-end " data-toggle="modal"
+                data-target="#Modal4New">新增資料</button>
+        </nav>
+        <ul class="list-group">
+            <!-- <img src="../images/ERROR.gif" style="display: none;"> -->
+            <li class="list-group-item">
+                <span>108畢業專題</span>
+                <button class="btn btn-primary" type="button" name="" data-toggle="collapse"
+                    data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    顯示所有
+                </button>
+            </li>
+        </ul>
+        <div class="collapse" id="collapseExample">
+            <div class="card-group" style="margin-bottom:1rem">
+                <div class="card">
+                    <img class="card-img-top" src="../images/ERROR.gif" alt="Card image cap">
+
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text  text-truncate"><strong>當屆負責老師 ： </strong>XXX</p>
+                        <p class="card-tex text-truncate"><strong>時間 : </strong>2020-12-04 9:00 a.m</p>
+                        <p class="card-tex  text-truncate"><strong>地點 : </strong>圖資館一樓</p>
+                        <p class="card-text  text-truncate"><strong>工作人員 : </strong>XXX、XXX、OOO、AAA、SSS</p>
+                        <p class="card-text  text-truncate"><strong>評審 : </strong>XXX、XXX、OOO、AAA、SSS</p>
+                        <p class="card-tex  text-truncate"><strong>名次(1、2、3、佳作) : </strong>哈哈哈、FUCK、CCC、XXXXXXX</p>
+                        <!-- <p class="card-text">海報:?????</p> -->
+                        <div class="text-center card-footer bg-transparent">
+                            <a href="#" class="card-link delete" data-toggle="modal" data-target="#ModalModify">修改</a>
+                            <a href="#" class="card-link modify" data-toggle="modal" data-target="#Modaldelete">刪除</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Modal delete -->
+        <div class="modal fade" id="Modaldelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">確定要刪除專題展資料?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        此操作將不可復原
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">不!</button>
+                        <button type="button" class="btn btn-primary btn-danger-ensure">沒問題</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal New-->
+        <div class="modal fade" id="Modal4New" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">新增資料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">當屆負責老師</span>
+                            </div>
+                            <input type="text" class="form-control teacherName" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">工作人員</span>
+                            </div>
+                            <input type="text" class="form-control staff" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">評審</span>
+                            </div>
+                            <input type="text" class="form-control reviewCommittee" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">時間</span>
+                            </div>
+                            <input type="text" class="form-control time" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">地點</span>
+                            </div>
+                            <input type="text" class="form-control place" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">學期</span>
+                            </div>
+                            <input type="text" class="form-control semester" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="input-group mb-3" enctype="multipart/form-data">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">海報(IMG)</span>
+                            </div>
+                            <!--<input type="text" class="form-control posterPath" aria-label="Sizing example input"
+                         aria-describedby="inputGroup-sizing-default"> -->
+                            <input type="file" onchange="readURL(this)" targetID="preview_progressbarTW_img"
+                                accept="image/gif, image/jpeg, image/png" style="margin-left: 1em;" />
+                            <img id="preview_progressbarTW_img" src="" style="width: inherit;" />
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary sendNewAccount">確定新增</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal Modify-->
+        <div class="modal fade" id="ModalModify" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">修改資料</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">指導老師</span>
+                            </div>
+                            <input type="text" class="form-control teacherName" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">工作人員</span>
+                            </div>
+                            <input type="text" class="form-control staff" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">評審</span>
+                            </div>
+                            <input type="text" class="form-control reviewCommittee" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">時間</span>
+                            </div>
+                            <input type="text" class="form-control time" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">地點</span>
+                            </div>
+                            <input type="text" class="form-control place" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">學期</span>
+                            </div>
+                            <input type="text" class="form-control semester" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default" value="">
+                        </div>
+                        <div class="input-group mb-3" enctype="multipart/form-data">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">海報(IMG)</span>
+                            </div>
+                            <!--<input type="text" class="form-control posterPath" aria-label="Sizing example input"
+                         aria-describedby="inputGroup-sizing-default"> -->
+                            <input type="file" onchange="readURL(this)" targetID="preview_progressbarTW_img"
+                                accept="image/gif, image/jpeg, image/png" style="margin-left: 1em;" value="" />
+                            <img id="preview_progressbarTW_img" src="" style="width: inherit;" />
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary sendNewAccount">確定修改</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

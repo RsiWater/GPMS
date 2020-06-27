@@ -79,7 +79,7 @@ SubmitScore.addEventListener('click', (event) => {
 
 });
 
-let projectVistButtons = document.querySelectorAll('btn-visit')
+let projectVistButtons = document.querySelectorAll('.btn-visit')
 
 projectVistButtons.forEach(ele =>
 {

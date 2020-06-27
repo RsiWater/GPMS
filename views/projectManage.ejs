@@ -263,6 +263,7 @@
       <% project.forEach(ele => { %>
       <li class="list-group-item">
         <%= ele.Name%>
+        <div class="scoreContainer">訪客投票數:<%= ele.Vote %></div>
         <div>
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button type="button" id="liketovote" class="btn btn-danger liketovote <%= ele.Name %>">我喜歡♡</button>

@@ -7,12 +7,21 @@ var router = express.Router();
 var multer  =   require('multer');
 var fs = require('fs');
 
+let sqlite3 = require('sqlite3').verbose()
+let db = new sqlite3.Database('db_GPMS.db', function(err)
+{
+  if(err) throw err;
+})
+
 /* GET home page. */
+let projectKey = undefined
 router.get('/', function(req, res, next) {
+  cons
   res.render('projectShow');
 });
 
 
+// POST below
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
       callback(null, './uploads')
@@ -30,10 +39,11 @@ var storage =   multer.diskStorage({
   }
 });
 
+
 router.post('/sendProject', function(req, res, next)
 {
-  projectName = req.body.Name
-  res.json({href: '/systemManage/accountManage/passwordModify'})
+  projectKey = req.body.teanLeader
+  res.json({href: '/systemManage/accountManage/projectShow'})
 })
 
 router.post('/modifyProject', function(req, res, next)

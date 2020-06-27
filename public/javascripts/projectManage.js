@@ -86,7 +86,7 @@ projectVistButtons.forEach(ele =>
   ele.addEventListener('click', function(event)
   {
       let sendData = {
-          teamLeader = event.target.name
+          teamLeader : event.target.name
       }
       $.ajax({
         url: '/systemManage/projectManage/projectShow/sendProject',
@@ -104,7 +104,7 @@ let sucbtnList = document.querySelectorAll('button.btn-success')
 let targetTeam = ''
 sucbtnList.forEach(item => {
     item.addEventListener('click', function (event) {
-        targetTeam = event.target.name;
+        targetTeam =  event.target.name;
     })
 })
 

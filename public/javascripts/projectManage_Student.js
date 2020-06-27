@@ -10,6 +10,9 @@ function PMS() {
     HOME.href = "projectManage"
     var main = document.querySelectorAll('.nav li a')[2]
     main.href = "/studentMain"
+
+    var lis = document.querySelectorAll(".Student .list-group li")
+
     var ProjectList
     var TeamLeaderList
     $.ajax({
@@ -22,6 +25,7 @@ function PMS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
+        paging(lis, 1, pageid);
         // paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
     })
     SubmitSearch.addEventListener('click', (event) => {

@@ -1,8 +1,13 @@
-function paging(ProjectList, nowPage, pageid, listGroup, whopage, TeamLeaderList) {
+function paging(ProjectList, nowPage, pageid) {
     console.log('paging')
     pagination(ProjectList, nowPage)
 
     function pagination(jsonData, nowPage) {
+        jsonData.forEach((item, index) => {
+            // console.log(item)
+            item.style.display = 'none';
+
+        });
         console.log(nowPage);
         // 取得全部資料長度
         const dataTotal = jsonData.length;
@@ -29,6 +34,7 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage, TeamLeaderList
         // 這邊將會使用 ES6 forEach 做資料處理
         // 首先必須使用索引來判斷資料位子，所以要使用 index
         jsonData.forEach((item, index) => {
+            // console.log(item.innerText)
             // 獲取陣列索引，但因為索引是從 0 開始所以要 +1。
             const num = index + 1;
             // 這邊判斷式會稍微複雜一點
@@ -47,86 +53,45 @@ function paging(ProjectList, nowPage, pageid, listGroup, whopage, TeamLeaderList
         displayData(data);
         pageBtn(page);
     }
-    function displayData(data) {
-        let str = '';
-        listGroup.innerHTML = ""
-        data.forEach((item, index) => {
-            if (whopage === "stduentManage") {
-                str += '<li class="list-group-item d-flex justify-content-between align-items-center">' +
-                item + '<div class="scoreContainer">學生互評:'+item +',訪客投票:'+item+'</div>'+
-                 '<div><div class="btn-group btn-group-sm" role="group" aria-label="Basic example">' +
-                    '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter" name="' +
-                    TeamLeaderList[index] + '">互評專題</button></div>' +
-                    '<div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">' +
-                    ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
-                    ' </div></div></li>'
-            } else if (whopage === "systemManage") {
-                str += '      <li class="list-group-item ">' +
-                item + '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example"' + '>' +
-                            '<button type="button" class="btn btn-primary ' + item + '">更改專題</button>' +
-                            '</div>' +
-                            '</li>';
-                } else if (whopage === "teacherManage") {
-                    str += '<li class="list-group-item d-flex justify-content-between align-items-center"' + '>' +
-                    item + '<div><div class="btn-group btn-group-sm" style="padding-left:1vw" role="group" aria-label="Basic example">' +
-                            '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenterTeacher"name="' +
-                            TeamLeaderList[index] + '">專題評分</button></div>' +
-                            '<div class="btn-group btn-group-sm" role="group" style="padding-left:1vw" aria-label="Basic example">' +
-                            ' <button type="button" class="btn btn-primary ' + item + '">瀏覽專題</button>' +
-                            ' </div></div></li>'
-                } else if (whopage === "guestManage") {
 
-                } else if (whopage === "accountManage") {
-                    str += '<li class="list-group-item d-flex justify-content-between align-items-center">' + item +
-                        '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example" name="' + item + '">' +
-                        '<button type="button" class="btn btn-danger" style="margin-right:1rem;" data-toggle="modal"' +
-                        'data-target="#exampleModal" name="' + item + '">刪除帳號</button>' +
-                        '<button type="button" class="btn btn-primary" name="' + item + '">更改帳號</button></div></li>';
-                    }
-                });
-                    listGroup.innerHTML = str;
-                    if (whopage === "stduentManage") {
-                        console.log('stduentManage ADDLISTEN')
-                        threetypeUser();
-                    } else if (whopage === "systemManage") {
-            
-                    } else if (whopage === "teacherManage") {
-            
-                    } else if (whopage === "guestManage") {
-            
-                    } else if (whopage === "accountManage") {
-                        console.log('accountManage ADDLISTEN')
-                        AccountManage();
-                    }
-                }
-            
-                function pageBtn(page) {
-                    let str = '';
-                    const total = page.pageTotal;
-                    if (page.hasPage) {
-                        str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) - 1}">上一頁</a></li>`;
-                    } else {
-                        str += `<li class="page-item disabled"><span class="page-link">上一頁</span></li>`;
-                    }
-                    for (let i = 1; i <= total; i++) {
-                        if (Number(page.currentPage) === i) {
-                            str += `<li class="page-item active"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
-                        } else {
-                            str += `<li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
-                        }
-                    };
-                    if (page.hasNext) {
-                        str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) + 1}">下一頁</a></li>`;
-                    } else {
-                        str += `<li class="page-item disabled"><span class="page-link">下一頁</span></li>`;
-                    }
-                    pageid.innerHTML = str;
-                }
-                function switchPage(e) {
-                    e.preventDefault();
-                    if (e.target.nodeName !== 'A') return;
-                    const page = e.target.dataset.page;
-                    pagination(ProjectList, page);
-                }
-                pageid.addEventListener('click', switchPage);
+    function displayData(data) {
+        console.log(data)
+        // let str = '';
+        data.forEach((item, index) => {
+            $(item).css('display', '');
+            // item.style.dispaly = ""
+            console.log(item)
+        });
+    }
+
+    function pageBtn(page) {
+        let str = '';
+        const total = page.pageTotal;
+        if (page.hasPage) {
+            str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) - 1}">上一頁</a></li>`;
+        } else {
+            str += `<li class="page-item disabled"><span class="page-link">上一頁</span></li>`;
+        }
+        for (let i = 1; i <= total; i++) {
+            if (Number(page.currentPage) === i) {
+                str += `<li class="page-item active"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
+            } else {
+                str += `<li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>`;
             }
+        };
+        if (page.hasNext) {
+            str += `<li class="page-item"><a class="page-link" href="#" data-page="${Number(page.currentPage) + 1}">下一頁</a></li>`;
+        } else {
+            str += `<li class="page-item disabled"><span class="page-link">下一頁</span></li>`;
+        }
+        pageid.innerHTML = str;
+    }
+
+    function switchPage(e) {
+        e.preventDefault();
+        if (e.target.nodeName !== 'A') return;
+        const page = e.target.dataset.page;
+        pagination(ProjectList, page);
+    }
+    pageid.addEventListener('click', switchPage);
+}

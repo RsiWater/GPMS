@@ -10,6 +10,9 @@ function GAS() {
     HOME.href = "projectManage"
     var main = document.querySelectorAll('.nav li a')[2]
     main.href = "/teacherMain"
+
+    var lis = document.querySelectorAll(".Teacher .list-group li")
+
     var ProjectList
     $.ajax({
         url: '/teacherMain/projectManage/getdata',
@@ -21,6 +24,7 @@ function GAS() {
         TeamLeaderList = rcvMessage.projectTeamLeaderList
         console.log(ProjectList)
         console.log(TeamLeaderList)
+        paging(lis, 1, pageid);
         // paging(ProjectList, 1,pageid,listGroup,"teacherManage",TeamLeaderList);
     })
     

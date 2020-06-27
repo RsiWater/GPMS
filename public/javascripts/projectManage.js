@@ -104,7 +104,7 @@ let sucbtnList = document.querySelectorAll('button.btn-success')
 let targetTeam = ''
 sucbtnList.forEach(item => {
     item.addEventListener('click', function (event) {
-        targetTeam = event.target.name;
+        targetTeam =  event.target.name;
     })
 })
 

@@ -83,8 +83,12 @@ router.post('/upload',function(req, res, next)
 
 router.post('/download', function(req, res, next)
 {
-  console.log(req.body.testPath)
+  console.log(req.body.downloadType)
+
+  const sql_string = "SELECT * FROM project WHERE "
+
   res.download('uploads/p1.txt')
+  
   // var filePath = path.join(__dirname, '/uploads/p1.txt');
   // var stat = fileSystem.statSync(filePath);
 

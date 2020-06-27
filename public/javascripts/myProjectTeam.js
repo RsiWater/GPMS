@@ -197,7 +197,7 @@ SubmitControl.addEventListener('click', (event) => {
   console.log(Leader_id)
   console.log(Mate_list)
   console.log(All_id);
-
+  console.log(items.list)
 
   sendToServer(Mate_list, Leader_id)
 });
@@ -239,11 +239,15 @@ $.ajax({
       name: student_list[i].Name,
       student_id: student_list[i].StudentID });
   }
-    
+  console.log(items.list)
+  for (i = 0; i < items.list.length; i++) 
+  { 
   
-
-
-
+     if(items.list[i].student_id==student_list[i].TeamLeader)
+      items.toggle(items.list[i].id);
+       
+  }
+  
 
 })
 

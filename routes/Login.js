@@ -30,7 +30,8 @@ router.post('/', function(req, res, next)
         if(check.length == 0)
         {
             res.cookie('PassKey', 0)
-            res.redirect('/guest/projectManage')
+            if(name == undefined && password == undefined) res.redirect('/guest/projectManage')
+            else res.redirect('/login')
         }
         else if(check[0]['Permission']==0){
             //有輸入正確帳號

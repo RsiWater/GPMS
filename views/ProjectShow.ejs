@@ -27,6 +27,10 @@
       <div class="titleText">(標題)</div>
       <form><input type="text" placeholder="請輸入標題..." class="titleInput hidden"></form>
     </div>
+    <div class="item author">
+      <div class="teacherText">(指導老師)</div>
+      <div class="studentText">學生</div>
+    </div>
     <div class="item description">
       <div class="desText">(描述)</div>
       <form><textarea rows="4" placeholder="請輸入專題描述..." style="width:100%;height:200%;" class="desInput hidden"></textarea></form>
@@ -93,9 +97,10 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button class="choose" onclick="posterCh.click()">選擇海報</button>
+          <button class="choose" onclick="this.disabled=true; posterCh.click()">選擇海報</button>
           <input type="file" accept=".pdf" id="posterCh" name="userFile" style="display: none;">
-          <button class="choose" onclick="posterSub.click()">確認上傳</button>
+          <button class="choose" onclick="posterSub.click(); window.location.reload()">確認上傳</button>
+          <input type="text" value="poster" name = 'uploadType' style="display: none;">
           <input type="submit" id="posterSub" name="submit" style="display: none;">
 
        </form>
@@ -108,9 +113,10 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button class="choose" onclick="pptCh.click()">選擇簡報</button>
-          <input type="file" accept=".ppt,.pptx" id="pptCh" style="display:none;">
-          <button class="choose" onclick="pptSub.click()">確認上傳</button>
+          <button class="choose" onclick="this.disabled=true;pptCh.click()">選擇簡報</button>
+          <input type="file" accept=".ppt,.pptx" id="pptCh" name="userFile" style="display:none;">
+          <button class="choose" onclick="this.disabled=true;pptSub.click()">確認上傳</button>
+          <input type="text" value="ppt" name = 'uploadType' style="display: none;">
           <input type="submit" id="pptSub" name="submit" style="display:none;">
        </form>
         <button class="delete" id="pptDel">刪除簡報</button>
@@ -122,9 +128,10 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button class="choose" onclick="docCh.click()">選擇文件</button>
-          <input type="file" accept=".doc,.docx" id="docCh" style="display:none;">
-          <button class="choose" onclick="docSub.click()">確認上傳</button>
+          <button class="choose" onclick="this.disabled=true;docCh.click()">選擇文件</button>
+          <input type="file" accept=".doc,.docx" id="docCh" name="userFile" style="display:none;">
+          <button class="choose" onclick="this.disabled=true;docSub.click()">確認上傳</button>
+          <input type="text" value="doc" name = 'uploadType' style="display: none;">
           <input type="submit" id="docSub" name="submit" style="display:none;">
        </form>
         <button class="delete" id="docDel">刪除文件</button>
@@ -136,9 +143,10 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-          <button class="choose" onclick="codeCh.click()">選擇程式</button>
-          <input type="file" enctype="multipart/form-data" accept=".zip,.rar,.7z" id="codeCh" style="display:none;">
-          <button class="choose" onclick="codeSub.click()">確認上傳</button>
+          <button class="choose" onclick="this.disabled=true;codeCh.click()">選擇程式</button>
+          <input type="file" enctype="multipart/form-data" accept=".zip,.rar,.7z" id="codeCh" name="userFile" style="display:none;">
+          <button class="choose" onclick="this.disabled=true;codeSub.click()">確認上傳</button>
+          <input type="text" value="code" name = 'uploadType' style="display: none;">
           <input type="submit" id="codeSub" name="submit" style="display:none;">
        </form>
         <button class="delete" id="codeDel">刪除程式</button>

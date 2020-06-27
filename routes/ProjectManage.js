@@ -16,6 +16,10 @@ router.get('/', function(req, res, next) {
   db.all(sql_string,req.cookies.PassKey, function(err, row)
   {
     if (err) throw err;
+    if(row.length==0){
+      res.render('projectManage')
+    }
+    else{
     if(row[0]['Permission']==1||row[0]['Permission']==2){
       const s_string='SELECT * FROM GraduationProject WHERE Semester="109"'
       db.all(s_string, function(err, row){
@@ -31,6 +35,7 @@ router.get('/', function(req, res, next) {
         res.render('projectManage', {project: row})
       })
     }
+  }
   })
 });
 

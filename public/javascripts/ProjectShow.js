@@ -14,6 +14,8 @@ class ProjectShow{
         this.modifyUpData=document.getElementById("modifyUpData")//選擇上傳檔案
         this.backButton=document.querySelector('.back') //返回按鈕
         this.titleText=document.querySelector('.titleText') //標題
+        this.teacherText=document.querySelector('.teacherText')
+        this.studentText=document.querySelector('.studentText')
         this.desText=document.querySelector('.desText') //描述
         this.posterName=document.querySelector('.posterName') //海報名稱
         this.posterImg=document.querySelector('.posterImg') //海報圖片
@@ -60,6 +62,23 @@ class ProjectShow{
             this.titleText.innerText=info.title
         }else{
             this.titleText.innerText="尚未設置標題..."
+        }
+        if(info.teacher!=null){
+            this.teacherText.innerText=info.teacher+" 指導"
+        }else{
+            this.teacherText.innerText="尚未設置指導老師..."
+        }
+        if(info.student!=null){
+            let studentName=""
+            for(let i=0;i<info.student.length;i++){
+                if(i!=info.student.length-1)
+                    studentName=studentName+info.student[i]+" "
+                else
+                    studentName=studentName+info.student[i]+" 製作"
+            }
+            this.studentText.innerText=studentName
+        }else{
+            this.studentText.innerText="尚未設置專題學生..."
         }
         if(info.description!=null){
             this.desText.innerText=info.description
@@ -238,29 +257,29 @@ class ProjectShow{
     toUpdate(){ //上傳資料
         this.upData.title=this.titleInput.value
         this.upData.description=this.desInput.value
-        console.log('wewe')
 
         let sendData = this.upData
 
-        // $.ajax({
-        //     url: '/systemManage/projectManage/projectShow/modifyProject',
-        //     type: 'POST',
-        //     data: sendData,
-        //     datatype: 'json'
-        // }).done(function (rcvMessage) {
-        //     console.log(rcvMessage)
-        //     window.location.reload();
-        // })
+        $.ajax({
+            url: '/systemManage/projectManage/projectShow/modifyProject',
+            type: 'POST',
+            data: sendData,
+            datatype: 'json'
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            window.location.reload();
+        })
     }
 }
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
               'doc':'../../images/microsoft-word.png','code':'../../images/compressed.png',download:"../../images/download_icon.png"}
 
-// const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
-//             'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
-//             'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
+const info={'certification':true,'title':'生活助理','teacher':'黃老師','student':['吳學生','陳學生','韓學生','葉學生'],
+            'description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
+            'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
+            'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
 
-// const info={'certification':true,'title':null,'description':null,
+// const info={'certification':true,'title':null,'teacher':null,'student':null,'description':null,
 //             'poster':null,'ppt':null,
 //             'doc':null,'code':null}
 let info

@@ -50,6 +50,7 @@ app.use('/teacherMain/projectManage', projectManageRouter)
 app.use('/teacherMain/myProjectTeam', myProjectTeamRouter)
 app.use('/studentMain', studentMainRouter)
 app.use('/studentMain/projectManage', projectManageRouter)
+app.use('/studentMain/userModifyPassword', userModifyPasswordRouter)
 app.use('/guest/projectManage', projectManageRouter)
 
 app.use(express.static(path.join(__dirname, '/public')));	

@@ -7,6 +7,7 @@ var router = express.Router();
 var multer  =   require('multer');
 var fs = require('fs');
 const { post } = require('../app');
+const { triggerAsyncId } = require('async_hooks');
 
 let sqlite3 = require('sqlite3').verbose()
 let db = new sqlite3.Database('db_GPMS.db', function(err)
@@ -17,6 +18,7 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 /* GET home page. */
 let projectKey = undefined
 router.get('/', function(req, res, next) {
+  console.log('show')
   res.render('projectShow');
 });
 
@@ -42,34 +44,122 @@ var storage =   multer.diskStorage({
 router.post('/sendProject', function(req, res, next)
 {
   projectKey = req.body.teamLeader
+  console.log(projectKey)
   res.json({href: '/systemManage/projectManage/projectShow'})
 })
 router.post('/getData', function(req, res, next)
 {
+  function passCer(cer)
+  {
+    console.log(cer)
+    const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader = ?'
+    db.all(sql_string, projectKey, function(err, row)
+    {
+      let studentList = []
+      const sel_sql_string = 'SELECT * FROM student WHERE TeamLeader = ?'
+      db.all(sel_sql_string, projectKey, function(err, row_s)
+      {
+        if(err) throw err
+        for(let item of row_s)
+        {
+          studentList.push(item.Name)
+        }
+        let posterName, pptName, docName, codeName;
+        if (row[0].PosterPath != null) posterName = row[0].PosterPath.split('\\')[1]
+        else posterName = null
+        if (row[0].PptPath != null) pptName = row[0].PptPath.split('\\')[1]
+        else pptName = null
+        if (row[0].DataPath != null) docName = row[0].DataPath.split('\\')[1]
+        else docName = null
+        if (row[0].ExePath != null) codeName = row[0].ExePath.split('\\')[1]
+        else codeName = null
+        let sendData = {
+          certification: cer,
+          title: row[0].Name,
+          description: row[0].ProjectText,
+          poster: posterName,
+          ppt: pptName,
+          doc: docName,
+          code: codeName,
+          teacher: row[0].GuideTeacher,
+          student: studentList
+        }
+        res.json({info: sendData})
+      })
+    })
+  }
+
   const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader = ?'
   db.all(sql_string, projectKey, function(err, row)
   {
     if(err) throw err;
-    let posterName, pptName, docName, codeName;
-    if (row[0].PosterPath 
-      != null) posterName = row[0].PosterPath.split('\\')[1]
-    else posterName = null
-    if (row[0].PptPath != null) pptName = row[0].PptPath.split('\\')[1]
-    else pptName = null
-    if (row[0].DataPath != null) docName = row[0].DataPath.split('\\')[1]
-    else docName = null
-    if (row[0].ExePath != null) codeName = row[0].ExePath.split('\\')[1]
-    else codeName = null
-    let sendData = {
-      certification: true,
-      title: row[0].Name,
-      description: row[0].ProjectText,
-      poster: posterName,
-      ppt: pptName,
-      doc: docName,
-      code: codeName
+    if(row.length == 0)
+    {
+      let sendData = {
+        certification: true,
+        title: null,
+        description: null,
+        poster: null,
+        ppt: null,
+        doc: null,
+        code: null,
+        teacher: null,
+        student: null
+      }
+      // console.log(studentList)
+      res.json({info: sendData})
     }
-    res.json({info: sendData})
+    else
+    {
+      let certification = false
+      db.all('SELECT * FROM account WHERE Passkey = ?', req.cookies.PassKey, function(err, row)
+      {
+        if(err) throw err;
+        if(row[0].Permission == 0) passCer(true)
+        else if (row[0].Permission == 1)
+        {
+          db.all('SELECT * FROM GraduationProject WHERE GuideTeacher = ?', row[0].EmployeeNumber, function(err, row)
+          {
+            if(err) throw err;
+            db.all('SELECT * FROM GraduationProject WHERE TeamLeader = ?', projectKey, function(err, row_s)
+            {
+              if(err) throw err;
+              console.log(row_s)
+              if(row_s[0].GuideTeacher == row[0].EmployeeNumber) passCer(true)
+              else passCer(false)
+            })
+          })
+        }
+        else
+        {
+          db.all('SELECT * FROM account WHERE PassKey = ?', req.cookies.PassKey, function(err, row_s)
+          {
+            if(err) throw err;
+            db.all('SELECT * FROM student WHERE TeamLeader = ?', projectKey, function(err, row_ss)
+            {
+              if(err) throw err;
+              let pass = false
+              for(i in row_ss)
+              {
+                if(row_ss[i].StudentID == row_s[0].Name) pass = true
+              }
+              if(pass) passCer(true)
+              else passCer(false)
+            })
+          })
+        }
+      })
+
+      
+    }
+    // const cer_sql_string = 'SELECT * FROM account WHERE PassKey = ?'
+    // db.all(cer_sql_string, req.cookies.PassKey, function(err, row_c)
+    // {
+
+    // })
+
+
+    
   })
 })
 
@@ -82,6 +172,21 @@ router.post('/modifyProject', function(req, res, next)
   {
     if(err) throw err
     res.json({href:'/projectShow'})
+  })
+})
+
+router.post('/newProject', function(req, res, next)
+{
+  const s_sql_string = 'SELECT * FROM account WHERE Passkey = ?'
+  db.all(s_sql_string, req.cookies.PassKey, function(err, row)
+  {
+    projectKey = row[0].Name
+    const sql_string = 'INSERT INTO GraduationProject(Name, Semester, TeamLeader, GuideTeacher, Grade, Score, Vote, PrizeRank, ProjectText, PosterPath, DataPath, ExePath, PptPath, checkPass) VALUES(?, "109", ?, "", 0, 0, 0, "0", ?, "", "", "", "", "")'
+    db.run(sql_string, req.body.title, row[0].Name, req.body.description, function(err)
+    {
+      if(err) throw err
+      res.json({href:'/projectShow'})
+    })
   })
 })
 

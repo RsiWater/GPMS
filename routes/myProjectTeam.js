@@ -48,7 +48,7 @@ router.post('/getData', function(req, res, next)
   db.all(teacher_sql_string, req.cookies.PassKey, function(err, row)
   {
     if(err) throw err;
-    let teacherNumber = row[0].EmployeeNumber
+    let teacherNumber = row[0]['EmployeeNumber']
     const stu_sql_string = 'SELECT * FROM student WHERE GuideTeacher = ?'
     db.all(stu_sql_string, teacherNumber, function(err, row)
     {
@@ -61,25 +61,53 @@ router.post('/getData', function(req, res, next)
 
 router.post('/', function(req, res, next)
 {
+  console.log('fy')
   let studentList = JSON.parse(req.body.mate_list)
+  console.log(studentList)
   let studentLeader = req.body.leader_id
 
   let isExist = true
 
-  function sendFunction()
-  {
-    if (isExist) {
-      res.json({res: true})
-      console.log('send')
-    }
-    else res.json({res: false})
-  }
+  // function sendFunction()
+  // {
+  //   if (isExist) {
+  //     res.json({res: true})
+  //     console.log('send')
+  //   }
+  //   else res.json({res: false})
+  // }
 
-  function iterFunction(id,cb)
-  {
+  // function iterFunction(id,cb)
+  // {
+  //   const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
+  //   db.all(query_sql_string, id, function(err, row)
+  //   {
+  //     if (row.length == 0)
+  //     {
+  //       isExist = false
+  //       console.log('.0.')
+  //     }
+  //     else
+  //     {
+  //       const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
+  //       db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
+  //       {
+  //         if(err) throw err;
+  //       })
+  //     }
+  //     if(err) throw err
+  //   })
+  //   cb()
+  // }
+
+  for(var i=0;i<studentList.length;i++){
+    //iterFunction(id, sendFunction)
     const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
-    db.all(query_sql_string, id, function(err, row)
+    let tempStudent = studentList[i]
+    db.all(query_sql_string, tempStudent, function(err, row)
     {
+      console.log(i)
+      if(err) throw err
       if (row.length == 0)
       {
         isExist = false
@@ -87,22 +115,21 @@ router.post('/', function(req, res, next)
       }
       else
       {
-        const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
-        db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
+        // console.log(userContent)
+        const sql_string = 'UPDATE student SET TeamLeader=?,GuideTeacher=? WHERE StudentID=?'
+        db.run(sql_string, studentLeader, userContent['EmployeeNumber'], tempStudent, function(err, row)
         {
           if(err) throw err;
+          console.log('ffy')
         })
       }
-      if(err) throw err
     })
-    cb()
+    // if (isExist) {
+    //   res.json({res: true})
+    //   console.log('send')
+    // }
+    // else {res.json({res: false})}
   }
-
-  studentList.forEach(id =>{
-    iterFunction(id, sendFunction)
-    
-  })
-
 })
 
 module.exports = router;

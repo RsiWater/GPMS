@@ -53,6 +53,11 @@ class ProjectShow{
         if(certification){ //專題修改認證
             this.modifyTD.addEventListener('click',this.titleDesMod)
             this.modifyUpData.addEventListener('click',this.updateMod)
+            if(info.student === null)
+            {
+                this.modifyButton.textContent = '新增專題'
+                this.modifyUpData.classList.add('hidden')
+            }
         }
         else{
             this.modifyButton.classList.add('hidden')
@@ -139,9 +144,19 @@ class ProjectShow{
             choose.classList.add("hidden")
         }
         const deleteButton=document.querySelectorAll(".delete")
-        for(let del of deleteButton){
-            del.classList.remove("hidden")
+        if(info.student !== null)
+        {
+            for(let del of deleteButton){
+                del.classList.remove("hidden")
+            }
         }
+        else
+        {
+            for(let del of deleteButton){
+                del.classList.add("hidden")
+            }
+        }
+        
 
         this.posterDel.addEventListener('click',this.fileDel)//刪除資料按鈕綁定event
         this.pptDel.addEventListener('click',this.fileDel)
@@ -260,24 +275,39 @@ class ProjectShow{
 
         let sendData = this.upData
 
-        $.ajax({
-            url: '/systemManage/projectManage/projectShow/modifyProject',
-            type: 'POST',
-            data: sendData,
-            datatype: 'json'
-        }).done(function (rcvMessage) {
-            console.log(rcvMessage)
-            window.location.reload();
-        })
+        if(info.student !== null)
+        {
+            $.ajax({
+                url: '/systemManage/projectManage/projectShow/modifyProject',
+                type: 'POST',
+                data: sendData,
+                datatype: 'json'
+            }).done(function (rcvMessage) {
+                console.log(rcvMessage)
+                window.location.reload();
+            })
+        }
+        else
+        {
+            $.ajax({
+                url: '/systemManage/projectManage/projectShow/newProject',
+                type: 'POST',
+                data: sendData,
+                datatype: 'json'
+            }).done(function (rcvMessage) {
+                console.log(rcvMessage)
+                window.location.reload();
+            })
+        }
     }
 }
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
               'doc':'../../images/microsoft-word.png','code':'../../images/compressed.png',download:"../../images/download_icon.png"}
 
-const info={'certification':true,'title':'生活助理','teacher':'黃老師','student':['吳學生','陳學生','韓學生','葉學生'],
-            'description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
-            'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
-            'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
+// const info={'certification':true,'title':'生活助理','teacher':'黃老師','student':['吳學生','陳學生','韓學生','葉學生'],
+//             'description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
+//             'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
+//             'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
 
 // const info={'certification':true,'title':null,'teacher':null,'student':null,'description':null,
 //             'poster':null,'ppt':null,

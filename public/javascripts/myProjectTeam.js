@@ -223,9 +223,8 @@ let sendToServer = function(mate_list, leader_id)
     data: Send_id,
     datatype: 'json',
   }).done(function (rcvMessage) {
-      console.log(rcvMessage.res)
       var status=rcvMessage.res
-      if(status)
+      if(!status)
       {
         jQuery.noConflict(); 
         $('#alert').modal('show');
@@ -256,8 +255,8 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
     student_list=rcvMessage.studentList
-    if (student_list.Name != undefined)
-    {
+    // if (student_list.Name != undefined)
+    // {
     console.log(student_list)
     console.log(typeof student_list)
     
@@ -276,7 +275,7 @@ $.ajax({
        
   }
   
-    }
+    //}
 })
 
 

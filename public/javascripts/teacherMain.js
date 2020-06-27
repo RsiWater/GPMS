@@ -2,12 +2,13 @@
 var TeacherName = "AAA"
 
 $.ajax({
-    url: '/main/Identifier/getData', //待修改
+    url: '/teacherMain/getData', //待修改
     type: 'POST',
     data: "",
     datatype: 'json',
 }).done(function (rcvMessage) {
     console.log(rcvMessage)
+    TeacherName = rcvMessage.name
     showTeacherName();
 })
 

@@ -2,18 +2,20 @@
 var StudentName = "CCC"
 
 $.ajax({
-    url: '/main/Identifier/getData', //待修改
+    url: '/studentMain/getData', //待修改
     type: 'POST',
     data: "",
     datatype: 'json',
 }).done(function (rcvMessage) {
+    console.log(rcvMessage)
+    StudentName = rcvMessage.name
     console.log(rcvMessage)
     showStudentName();
 })
 
 var Name = document.querySelector("#head h1")
 function showStudentName(){
-    Name.innerHTML = "您好，"+ StudentName +"老師!"
+    Name.innerHTML = "您好，"+ StudentName +"學生!"
 }
 
 var notificationSwitch=document.querySelector(".notification ")
@@ -84,3 +86,20 @@ for(var i=0;i<notificationType.length;i++)
     
 }
 console.log(notificationType)
+
+let myProjectButton = document.querySelector('.btn.myProject')
+myProjectButton.addEventListener('click', function(event)
+{
+    let sendData = {
+        teamLeader : event.target.name
+    }
+    $.ajax({
+      url: '/studentMain/projectManage/projectShow/sendProject',
+      type: 'POST',
+      data: sendData,
+      datatype: 'json'
+    }).done(function(rcvMessage){
+        console.log(rcvMessage.href)
+        window.location.href = rcvMessage.href
+    })
+})

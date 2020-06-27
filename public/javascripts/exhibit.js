@@ -1,19 +1,19 @@
-exhibit
 let btnList = document.querySelectorAll('button.btn-primary:not(.sendNewAccount):not(.btn-danger-ensure)')
 btnList.forEach(item => {
     item.addEventListener('click', function (event) {
-        let sendData = {
-            Name: event.target.name
-        }
-        $.ajax({
-            url: '/systemManage/accountManage/passwordModify/sendAccount', //待修改
-            type: 'POST',
-            data: sendData,
-            datatype: 'json',
-        }).done(function (rcvMessage) {
-            console.log(rcvMessage.href)
-            window.location.href = rcvMessage.href
-        })
+        // $('#ModalModifyAccount').modal('show');
+        // let sendData = {
+        //     Name: event.target.name
+        // }
+        // $.ajax({
+        //     url: '/systemManage/accountManage/passwordModify/sendAccount', //待修改
+        //     type: 'POST',
+        //     data: sendData,
+        //     datatype: 'json',
+        // }).done(function (rcvMessage) {
+        //     console.log(rcvMessage.href)
+        //     window.location.href = rcvMessage.href
+        // })
     })
 })
 
@@ -73,3 +73,26 @@ document.querySelector('a.signout').addEventListener('click', function (event) {
         window.location.href = rcvMessage.href
     })
 })
+
+
+function readURL(input){
+
+    if(input.files && input.files[0]){
+  
+      var imageTagID = input.getAttribute("targetID");
+  
+      var reader = new FileReader();
+  
+      reader.onload = function (e) {
+  
+         var img = document.getElementById(imageTagID);
+  
+         img.setAttribute("src", e.target.result)
+  
+      }
+  
+      reader.readAsDataURL(input.files[0]);
+  
+    }
+  
+  }

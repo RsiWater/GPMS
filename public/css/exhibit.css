@@ -1,3 +1,6 @@
+body{
+    font-family: "微軟正黑體" !important;
+}
 .exhibit ul li{
     display:flex ;
     justify-content: space-between;
@@ -11,4 +14,13 @@
 
 .exhibit .list-group{
     height:auto
+}
+
+.nav{
+    display: block !important;
+
+}
+.nav a{
+    color: white;
+    
 }

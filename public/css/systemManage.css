@@ -4,9 +4,7 @@ body{
 .card-title{
     font-weight:bold;
 }
-.container{
-    margin-left: 25vw !important;
-}
+
 .modifyPassword{
     border-style:none !important;
 }

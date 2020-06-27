@@ -31,6 +31,18 @@ body{
   overflow-x: auto;
 }
 
+.author{
+  height: 20%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 130%;
+  background-color: #c8e6f8;
+  background-image: linear-gradient(160deg, #f4f1fd 0%, #eceaf7 127%);
+  overflow-x: auto;
+}
+
 .description{
   height:35%;
   font-size: 130%;

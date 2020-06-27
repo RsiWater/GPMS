@@ -56,6 +56,12 @@ body{
   height:30%;
 }
 
+.ppdc form{
+  display:block;
+  height: 100%;
+  width: 100%;
+}
+
 .ppdc div{
   height: 100%;
   width: 100%;
@@ -90,6 +96,17 @@ body{
 }
 
 .downhover:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.modal-body div{
+  text-align: center;
+  font-size: 120%;
+  width: 100%;
+  border-bottom: 2px solid #d8d5d5;
+}
+.modal-body div:hover{
   cursor: pointer;
   opacity: 0.5;
 }

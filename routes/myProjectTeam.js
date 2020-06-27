@@ -1,3 +1,5 @@
+// true or false
+
 var express = require('express');
 const { InsufficientStorage } = require('http-errors');
 var router = express.Router();
@@ -62,19 +64,44 @@ router.post('/', function(req, res, next)
   let studentList = JSON.parse(req.body.mate_list)
   let studentLeader = req.body.leader_id
 
-  try{
-    studentList.forEach(id =>
+  let isExist = true
+
+  function sendFunction()
+  {
+    if (isExist) {
+      res.json({res: true})
+      console.log('send')
+    }
+    else res.json({res: false})
+  }
+
+  function iterFunction(id)
+  {
+    const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
+    db.all(query_sql_string, id, function(err, row)
+    {
+      if (row.length == 0)
+      {
+        isExist = false
+        console.log('.0.')
+      }
+      else
       {
         const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
         db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
         {
           if(err) throw err;
         })
-      })
-      res.json({res: true})
-  }catch{
-    res.json({res: false})
+      }
+      if(err) throw err
+    })
   }
+
+  studentList.forEach(id =>{
+    iterFunction(id)
+    
+  })
+
 })
 
 module.exports = router;

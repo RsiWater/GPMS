@@ -63,7 +63,9 @@ for (const button of lis) {
 var SubmitScore = document.querySelector('button[type="submit"].btn-score');
 
 SubmitScore.addEventListener('click', (event) => {
+    var passKey=document.cookie
     let SendScore = {
+        passkey: passKey,
         score: clickNum + 1,
         teamLeader: targetTeam
     };
@@ -79,7 +81,7 @@ SubmitScore.addEventListener('click', (event) => {
 
 });
 
-let projectVistButtons = document.querySelectorAll('btn-visit')
+let projectVistButtons = document.querySelectorAll('.btn-visit')
 
 projectVistButtons.forEach(ele =>
 {
@@ -111,8 +113,10 @@ sucbtnList.forEach(item => {
 var SubmitControl = document.querySelector('.scoreSubmit');
 SubmitControl.addEventListener('click', (event) => {
     var Score = document.querySelector('.scoreForm').value
+    var passKey=document.cookie
     console.log(Score)
     let SendScore = {
+        passkey: passKey,
         score: Score,
         teamLeader: targetTeam
     };

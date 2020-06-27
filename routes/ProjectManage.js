@@ -124,37 +124,107 @@ router.post('/', function(req, res, next) {
 });
 
 router.post('/addscore', function(req, res, next){
+  check=[]
+  find_flag=0
 
   const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader=?'
   db.all(sql_string, req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
-    let score=parseInt(row[0]['Grade'])+parseInt(req.body.score)
 
-    const update_string = 'UPDATE GraduationProject SET Grade=? WHERE TeamLeader=?'
-    db.run(update_string,score, req.body.teamLeader, function(err, row){
-      if(err) throw err;
-      res.json({href: '/systemManage'})
-
-    })
+    if(row[0]['checkpass']==null){
+        row[0]['checkpass']=row[0]['checkpass']+req.body.passkey+';'
+        let score=parseInt(row[0]['Grade'])+parseInt(req.body.score)
+        const update_string = 'UPDATE GraduationProject SET Grade=?,checkpass=? WHERE TeamLeader=?'
+        db.run(update_string,score,row[0]['checkpass'], req.body.teamLeader, function(err, row){
+          if(err) throw err;
+          res.json({scored: 0})
+        })
+    }
+    else{
+        check=row[0]['checkpass'].split(';')
+        console.log(check)
+        let checkpass=req.body.passkey.split(';')
+        for(var i=0;i<check.length;i++){
+          if(check[i]==checkpass[1]){
+              find_flag=1
+              break
+          }
+        }
+        if(find_flag==1){
+          res.json({scored: 1})
+        }
+        else{
+              row[0]['checkpass']=row[0]['checkpass']+req.body.passkey+';'
+              let score=parseInt(row[0]['Grade'])+parseInt(req.body.score)
+              const update_string = 'UPDATE GraduationProject SET Grade=?,checkpass=? WHERE TeamLeader=?'
+              db.run(update_string,score,row[0]['checkpass'], req.body.teamLeader, function(err, row){
+                if(err) throw err;
+                res.json({scored: 0})
+              })
+          } 
+    }
   })
 
 });
 
 router.post('/addstudentscore', function(req, res, next){
 
+  // const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader=?'
+  // db.all(sql_string, req.body.teamLeader, function(err, row)
+  // {
+  //   if(err) throw err;
+  //   let score=parseInt(row[0]['Score'])+parseInt(req.body.score)  
+
+  //   const update_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
+  //   db.run(update_string,score, req.body.teamLeader, function(err, row){
+  //     if(err) throw err;
+  //     res.json({href: '/systemManage'})
+
+  //   })
+  // })
+
+
+  check=[]
+  find_flag=0
+
   const sql_string = 'SELECT * FROM GraduationProject WHERE TeamLeader=?'
   db.all(sql_string, req.body.teamLeader, function(err, row)
   {
     if(err) throw err;
-    let score=parseInt(row[0]['Score'])+parseInt(req.body.score)  
 
-    const update_string = 'UPDATE GraduationProject SET Score=? WHERE TeamLeader=?'
-    db.run(update_string,score, req.body.teamLeader, function(err, row){
-      if(err) throw err;
-      res.json({href: '/systemManage'})
-
-    })
+    if(row[0]['checkpass']==null){
+        row[0]['checkpass']=row[0]['checkpass']+req.body.passkey+';'
+        let score=parseInt(row[0]['Score'])+parseInt(req.body.score)
+        const update_string = 'UPDATE GraduationProject SET Score=?,checkpass=? WHERE TeamLeader=?'
+        db.run(update_string,score,row[0]['checkpass'], req.body.teamLeader, function(err, row){
+          if(err) throw err;
+          res.json({scored: 0})
+        })
+    }
+    else{
+        check=row[0]['checkpass'].split(';')
+        console.log(check)
+        let checkpass=req.body.passkey.split(';')
+        for(var i=0;i<check.length;i++){
+          if(check[i]==checkpass[1]){
+              find_flag=1
+              break
+          }
+        }
+        if(find_flag==1){
+          res.json({scored: 1})
+        }
+        else{
+              row[0]['checkpass']=row[0]['checkpass']+req.body.passkey+';'
+              let score=parseInt(row[0]['Score'])+parseInt(req.body.score)
+              const update_string = 'UPDATE GraduationProject SET Score=?,checkpass=? WHERE TeamLeader=?'
+              db.run(update_string,score,row[0]['checkpass'], req.body.teamLeader, function(err, row){
+                if(err) throw err;
+                res.json({scored: 0})
+              })
+          } 
+    }
   })
 
 });

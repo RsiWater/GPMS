@@ -1,3 +1,5 @@
+// true or false
+
 var express = require('express');
 const { InsufficientStorage } = require('http-errors');
 var router = express.Router();
@@ -62,43 +64,45 @@ router.post('/', function(req, res, next)
   let studentList = JSON.parse(req.body.mate_list)
   let studentLeader = req.body.leader_id
 
-  db.serialize(function()
+  let isExist = true
+
+  function sendFunction()
   {
-    let isExist = true
-
-    let sendFunction = function()
-    {
-      if (isExist) {
-        res.json({res: true})
-        console.log('send')
-      }
-      else res.json({res: false})
+    if (isExist) {
+      res.json({res: true})
+      console.log('send')
     }
+    else res.json({res: false})
+  }
 
-    studentList.forEach(function(id, sendFunction)
+  function iterFunction(id,cb)
+  {
+    const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
+    db.all(query_sql_string, id, function(err, row)
+    {
+      if (row.length == 0)
       {
-        const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
-        db.all(query_sql_string, id, function(err, row)
+        isExist = false
+        console.log('.0.')
+      }
+      else
+      {
+        const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
+        db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
         {
-          if (row.length == 0)
-          {
-            isExist = false
-            console.log('.0.')
-          }
-          else
-          {
-            const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
-            db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
-            {
-              if(err) throw err;
-            })
-          }
-          if(err) throw err
+          if(err) throw err;
         })
-        sendFunction()
-      })
+      }
+      if(err) throw err
+    })
+    cb()
+  }
 
+  studentList.forEach(id =>{
+    iterFunction(id, sendFunction)
+    
   })
+
 })
 
 module.exports = router;

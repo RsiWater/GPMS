@@ -1,0 +1,14 @@
+.exhibit ul li{
+    display:flex ;
+    justify-content: space-between;
+    align-items: center;
+}
+.exhibit .row .pagination li{
+    padding: 0 ;
+    margin-top: 2vh ;
+    background-color: white;
+}
+
+.exhibit .list-group{
+    height:auto
+}

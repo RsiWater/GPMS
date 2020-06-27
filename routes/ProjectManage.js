@@ -1,5 +1,4 @@
 // 老師要能夠看得到自己打的分數
-// 一個使用者只能打一次分數
 // 登出清cookie
 
 var express = require('express');
@@ -13,11 +12,25 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const sql_string = 'SELECT * FROM GraduationProject'
-  db.all(sql_string, function(err, row)
+  const sql_string = 'SELECT * FROM account WHERE PassKey=?'
+  db.all(sql_string,req.cookies.PassKey, function(err, row)
   {
     if (err) throw err;
-    res.render('projectManage', {project: row})
+    if(row[0]['Permission']==1||row[0]['Permission']==2){
+      const s_string='SELECT * FROM GraduationProject WHERE Semester="109"'
+      db.all(s_string, function(err, row){
+        if (err) throw err;
+        //console.log(row)
+        res.render('projectManage', {project: row})
+      })
+    }
+    else{
+      const s_string='SELECT * FROM GraduationProject'
+      db.all(s_string, function(err, row){
+        if (err) throw err;
+        res.render('projectManage', {project: row})
+      })
+    }
   })
 });
 

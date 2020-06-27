@@ -1,4 +1,5 @@
 var express = require('express');
+const cookieParser = require('cookie-parser');
 var router = express.Router();
 
 let sqlite3 = require('sqlite3').verbose()
@@ -41,5 +42,20 @@ router.get('/', function(req, res, next) {
 
   }
 });
+
+router.post('/getData', function(req, res, next)
+{
+  const sql_string = 'SELECT * FROM account WHERE PassKey = ?'
+  db.all(sql_string, req.cookies.PassKey, function(err, row)
+  {
+    if(err) throw err;
+    console.log(row)
+    db.all('SELECT * FROM teacher WHERE EmployeeNumber = ?', row[0].EmployeeNumber, function(err, row)
+    {
+      if(err) throw err;
+      res.json({name: row[0].Name})
+    })
+  })
+})
 
 module.exports = router;

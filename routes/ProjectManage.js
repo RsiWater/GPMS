@@ -12,26 +12,30 @@ let db = new sqlite3.Database('db_GPMS.db', function(err)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const sql_string = 'SELECT * FROM account WHERE PassKey=?'
-  db.all(sql_string,req.cookies.PassKey, function(err, row)
+  if (req.cookies.PassKey == undefined || req.cookies.PassKey == 'undefined') res.redirect('/login')
+  else
   {
-    if (err) throw err;
-    if(row[0]['Permission']==1||row[0]['Permission']==2){
-      const s_string='SELECT * FROM GraduationProject WHERE Semester="109"'
-      db.all(s_string, function(err, row){
-        if (err) throw err;
-        //console.log(row)
-        res.render('projectManage', {project: row})
-      })
-    }
-    else{
-      const s_string='SELECT * FROM GraduationProject'
-      db.all(s_string, function(err, row){
-        if (err) throw err;
-        res.render('projectManage', {project: row})
-      })
-    }
-  })
+    const sql_string = 'SELECT * FROM account WHERE PassKey=?'
+    db.all(sql_string,req.cookies.PassKey, function(err, row)
+    {
+      if (err) throw err;
+      if(row[0]['Permission']==1||row[0]['Permission']==2){
+        const s_string='SELECT * FROM GraduationProject WHERE Semester="109"'
+        db.all(s_string, function(err, row){
+          if (err) throw err;
+          //console.log(row)
+          res.render('projectManage', {project: row})
+        })
+      }
+      else{
+        const s_string='SELECT * FROM GraduationProject'
+        db.all(s_string, function(err, row){
+          if (err) throw err;
+          res.render('projectManage', {project: row})
+        })
+      }
+    })
+  }
 });
 
 

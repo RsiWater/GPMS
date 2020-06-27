@@ -51,6 +51,7 @@ router.post('/getData', function(req, res, next)
     db.all(stu_sql_string, teacherNumber, function(err, row)
     {
       if(err) throw err
+      console.log(row)
       res.json({studentList: row})
     })
   })

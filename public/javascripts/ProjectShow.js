@@ -251,21 +251,21 @@ class ProjectShow{
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
               'doc':'../../images/microsoft-word.png','code':'../../images/compressed.png',download:"../../images/download_icon.png"}
 
-const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
-            'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
-            'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
+// const info={'certification':true,'title':'生活助理','description':'他會幫助你的生活大小事。\n與他聊天，生活解悶\n生活記帳，自動分類，無流水帳\n\n\n\n你好',
+//             'poster':'專題成果報告書_行車安全警示系統.pdf','ppt':'聊天機器人(上).pptx',
+//             'doc':'專題成果報告書_NeoHand2.docx','code':'GA_A1065506.zip'}
 
 // const info={'certification':true,'title':null,'description':null,
 //             'poster':null,'ppt':null,
 //             'doc':null,'code':null}
-// let info
-// $.ajax({
-//         url: '/systemManage/projectManage/projectShow/getData',
-//         type: 'POST',
-//         data: null,
-//         datatype: 'json'
-//     }).done(function (rcvMessage) {
-//         info=rcvMessage
-//         const ps=new ProjectShow(info,imgSrc)
-//     })
-const ps=new ProjectShow(info,imgSrc)
+let info
+$.ajax({
+        url: '/systemManage/projectManage/projectShow/getData',
+        type: 'POST',
+        data: null,
+        datatype: 'json'
+    }).done(function (rcvMessage) {
+        info=rcvMessage
+        const ps=new ProjectShow(info,imgSrc)
+    })
+//const ps=new ProjectShow(info,imgSrc)

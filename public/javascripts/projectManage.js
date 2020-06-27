@@ -86,7 +86,7 @@ projectVistButtons.forEach(ele =>
   ele.addEventListener('click', function(event)
   {
       let sendData = {
-          teamLeader = event.target.name
+          teamLeader : event.target.name
       }
       $.ajax({
         url: '/systemManage/projectManage/projectShow/sendProject',

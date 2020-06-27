@@ -238,18 +238,19 @@ class ProjectShow{
     toUpdate(){ //上傳資料
         this.upData.title=this.titleInput.value
         this.upData.description=this.desInput.value
+        console.log('wewe')
 
         let sendData = this.upData
-        
-        $.ajax({
-            url: '/systemManage/projectManage/projectShow/modifyProject',
-            type: 'POST',
-            data: sendData,
-            datatype: 'json'
-        }).done(function (rcvMessage) {
-            console.log(rcvMessage)
-            // window.location.reload();
-        })
+
+        // $.ajax({
+        //     url: '/systemManage/projectManage/projectShow/modifyProject',
+        //     type: 'POST',
+        //     data: sendData,
+        //     datatype: 'json'
+        // }).done(function (rcvMessage) {
+        //     console.log(rcvMessage)
+        //     window.location.reload();
+        // })
     }
 }
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',

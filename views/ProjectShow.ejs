@@ -94,9 +94,10 @@
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
           <button class="choose" onclick="posterCh.click()">選擇海報</button>
-          <input type="file" accept=".pdf" id="posterCh" style="display:none;">
+          <input type="file" accept=".pdf" id="posterCh" name="userFile" style="display: none;">
           <button class="choose" onclick="posterSub.click()">確認上傳</button>
-          <input type="submit" id="posterSub" name="submit" style="display:none;">
+          <input type="submit" id="posterSub" name="submit" style="display: none;">
+
        </form>
         <button class="delete" id="posterDel">刪除海報</button>
       </div>

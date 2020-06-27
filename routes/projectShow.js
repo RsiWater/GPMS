@@ -23,6 +23,7 @@ router.get('/', function(req, res, next) {
 // POST below
 var storage =   multer.diskStorage({
   destination: function (req, file, callback) {
+    console.log('??')
       callback(null, './uploads')
   //   fs.mkdir('./uploads', function(err) {
   //       if(err) {
@@ -33,6 +34,7 @@ var storage =   multer.diskStorage({
   //   })
   },
   filename: function (req, file, callback) {
+    console.log('???')
       
     callback(null, file.fieldname + '-' + Date.now());
   }
@@ -54,10 +56,10 @@ router.post('/getData', function(req, res, next)
       certification: true,
       title: row[0].Name,
       description: row[0].ProjectText,
-      poster: '123',
-      ppt: '456',
-      doc: '789',
-      code: 'fuck'
+      poster: row[0].PosterPath,
+      ppt: row[0].PptPath,
+      doc: row[0].DataPath,
+      code: row[0].ExePath
     }
     res.json({info: sendData})
   })
@@ -73,37 +75,35 @@ router.post('/upload',function(req, res, next)
 {   
   var upload = multer({ storage : storage}).single('userFile');
   upload(req,res,function(err) {
+      console.log('??')
       if(err) {
           console.log(err)
-          // return res.json({href:"Error uploading file."});
+          return res.json({href:"Error uploading file."});
       }
-      // res.json({href:"File is uploaded"});
+      res.json({href:"Uploading file Success."})
   });
 })
 
 router.post('/download', function(req, res, next)
 {
-  console.log(req.body.downloadType)
+  let type = req.body.downloadType
 
-  const sql_string = "SELECT * FROM project WHERE "
+  const sql_string = "SELECT * FROM GraduationProject WHERE TeamLeader = ?"
+  db.all(sql_string, projectKey, function(err, row)
+  {
+    if (err) throw err;
+    let filePath = ''
+    if (type === 'poster') filePath = row[0].PosterPath
+    else if(type === 'ppt') filePath = row[0].PptPath
+    else if(type === 'doc') filePath = row[0].DataPath
+    else if(type === 'code') filePath = row[0].ExePath
+    else{
+      res.json({mes: 'error'})
+    }
+    res.download(filePath)
+  })
 
   res.download('uploads/p1.txt')
-  
-  // var filePath = path.join(__dirname, '/uploads/p1.txt');
-  // var stat = fileSystem.statSync(filePath);
-
-  // res.writeHead(200, {
-  //   'Content-Type': 'audio/mpeg',
-  //   'Content-Length': stat.size,
-  //   'Content-Disposition': 'attachment; filename=p1.txt'
-  // });
-  // var file = fs.readFile(filePath, 'binary');
-
-  // res.setHeader('Content-Length', stat.size);
-  // res.setHeader('Content-Type', 'audio/mpeg');
-  // res.setHeader('Content-Disposition', 'attachment; filename=p1.txt');
-  // res.write(file, 'binary');
-  // res.end();
 })
 
 module.exports = router;

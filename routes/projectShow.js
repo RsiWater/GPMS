@@ -1,6 +1,11 @@
+// 該如何抓到準確的project
+// 該如何下載檔案
+// 根據使用者權限來顯示
+
 var express = require('express');
 var router = express.Router();
 var multer  =   require('multer');
+var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -40,6 +45,25 @@ router.post('/upload',function(req, res, next)
       }
       // res.json({href:"File is uploaded"});
   });
+})
+
+router.post('/download', function(req, res, next)
+{
+  var filePath = path.join(__dirname, '/uploads/p1.txt');
+  var stat = fileSystem.statSync(filePath);
+
+  res.writeHead(200, {
+    'Content-Type': 'audio/mpeg',
+    'Content-Length': stat.size,
+    'Content-Disposition': 'attachment; filename=p1.txt'
+  });
+  var file = fs.readFile(filePath, 'binary');
+
+  res.setHeader('Content-Length', stat.size);
+  res.setHeader('Content-Type', 'audio/mpeg');
+  res.setHeader('Content-Disposition', 'attachment; filename=p1.txt');
+  res.write(file, 'binary');
+  res.end();
 })
 
 module.exports = router;

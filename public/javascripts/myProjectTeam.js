@@ -197,7 +197,7 @@ SubmitControl.addEventListener('click', (event) => {
   console.log(Leader_id)
   console.log(Mate_list)
   console.log(All_id);
-
+  console.log(items.list)
 
   sendToServer(Mate_list, Leader_id)
 });
@@ -221,7 +221,7 @@ let sendToServer = function(mate_list, leader_id)
 
 
 }
-
+ student_list=[]
 $.ajax({
   url: '/teacherMain/myProjectTeam/getData',
   type: 'POST',
@@ -229,17 +229,29 @@ $.ajax({
   datatype: 'json',
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
+    student_list=rcvMessage.studentList
+    console.log(student_list[0].Name)
+    console.log(typeof student_list)
+    
+    for (i = 0; i < student_list.length; i++) 
+  { 
+    items.add({
+      name: student_list[i].Name,
+      student_id: student_list[i].StudentID });
+  }
+  console.log(items.list)
+  for (i = 0; i < items.list.length; i++) 
+  { 
   
+     if(items.list[i].student_id==student_list[i].TeamLeader)
+      items.toggle(items.list[i].id);
+       
+  }
+  
+
 })
 
-items.add({
-  name: "擠奶節",
-  student_id: 1 });
 
-
-items.add({
-  name: "窯靜芸",
-  student_id: 1 });
 
 
 

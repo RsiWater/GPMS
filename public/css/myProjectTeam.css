@@ -12,22 +12,13 @@ html {
 body {
   margin: 0;
   height: 100%;
-  background:url(https://vignette.wikia.nocookie.net/doki-doki-literature-club/images/5/50/Club.png/revision/latest?cb=20171231181915);
+  background:url(https://vignette.wikia.nocookie.net/doki-doki-literature-club/images/0/0f/Class.png/revision/latest?cb=20171231181828);
   background-size:cover;
 
 }
 
 a {
   color: white;
-}
-
-header{
-  color: black;
-background: linear-gradient(to right, #000000 0%,#000000 33%,#3C3C3C 33%,#3C3C3C 66%,#5B5B5B 66%, #5B5B5B 100%);
-  width: 100vw;
-  text-align: center;
-  padding: .5em;
-  position: relative;
 }
 
 
@@ -44,10 +35,10 @@ main {
 .wrapper {
   margin: 0 auto -2em;
   margin-top: 5%;
-  padding-top: 2%;
+  padding-top: 1%;
   border-radius: 10px;
-  width:40%;
-  background: linear-gradient(0deg, rgba(255,255,255,0.7903536414565826) 0%, rgba(255,255,255,1) 100%);
+  width:33%;
+  background: linear-gradient(0deg, rgba(255,229,243,0.7035189075630253) 0%, rgba(255,189,225,1) 50%);
 }
 
 form {
@@ -65,19 +56,14 @@ input {
   padding: 1em;
 }
 
-/* button, .delete {
-  color: white;
-  background: linear-gradient(90deg, rgba(249,255,0,1) 0%, rgba(255,132,0,1) 50%, rgba(255,0,0,1) 100%);
-  border-radius: 12px;
-}
-
 
 button {
-  border: 0;
+
   padding: 1em;
-  width: inherit;
+
   margin: .75em 0;
-}*/
+  margin-left: 5.3em;
+}
 
 button:hover {
  
@@ -106,12 +92,20 @@ button:hover {
   background-image: url("https://res.cloudinary.com/ddy54k4ks/image/upload/v1454106412/svg/checkmark.svg");
 }
 
-ul {
+ul2 {
   list-style: none;
   margin: 0 auto;
   padding: 0;
 }
-
+ul {
+  width: 100%;
+  height: 3em;
+  background:linear-gradient(to right, #000000 0%,#000000 33%,#3C3C3C 33%,#3C3C3C 66%,#5B5B5B 66%, #5B5B5B 100%);
+  text-align: center;
+  margin: 0;
+  font-size: 16px;
+  padding: 0px;
+}
 li {
   color: black;
   padding: .75em;
@@ -120,6 +114,13 @@ li {
   border: 1px solid #004A55;
   position: relative;
   transition: background-color .2s;
+}
+li2 {
+  padding-top: .2em;
+  display: inline-block;
+  padding-left: 3.5em;
+  padding-bottom: 3em;
+  font-family: "Montserrat","Microsoft YaHei","Microsoft JhengHei", sans-serif;
 }
 li:hover {
   background-color: #A7CDCC;
@@ -171,4 +172,9 @@ li:hover {
   background-position: 50% 50%;
   margin:0 !important;
   background-repeat: no-repeat;
+}
+.nav
+{
+
+  display:block;
 }

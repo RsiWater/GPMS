@@ -57,7 +57,7 @@
 
 .scoreContainer{
     align-items: flex-end;
-    font-size: small;
+    font-size: 0.7em;
     vertical-align:bottom;
     margin-top: 5vh ;
 }

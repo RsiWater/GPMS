@@ -11,18 +11,9 @@ HOME.href = "accountManage"
 var main = document.querySelectorAll('.nav li a')[2]
 main.href = "/systemManage"
 
-var AccountList
+var lis = document.querySelectorAll(".account .list-group li")
+paging(lis, 1, pageid);
 
-$.ajax({
-    url: '/systemManage/accountManage/getdata',
-    type: 'POST',
-    data: '',
-    datatype: 'json',
-}).done(function (rcvMessage) {
-    AccountList = rcvMessage.nameList
-    console.log(AccountList)
-    // paging(AccountList, 1, pageid, listGroup, "accountManage", []);
-})
 SubmitSearch.addEventListener('click', (event) => {
     search();
     page.style.display = "none";

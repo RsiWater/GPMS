@@ -1,3 +1,7 @@
+// 老師要能夠看得到自己打的分數
+// 一個使用者只能打一次分數
+// 登出清cookie
+
 var express = require('express');
 var router = express.Router();
 

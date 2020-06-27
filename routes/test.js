@@ -41,4 +41,25 @@ router.post('/upload',function(req,res){
     });
 });
 
+router.post('/download', function(req, res, next)
+{
+  res.download('uploads/p2.doc')
+  // var filePath = path.join(__dirname, '/uploads/p1.txt');
+  // var stat = fileSystem.statSync(filePath);
+
+  // res.writeHead(200, {
+  //   'Content-Type': 'audio/mpeg',
+  //   'Content-Length': stat.size,
+  //   'Content-Disposition': 'attachment; filename=p1.txt'
+  // });
+  // var file = fs.readFile(filePath, 'binary');
+
+  // res.setHeader('Content-Length', stat.size);
+  // res.setHeader('Content-Type', 'audio/mpeg');
+  // res.setHeader('Content-Disposition', 'attachment; filename=p1.txt');
+  // res.write(file, 'binary');
+  // res.end();
+})
+
+
 module.exports = router;

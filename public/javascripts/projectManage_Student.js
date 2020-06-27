@@ -10,20 +10,10 @@ function PMS() {
     HOME.href = "projectManage"
     var main = document.querySelectorAll('.nav li a')[2]
     main.href = "/studentMain"
-    var ProjectList
-    var TeamLeaderList
-    $.ajax({
-        url: '/studentMain/projectManage/getdata',
-        type: 'POST',
-        data: '',
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        ProjectList = rcvMessage.projectNameList
-        TeamLeaderList = rcvMessage.projectTeamLeaderList
-        console.log(ProjectList)
-        console.log(TeamLeaderList)
-        // paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
-    })
+
+    var lis = document.querySelectorAll(".Student .list-group li")
+    paging(lis, 1, pageid);
+
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";

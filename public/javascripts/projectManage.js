@@ -79,12 +79,32 @@ SubmitScore.addEventListener('click', (event) => {
 
 });
 
+let projectVistButtons = document.querySelectorAll('btn-visit')
+
+projectVistButtons.forEach(ele =>
+{
+  ele.addEventListener('click', function(event)
+  {
+      let sendData = {
+          teamLeader : event.target.name
+      }
+      $.ajax({
+        url: '/systemManage/projectManage/projectShow/sendProject',
+        type: 'POST',
+        data: sendData,
+        datatype: 'json'
+      }).done(function(rcvMessage){
+          window.location.href = rcvMessage.href
+      })
+  })  
+})
+
 //輸入的成績
 let sucbtnList = document.querySelectorAll('button.btn-success')
 let targetTeam = ''
 sucbtnList.forEach(item => {
     item.addEventListener('click', function (event) {
-        targetTeam = event.target.name;
+        targetTeam =  event.target.name;
     })
 })
 

@@ -62,19 +62,43 @@ router.post('/', function(req, res, next)
   let studentList = JSON.parse(req.body.mate_list)
   let studentLeader = req.body.leader_id
 
-  try{
-    studentList.forEach(id =>
+  db.serialize(function()
+  {
+    let isExist = true
+
+    let sendFunction = function()
+    {
+      if (isExist) {
+        res.json({res: true})
+        console.log('send')
+      }
+      else res.json({res: false})
+    }
+
+    studentList.forEach(function(id, sendFunction)
       {
-        const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
-        db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
+        const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
+        db.all(query_sql_string, id, function(err, row)
         {
-          if(err) throw err;
+          if (row.length == 0)
+          {
+            isExist = false
+            console.log('.0.')
+          }
+          else
+          {
+            const sql_string = 'UPDATE student SET TeamLeader = ?, GuideTeacher = ? WHERE StudentID = ?'
+            db.run(sql_string, studentLeader, userContent['EmployeeNumber'], id, function(err, row)
+            {
+              if(err) throw err;
+            })
+          }
+          if(err) throw err
         })
+        sendFunction()
       })
-      res.json({res: true})
-  }catch{
-    res.json({res: false})
-  }
+
+  })
 })
 
 module.exports = router;

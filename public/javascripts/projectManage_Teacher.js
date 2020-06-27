@@ -12,22 +12,9 @@ function GAS() {
     main.href = "/teacherMain"
 
     var lis = document.querySelectorAll(".Teacher .list-group li")
+    paging(lis, 1, pageid);
 
-    var ProjectList
-    $.ajax({
-        url: '/teacherMain/projectManage/getdata',
-        type: 'POST',
-        data: '',
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        ProjectList = rcvMessage.projectNameList
-        TeamLeaderList = rcvMessage.projectTeamLeaderList
-        console.log(ProjectList)
-        console.log(TeamLeaderList)
-        paging(lis, 1, pageid);
-        // paging(ProjectList, 1,pageid,listGroup,"teacherManage",TeamLeaderList);
-    })
-    
+
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";

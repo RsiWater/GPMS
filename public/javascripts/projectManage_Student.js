@@ -12,22 +12,8 @@ function PMS() {
     main.href = "/studentMain"
 
     var lis = document.querySelectorAll(".Student .list-group li")
+    paging(lis, 1, pageid);
 
-    var ProjectList
-    var TeamLeaderList
-    $.ajax({
-        url: '/studentMain/projectManage/getdata',
-        type: 'POST',
-        data: '',
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        ProjectList = rcvMessage.projectNameList
-        TeamLeaderList = rcvMessage.projectTeamLeaderList
-        console.log(ProjectList)
-        console.log(TeamLeaderList)
-        paging(lis, 1, pageid);
-        // paging(ProjectList, 1,pageid,listGroup,"stduentManage",TeamLeaderList);
-    })
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";

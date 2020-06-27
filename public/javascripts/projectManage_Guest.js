@@ -12,25 +12,11 @@ function GMS() {
     var HOME = document.querySelectorAll('.nav li a')[1]
     HOME.href = "projectManage"
     var main = document.querySelectorAll('.nav li a')[2]
-    main.href = "/Guest"
+    main.href = "/login"
 
     var lis = document.querySelectorAll(".Guest .list-group li")
+    paging(lis, 1, pageid);
 
-    var ProjectList
-    $.ajax({
-        url: '/Guest/projectManage/getdata',
-        type: 'POST',
-        data: '',
-        datatype: 'json',
-    }).done(function (rcvMessage) {
-        ProjectList = rcvMessage.projectNameList
-        TeamLeaderList = rcvMessage.projectTeamLeaderList
-        console.log(ProjectList)
-        console.log(TeamLeaderList)
-        paging(lis, 1, pageid);
-        // paging(ProjectList, 1,pageid,listGroup,"guestManage",TeamLeaderList);
-
-    })
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";

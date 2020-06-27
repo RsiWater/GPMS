@@ -47,6 +47,7 @@ class ProjectShow{
     }
 
     init(certification){
+        console.log(info)
         if(certification){ //專題修改認證
             this.modifyTD.addEventListener('click',this.titleDesMod)
             this.modifyUpData.addEventListener('click',this.updateMod)
@@ -237,15 +238,18 @@ class ProjectShow{
     toUpdate(){ //上傳資料
         this.upData.title=this.titleInput.value
         this.upData.description=this.desInput.value
-        // $.ajax({
-        //     url: '/systemManage/projectManage/projectShow/modifyProject',
-        //     type: 'POST',
-        //     data: sendData,
-        //     datatype: 'json'
-        // }).done(function (rcvMessage) {
-        //     console.log(rcvMessage)
-        //     // window.location.reload();
-        // })
+
+        let sendData = this.upData
+        
+        $.ajax({
+            url: '/systemManage/projectManage/projectShow/modifyProject',
+            type: 'POST',
+            data: sendData,
+            datatype: 'json'
+        }).done(function (rcvMessage) {
+            console.log(rcvMessage)
+            // window.location.reload();
+        })
     }
 }
 const imgSrc={'poster':'../../images/poster.png','ppt':'../../images/microsoft-powerpoint.png',
@@ -265,7 +269,7 @@ $.ajax({
         data: null,
         datatype: 'json'
     }).done(function (rcvMessage) {
-        info=rcvMessage
+        info=rcvMessage.info
         const ps=new ProjectShow(info,imgSrc)
     })
 //const ps=new ProjectShow(info,imgSrc)

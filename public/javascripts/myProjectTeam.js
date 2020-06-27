@@ -203,6 +203,8 @@ app.init();
 
 
 var SubmitControl = document.querySelector('#back-btn');
+// var AddControl = document.querySelector('#submit-btn');
+
 SubmitControl.addEventListener('click', (event) => {
   var All_id = document.querySelectorAll('.student_id')
   console.log(All_id);
@@ -240,11 +242,29 @@ let sendToServer = function(mate_list, leader_id)
     datatype: 'json',
   }).done(function (rcvMessage) {
       console.log(rcvMessage.res)
-   
+      var status=rcvMessage.res
+      if(status)
+      {
+        jQuery.noConflict(); 
+        $('#alert').modal('show');
+      }
   })
 
 
 }
+// SubmitControl.addEventListener('click', (event) => {
+
+// if(status=true){
+//   jQuery.noConflict(); 
+//   $('#alert').modal('show');
+// }
+
+
+// });
+
+
+
+
  student_list=[]
 $.ajax({
   url: '/teacherMain/myProjectTeam/getData',
@@ -254,10 +274,9 @@ $.ajax({
 }).done(function (rcvMessage) {
     console.log(rcvMessage.studentList)
     student_list=rcvMessage.studentList
-
-
-    if(student_list[0].Name!=undefined)
-      console.log(student_list[0].Name);
+    if (student_list.Name != undefined)
+    {
+    console.log(student_list)
     console.log(typeof student_list)
     
     for (i = 0; i < student_list.length; i++) 
@@ -275,7 +294,7 @@ $.ajax({
        
   }
   
-
+    }
 })
 
 

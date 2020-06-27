@@ -14,16 +14,30 @@ function PMS() {
     var lis = document.querySelectorAll(".Student .list-group li")
     paging(lis, 1, pageid);
 
+    var ProjectList
+    $.ajax({
+        url: '/studentMain/projectManage/getdata',
+        type: 'POST',
+        data: '',
+        datatype: 'json',
+    }).done(function (rcvMessage) {
+        ProjectList = rcvMessage.projectNameList
+        console.log(ProjectList)
+    })
     SubmitSearch.addEventListener('click', (event) => {
         search();
         page.style.display = "none";
     });
 
+    var ERROR = document.querySelector(".Student .list-group img")
+
     function search() {
         var havethis = 0
+        var i = -1
         sContent = SearchContent.value
         console.log(sContent)
         for (const list of ProjectList) {
+            i = i + 1
             console.log(list)
             if (list === sContent) {
                 havethis = 1
@@ -31,16 +45,23 @@ function PMS() {
             } else {
                 havethis = 0
             }
-            console.log(listGroup.innerHTML)
         }
         console.log(havethis)
-        listGroup.innerHTML = ""
+        // listGroup.innerHTML = ""
         if (havethis) {
-            listGroup.innerHTML = '      <li class="list-group-item ">' +
-                sContent + '<div class="btn-group btn-group-sm" role="group" aria-label="Basic example"' + '>' +
-                '<button type="button" class="btn btn-primary ' + sContent + '">更改專題</button>' +
-                '</div>' +
-                '</li>'
+            ERROR.style.display='none'; 
+            lis.forEach((item, index) => {
+                item.style.display = 'none';
+                if(index === i){
+                    $(item).css('display', '');
+                }
+            });
+        }
+        else{
+            lis.forEach((item, index) => {
+                item.style.display = 'none';
+            })
+            ERROR.style.display='block'; 
         }
     }
 

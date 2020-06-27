@@ -75,7 +75,7 @@ router.post('/', function(req, res, next)
     else res.json({res: false})
   }
 
-  function iterFunction(id)
+  function iterFunction(id,cb)
   {
     const query_sql_string = 'SELECT * FROM student WHERE StudentID = ?'
     db.all(query_sql_string, id, function(err, row)
@@ -95,10 +95,11 @@ router.post('/', function(req, res, next)
       }
       if(err) throw err
     })
+    cb()
   }
 
   studentList.forEach(id =>{
-    iterFunction(id)
+    iterFunction(id, sendFunction)
     
   })
 

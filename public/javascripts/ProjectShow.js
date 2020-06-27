@@ -266,3 +266,14 @@ const info={'certification':true,'title':'生活助理','description':'他會幫
             'poster':null,'ppt':null,
             'doc':null,'code':null}*/
 const ps=new ProjectShow(info,imgSrc)
+
+
+// for test
+$.ajax({
+    url: '/systemManage/projectManage/projectShow/download',
+    type: 'POST',
+    data: '',
+    datatype: 'json'
+}).done(function (rcvMessage) {
+    console.log(rcvMessage)
+})

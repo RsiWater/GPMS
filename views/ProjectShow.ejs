@@ -64,8 +64,9 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-           <input type="file" accept=".pdf" id="posterCh" name="userFile">
-           <input type="submit" value="Upload File" name="submit">
+          <button onclick="posterCh.click()">選擇海報</button>
+          <input type="file" accept=".pdf" id="posterCh" style="display:none;">
+          <input type="submit" value="確認上傳" name="submit">
        </form>
         <button id="posterDel">刪除海報</button>
       </div>
@@ -76,8 +77,9 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-           <input type="file" accept=".pdf" id="pptCh" name="userFile">
-           <input type="submit" value="Upload File" name="submit">
+          <button onclick="pptCh.click()">選擇簡報</button>
+          <input type="file" accept=".ppt,.pptx" id="pptCh" style="display:none;">
+          <input type="submit" value="確認上傳" name="submit">
        </form>
         <button id="pptDel">刪除簡報</button>
       </div>
@@ -88,8 +90,9 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-           <input type="file" accept=".ppt,.pptx" id="docCh" name="userFile">
-           <input type="submit" value="Upload File" name="submit">
+          <button onclick="docCh.click()">選擇文件</button>
+          <input type="file" accept=".doc,.docx" id="docCh" style="display:none;">
+          <input type="submit" value="確認上傳" name="submit">
        </form>
         <button id="docDel">刪除文件</button>
       </div>
@@ -100,8 +103,9 @@
         enctype   =  "multipart/form-data"
         action    =  "/systemManage/projectManage/projectShow/upload"
         method    =  "post">
-           <input type="file" accept=".zip,.rar,.7z" id="codeCh" name="userFile">
-           <input type="submit" value="Upload File" name="submit">
+          <button onclick="codeCh.click()">選擇程式</button>
+          <input type="file" enctype="multipart/form-data" accept=".zip,.rar,.7z" id="codeCh" style="display:none;">
+          <input type="submit" value="確認上傳" name="submit">
        </form>
         <button id="codeDel">刪除程式</button>
       </div>

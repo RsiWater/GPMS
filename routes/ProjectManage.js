@@ -180,10 +180,11 @@ router.post('/addscore', function(req, res, next){
     }
     else{
         check=row[0]['checkpass'].split(';')
+        console.log('cufu')
         console.log(check)
         let checkpass=req.body.passkey.split(';')
         for(var i=0;i<check.length;i++){
-          if(check[i]==checkpass[1]){
+          if(check[i]==checkpass[0]){
               find_flag=1
               break
           }
@@ -244,7 +245,7 @@ router.post('/addstudentscore', function(req, res, next){
         console.log(check)
         let checkpass=req.body.passkey.split(';')
         for(var i=0;i<check.length;i++){
-          if(check[i]==checkpass[1]){
+          if(check[i]==checkpass[0]){
               find_flag=1
               break
           }

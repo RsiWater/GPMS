@@ -54,10 +54,11 @@
             <button type="button" class="btn btn-success justify-content-end " data-toggle="modal"
                 data-target="#Modal4New">新增資料</button>
         </nav>
+        <% data.forEach(ele => { %>
         <ul class="list-group">
             <!-- <img src="../images/ERROR.gif" style="display: none;"> -->
             <li class="list-group-item">
-                <span>108畢業專題</span>
+                <span><%= ele.Semester%>畢業專題</span>
                 <button class="btn btn-primary" type="button" name="" data-toggle="collapse"
                     data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     顯示所有
@@ -66,17 +67,18 @@
         </ul>
         <div class="collapse" id="collapseExample">
             <div class="card-group" style="margin-bottom:1rem">
+
                 <div class="card">
                     <img class="card-img-top" src="../images/ERROR.gif" alt="Card image cap">
 
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <p class="card-text  text-truncate"><strong>當屆負責老師 ： </strong>XXX</p>
-                        <p class="card-tex text-truncate"><strong>時間 : </strong>2020-12-04 9:00 a.m</p>
-                        <p class="card-tex  text-truncate"><strong>地點 : </strong>圖資館一樓</p>
-                        <p class="card-text  text-truncate"><strong>工作人員 : </strong>XXX、XXX、OOO、AAA、SSS</p>
-                        <p class="card-text  text-truncate"><strong>評審 : </strong>XXX、XXX、OOO、AAA、SSS</p>
+                        <p class="card-text  text-truncate"><strong>當屆負責老師 ： </strong><%= ele.MasterTeacher%></p>
+                        <p class="card-tex text-truncate"><strong>時間 : </strong><%= ele.Date%></p>
+                        <p class="card-tex  text-truncate"><strong>地點 : </strong><%= ele.Place%></p>
+                        <p class="card-text  text-truncate"><strong>工作人員 : </strong><%= ele.Staff%></p>
+                        <p class="card-text  text-truncate"><strong>評審 : </strong><%= ele.ReviewCommitee%></p>
                         <p class="card-tex  text-truncate"><strong>名次(1、2、3、佳作) : </strong>AAA、BBB、CCC、XXXXXXX</p>
                         <!-- <p class="card-text">海報:?????</p> -->
                         <div class="text-center card-footer bg-transparent">
@@ -85,10 +87,10 @@
                         </div>
                     </div>
                 </div>
-
+        
             </div>
         </div>
-
+        <%})%>
         <!-- Modal delete -->
         <div class="modal fade" id="Modaldelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -125,6 +127,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroup-sizing-default">title</span>
+                            </div>
+                            <input type="text" class="form-control title" aria-label="Sizing example input"
+                                aria-describedby="inputGroup-sizing-default">
+                        </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="inputGroup-sizing-default">當屆負責老師</span>

@@ -202,6 +202,8 @@ router.post('/upload',function(req, res, next)
           console.log(err)
           // return res.json({href:"Error uploading file."});
       }
+      console.log('fuck')
+      console.log(req.file)
       let type = req.body.uploadType
       let pathType = ''
       if (type === 'poster') pathType = 'PosterPath'

@@ -44,8 +44,12 @@ var storage =   multer.diskStorage({
 router.post('/sendProject', function(req, res, next)
 {
   projectKey = req.body.teamLeader
-  console.log(projectKey)
-  res.json({href: '/systemManage/projectManage/projectShow'})
+  db.all('SELECT * FROM account WHERE Passkey = ?', req.cookies.PassKey, function(err, row)
+  {
+    if(row[0].Permission == 0) res.json({href: '/systemManage/projectManage/projectShow'})
+    else if(row[0].Permission == 1) res.json({href: '/teacherMain/projectManage/projectShow'})
+    else if(row[0].Permission == 2)res.json({href: '/studentMain/projectManage/projectShow'})
+  })
 })
 router.post('/getData', function(req, res, next)
 {
@@ -112,22 +116,22 @@ router.post('/getData', function(req, res, next)
     else
     {
       let certification = false
-      db.all('SELECT * FROM account WHERE Passkey = ?', req.cookies.PassKey, function(err, row)
+      db.all('SELECT * FROM account WHERE Passkey = ?', req.cookies.PassKey, function(err, row_t)
       {
         if(err) throw err;
-        if(row[0] == undefined) passCer(false)
+        if(row_t[0] == undefined) passCer(false)
         else{
-          if(row[0].Permission == 0) passCer(true)
-          else if (row[0].Permission == 1)
+          if(row_t[0].Permission == 0) passCer(true)
+          else if (row_t[0].Permission == 1)
           {
-            db.all('SELECT * FROM GraduationProject WHERE GuideTeacher = ?', row[0].EmployeeNumber, function(err, row)
+            db.all('SELECT * FROM GraduationProject WHERE GuideTeacher = ?', row_t[0].EmployeeNumber, function(err, row)
             {
               if(err) throw err;
               db.all('SELECT * FROM GraduationProject WHERE TeamLeader = ?', projectKey, function(err, row_s)
               {
                 if(err) throw err;
                 console.log(row_s)
-                if(row_s[0].GuideTeacher == row[0].EmployeeNumber) passCer(true)
+                if(row_s[0].GuideTeacher == row_t[0].EmployeeNumber) passCer(true)
                 else passCer(false)
               })
             })

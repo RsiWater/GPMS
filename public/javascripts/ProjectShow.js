@@ -1,5 +1,5 @@
 var main = document.querySelectorAll('.nav a')[2]
-main.href = "/studentMain"
+main.href = "../"
 class ProjectShow{
     //待處理事項: 提供下載檔案 上傳檔案資料設定
     constructor(info,imgSrc) {
@@ -92,32 +92,44 @@ class ProjectShow{
             this.posterName.innerText=info.poster/////////////info.poster.files[0].name
             this.posterImg.setAttribute("src",imgSrc.poster)
             //設置download css
-            this.poster.classList.add('downhover')
-            this.poster.setAttribute("onclick","posterDownload.click()")
+            if(info.certification)
+            {
+                this.poster.classList.add('downhover')
+                this.poster.setAttribute("onclick","posterDownload.click()")
+            }
         }else
             this.poster.setAttribute("onclick",null)
         if(info.ppt!=null){
             this.pptName.innerText=info.ppt////////////////// info.ppt.files[0].name
             this.pptImg.setAttribute("src",imgSrc.ppt)
             //設置download css
-            this.ppt.classList.add('downhover')
-            this.ppt.setAttribute("onclick","pptDownload.click()")
+            if(info.certification)
+            {
+                this.ppt.classList.add('downhover')
+                this.ppt.setAttribute("onclick","pptDownload.click()")
+            }
         }else
             this.ppt.setAttribute("onclick",null)
         if(info.doc!=null){
             this.docName.innerText=info.doc////////////////// info.doc.files[0].name
             this.docImg.setAttribute("src",imgSrc.doc)
             //設置download css
-            this.doc.classList.add('downhover')
-            this.doc.setAttribute("onclick","docDownload.click()")
+            if(info.certification)
+            {
+                this.doc.classList.add('downhover')
+                this.doc.setAttribute("onclick","docDownload.click()")
+            }            
         }else
             this.doc.setAttribute("onclick",null)
         if(info.code!=null){
             this.codeName.innerText=info.code///////////////// info.code.files[0].name
             this.codeImg.setAttribute("src",imgSrc.code)
             //設置download css
-            this.code.classList.add('downhover')
-            this.code.setAttribute("onclick","codeDownload.click()")
+            if(info.certification)
+            {
+                this.code.classList.add('downhover')
+                this.code.setAttribute("onclick","codeDownload.click()")
+            }
         }else
             this.code.setAttribute("onclick",null)
 

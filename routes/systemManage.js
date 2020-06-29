@@ -18,13 +18,18 @@ router.get('/', function(req, res, next) {
      db.all(sql_string, req.cookies.PassKey, function(err, row)
     {
         if(err) throw err;
-        if(row[0]['Permission']==0){
-          console.log('yeah')
-          res.render('systemManage')
-        }
-        else{
-          console.log('no')
-          res.redirect('/Login')
+        if(row[0] === 'undefined') res.redirect('/Login')
+        else
+        {
+          console.log('asdsa')
+          if(row[0]['Permission']==0){
+            console.log('yeah')
+            res.render('systemManage')
+          }
+          else{
+            console.log('no')
+            res.redirect('/Login')
+          }
         }
     })
 
